@@ -2,11 +2,45 @@ var ttData = [];         //當前頁面所有英靈資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var itemKindMAx = 47;    //目前素材種類數
 var maxImgWidth = 50;
+var targetItemNo = -1;
 
 ttDataClear(tbMax);
 svtDivCreate();
 myTable2();
 mySelectItem();
+mySerchItemCreate();
+
+//搜尋素材圖片建立
+function mySerchItemCreate(){
+    var out = "";
+    for(var i = 1; i < itemKindMAx; i++ )
+      out += "<img class='imgItemFloat whiteCover'  src='images/S_" + i + ".png' data-itemNo = '" + i +"'>";
+
+    out += "<div style='clear:both;''></div>";
+    $("#searchItemImgDiv").html(out);
+}
+
+
+//搜尋素材圖片點擊
+$("#searchItemImgDiv").click(function(e){
+    var target = $(e.target);
+    if(target.attr("id")!= "searchItemImgDiv"){
+      if(target.hasClass("whiteCover")){
+          if(targetItemNo != -1){
+              $("#searchItemImgDiv img").eq(targetItemNo - 1).addClass("whiteCover");
+          }
+          targetItemNo = target.attr("data-itemNo");
+          target.removeClass("whiteCover");
+          console.log(targetItemNo);
+          itemDivCreate(targetItemNo - 1);
+      }else{
+          targetItemNo = -1;
+          console.log(targetItemNo);
+          target.addClass("whiteCover");
+          $("#_itemSide").html("");
+      }
+    }
+});
 
 
 //搜尋素材編號選單產生
@@ -37,7 +71,7 @@ function itemDivCreate(itemNo){
     var targetSvtNo = -1;
     $("#_itemSide").html("");
 
-    console.log(itemNo);
+    //console.log(itemNo);
     for(var i = 0; i < svtData.length ; i++){
         if(i == 82) continue;
         maxSLV = 0;
@@ -46,7 +80,7 @@ function itemDivCreate(itemNo){
         for(var j = 0; j < 9; j++){
             for(var k = 0; k < svtData[i].skillLevel[j].skillItem.length; k++){
               if(svtData[i].skillLevel[j].skillItem[k].image == (parseInt(itemNo) + 1)){
-                console.log(svtData[i].skillLevel[j].skillItem[k].image );
+                //console.log(svtData[i].skillLevel[j].skillItem[k].image );
                 if(minSLV == 0){
                   minSLV = j + 1;
                   maxSLV = j + 2;
@@ -71,7 +105,7 @@ function itemDivCreate(itemNo){
             newItemSvtDiv.find("img").attr("id","img_itemSvtNo_" + (countSvt-100));
             newItemSvtDiv.removeClass("displayNone");
             $("#_itemSide").append(newItemSvtDiv);
-            myTable(countSvt, targetSvtNo , minSLV, maxSLV);
+            myTable(countSvt, targetSvtNo , minSLV, maxSLV, 1);
             $("#img_itemSvtNo_" + (countSvt-100)).attr("src","./images/svtNo_" + (targetSvtNo+1)  + ".png");
             $("#img_itemSvtNo_" + (countSvt-100)).attr("title", svtData[targetSvtNo].svtName);
             $("#img_itemSvtNo_" + (countSvt-100)).removeClass("displayNone");
@@ -141,7 +175,7 @@ function svtDivCreate(){
         mySelectSvt("svt_" + i + "_span_1","selcetNo" + i,svtData.length);
         mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, 9, "selectchgMin(" + i + ")");
         mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
-        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()));
+        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0);
     }
 }
 
@@ -234,7 +268,7 @@ function mySelectSlvMax(spanId,selectName,slvMin,selchgName){
 function selectchg(){
     ttDataClear(tbMax);
     for(var i = 1; i <= tbMax ; i++){
-        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()));
+        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0);
         $("#img_svtNo_"+i).attr("src","./images/"+"svtNo_" + $("#selcetNo" + i).val() + ".png");
 
         if($("#selcetNo" + i).val()!=-1){
@@ -259,19 +293,25 @@ function selectchgMin(svtNo){
     var wk_selectMin = "#selcetMin_" + svtNo;
     var wk_selectMax = "#selcetMax_" + svtNo;
     var wk_svtNo_span = "svt_" + svtNo + "_span_3";
-    myTable(svtNo,$(wk_selectNo).val(),parseInt($(wk_selectMin).val()),parseInt($(wk_selectMax).val()));
+    myTable(svtNo,$(wk_selectNo).val(),parseInt($(wk_selectMin).val()),parseInt($(wk_selectMax).val()),0);
     mySelectSlvMax(wk_svtNo_span,"selcetMax_" + svtNo,parseInt($(wk_selectMin).val()),"selectchg");
     ttDataClear(tbMax);
     myTable2();
 }
 
 //英靈素材資訊表格產生
-function myTable(tableNum, svtNo, min, max) {
+function myTable(tableNum, svtNo, min, max, type) {
     var i = 0, j = 0, t = 0;
     var qpTemp = 0;
     var itemMax;
     var tableName = "dataTalbe" + tableNum.toString();
-    var out = "<table>";
+    var out = "<table";
+
+    if(type)
+      out += " class='mtable'>";
+    else {
+      out += ">";
+    }
 
     //---如果最小等級沒選擇，則預設為1級
     if(min == -1){
