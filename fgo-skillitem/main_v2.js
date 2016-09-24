@@ -14,8 +14,8 @@ mySerchItemCreate();
 function mySerchItemCreate(){
     var out = "";
     for(var i = 1; i < itemKindMAx; i++ )
-      out += "<img class='imgItemFloat whiteCover'  src='images/S_" + i + ".png' data-itemNo = '" + i +"'>";
-
+      out += "<img class='imgItemFloat whiteCover'  src='images/S_" + i + ".png' data-itemNo = '" + i + "'"
+            + " title='" + itemData[i - 1].name + "''>";
     out += "<div style='clear:both;''></div>";
     $("#searchItemImgDiv").html(out);
 }
