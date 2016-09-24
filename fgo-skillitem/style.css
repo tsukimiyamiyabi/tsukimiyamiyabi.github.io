@@ -49,6 +49,14 @@ table tr:nth-child(even) {
   height: 500px;
 }
 
+.mtable{
+  margin:auto;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+}
+
 #tottleTable:hover{
   cursor: move;
 }
@@ -64,4 +72,30 @@ table tr:nth-child(even) {
 }
 .imgWhenHide{
   width: 64px;
+}
+
+.imgItemFloat{
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  width: 45px;
+}
+
+.whiteCover{
+  opacity:0.35;
+  -mox-opacity:0.35;
+  filter:alpha(opacity=35);
+}
+
+
+a:hover img{
+  opacity:0;
+  -mox-opacity:0;
+  filter:alpha(opacity=0);
+}
+
+a img{
+  opacity:1;
+  -mox-opacity:1;
+  filter:alpha(opacity=1);
 }
