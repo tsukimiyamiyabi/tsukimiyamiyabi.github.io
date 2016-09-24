@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.tsukimiya.fgoskillitem"
+        versionCode = "10" 
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>FGO Skill Item</name>
+
+    <description>
+        An side for Fate/Grand Oder. 
+    </description>
+
+    <author href="https://build.phonegap.com" email="tsukimiyamyiabi@gmail.com">
+        Tsukimiya Miyabi 
+    </author>
+
+    <icon src="icon.jpg" />
+
+</widget>
