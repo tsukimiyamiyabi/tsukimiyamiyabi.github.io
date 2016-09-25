@@ -112,7 +112,7 @@ function itemDivCreate(itemNo){
             $("#_itemSide").append(newItemSvtDiv);
             myTable(countSvt, targetSvtNo , minSLV, maxSLV, 1);
             $("#img_itemSvtNo_" + (countSvt-100)).attr("src","./images/svtNo_" + (targetSvtNo+1)  + ".png");
-            $("#img_itemSvtNo_" + (countSvt-100)).attr("title", svtData[targetSvtNo].svtName);
+            $("#img_itemSvtNo_" + (countSvt-100)).attr("title", "No." + (targetSvtNo+1) + " " + svtData[targetSvtNo].svtName);
             $("#img_itemSvtNo_" + (countSvt-100)).removeClass("displayNone");
             $("#img_itemSvtNo_" + (countSvt-100)).attr("style","margin-left: 20px");
         }
@@ -279,7 +279,7 @@ function selectchg(){
 
         if($("#selcetNo" + i).val()!=-1){
             $("#img_svtNo_" + i).attr("src","./images/svtNo_" + (parseInt($("#selcetNo" + i).val()) + 1) + ".png");
-            $("#img_svtNo_" + i).attr("title", svtData[i].svtName);
+            $("#img_svtNo_" + i).attr("title", svtData[parseInt($("#selcetNo" + i).val())].svtName);
             $("#img_svtNo_" + i).removeClass("displayNone");
         }else{
             $("#img_svtNo_" + i).attr("src","");
