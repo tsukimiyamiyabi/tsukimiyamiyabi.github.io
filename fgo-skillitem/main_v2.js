@@ -11,9 +11,9 @@ mySelectItem();
 mySerchItemCreate();
 
 
-$(window).resize(function() {
+/*$(window).resize(function() {
   console.log($("#_itemSide").width());
-});
+});*/
 
 //搜尋素材圖片建立
 function mySerchItemCreate(){
@@ -36,11 +36,9 @@ $("#searchItemImgDiv").click(function(e){
           }
           targetItemNo = target.attr("data-itemNo");
           target.removeClass("whiteCover");
-          console.log(targetItemNo);
           itemDivCreate(targetItemNo - 1);
       }else{
           targetItemNo = -1;
-          console.log(targetItemNo);
           target.addClass("whiteCover");
           $("#_itemSide").html("");
       }

@@ -89,9 +89,9 @@ table tr:nth-child(even) {
 }
 
 .whiteCover{
-  opacity:0.35;
-  -mox-opacity:0.35;
-  filter:alpha(opacity=35);
+  opacity:0.25;
+  -mox-opacity:0.25;
+  filter:alpha(opacity=25);
 }
 
 
