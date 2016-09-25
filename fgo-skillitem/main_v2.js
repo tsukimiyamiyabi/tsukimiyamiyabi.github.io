@@ -10,6 +10,11 @@ myTable2();
 mySelectItem();
 mySerchItemCreate();
 
+
+$(window).resize(function() {
+  console.log($("#_itemSide").width());
+});
+
 //搜尋素材圖片建立
 function mySerchItemCreate(){
     var out = "";
@@ -109,6 +114,7 @@ function itemDivCreate(itemNo){
             $("#img_itemSvtNo_" + (countSvt-100)).attr("src","./images/svtNo_" + (targetSvtNo+1)  + ".png");
             $("#img_itemSvtNo_" + (countSvt-100)).attr("title", svtData[targetSvtNo].svtName);
             $("#img_itemSvtNo_" + (countSvt-100)).removeClass("displayNone");
+            $("#img_itemSvtNo_" + (countSvt-100)).attr("style","margin-left: 20px");
         }
     }
 }
@@ -303,9 +309,10 @@ function selectchgMin(svtNo){
 function myTable(tableNum, svtNo, min, max, type) {
     var i = 0, j = 0, t = 0;
     var qpTemp = 0;
-    var itemMax;
+    var itemMax = 0;
     var tableName = "dataTalbe" + tableNum.toString();
     var out = "<table";
+    var flag = 1;
 
     if(type)
       out += " class='mtable'>";
@@ -317,12 +324,23 @@ function myTable(tableNum, svtNo, min, max, type) {
     if(min == -1){
         min = 1;
     }
-    itemMax = 0;
     //---
+
+    if(svtNo != -1){
+        for(i = min - 1; i < max - 1; i++){
+            if(svtData[svtNo].skillLevel[i].skillItem.length > itemMax)
+                itemMax = svtData[svtNo].skillLevel[i].skillItem.length;
+        }
+    }
+
     out += "<tr>";
     for(i = min - 1; i < max - 1; i++){
-        out += "<td>" +
-        "Slv " +
+        //素材搜尋 且 素材數量大於3時，合併儲存格
+        if(type == 1 && itemMax >= 3)
+            out += "<td colspan='2'>";
+        else
+            out += "<td>";
+        out += "Slv " +
         (i + 1).toString() +
         " → " +
         (i + 2).toString() +
@@ -342,21 +360,30 @@ function myTable(tableNum, svtNo, min, max, type) {
             if(tableNum < 100)
               ttData[tableNum][0]+=qpTemp;
 
-            out += "<td>";
+              //素材搜尋 且 素材數量大於3時，合併儲存格
+              if(type == 1 && itemMax >= 3)
+                  out += "<td colspan='2'>";
+              else
+                  out += "<td>";
             out += "<img style='width:" + maxImgWidth +"px' src =\"./images/S_" +
             svtData[svtNo].skillLevel[i].QP[0].image +
             ".png\" title='QP'> <br> x " ;
             out += thousandComma(qpTemp/1000) + " k";
             out += "</td>";
 
-
-            if(svtData[svtNo].skillLevel[i].skillItem.length > itemMax)
-                itemMax = svtData[svtNo].skillLevel[i].skillItem.length;
         }
         out += "</tr>";
 
         for( j = 0; j < itemMax; j++) {
-            out += "<tr>";
+            flag = 1;
+            if(type == 1 && itemMax >= 3 && (j == 1 || j == 3))
+              flag = 1;
+            else
+              out += "<tr>";
+
+            if(type == 1 && itemMax >= 3 && (j == 0 || j == 2))   //素材搜尋 且 素材數量大於3時，寫入左邊格子
+                flag = 0;
+
             for(i = min - 1; i < max - 1; i++){
                 out += "<td>";
                 if(svtData[svtNo].skillLevel[i].skillItem.length > j){
@@ -372,7 +399,9 @@ function myTable(tableNum, svtNo, min, max, type) {
                 }
                 out += "</td>";
             }
-            out += "</tr>";
+
+            if(flag)
+              out += "</tr>";
         }
     }
     out += "</table>";

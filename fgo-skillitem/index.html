@@ -20,79 +20,84 @@
 </head>
 
 <body>
+      <div style="height:80%; display:inline">
+        <h1>Fate/Grand Order <br>
+            サーヴァントスキル 強化素材
+        </h1>
 
-      <h1>Fate/Grand Order <br>
-          サーヴァントスキル 強化素材
-      </h1>
+        <div id="tabs"  style="min-width: 665px;">
+          <ul>
+            <li><a href="#tabs-1">指定英霊</a></li>
+            <li><a href="#tabs-2">指定素材</a></li>
+          </ul>
+          <div id="tabs-1">
+              <div style="width: 100%; font-size: 15px; min-width: 900px;">
+                <div>
+                  <label for="maxSvtNum"  style="margin-right:10px">育成英靈數：</label>
+                  <select name ="maxSvtNum" id = "maxSvtNum" style="width:125px; margin-bottom:10px" onChange = "tbMaxChange()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected="">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                  <input type="button" id="clear" value="清除" style="margin-left:50px">
+                </div>
 
-      <div id="tabs"  style="min-width: 665px;">
-        <ul>
-          <li><a href="#tabs-1">指定英霊</a></li>
-          <li><a href="#tabs-2">指定素材</a></li>
-        </ul>
-        <div id="tabs-1">
-            <div style="width: 100%; font-size: 15px; min-width: 900px;">
-              <div>
-                <label for="maxSvtNum"  style="margin-right:10px">育成英靈數：</label>
-                <select name ="maxSvtNum" id = "maxSvtNum" style="width:125px; margin-bottom:10px" onChange = "tbMaxChange()">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3" selected="">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-                <input type="button" id="clear" value="清除" style="margin-left:50px">
+                <div id="svt_templet" class="displayNone">
+                    <span id = ""></span>
+                    <span class="span-tag"> 現在Skill：</span>
+                    <span id = ""> </span>
+                    <span class="span-tag"> 目標Skill：</span>
+                    <span id = ""> </span>
+                    <span class="span-tag" id = "chkbox_span">
+                        <input type="checkbox" name="chkHide" id="chkHide">
+                        <label for="chkHide">隱藏</label>
+                    </span><br>
+                    <img id ="" class="displayNone imgFloat" src="" title="">
+                    <div style="width: 100%; margin-bottom:15px;" id = ""></div>
+                </div>
+
+                <div id="_leftSide" style="width: 80%; float:left">
+                </div>
+
+                <div class="div-table" id="tottleTable"></div>
+
+                <div style="clear:both;"></div>
               </div>
-
-              <div id="svt_templet" class="displayNone">
-                  <span id = ""></span>
-                  <span class="span-tag"> 現在Skill：</span>
-                  <span id = ""> </span>
-                  <span class="span-tag"> 目標Skill：</span>
-                  <span id = ""> </span>
-                  <span class="span-tag" id = "chkbox_span">
-                      <input type="checkbox" name="chkHide" id="chkHide">
-                      <label for="chkHide">隱藏</label>
-                  </span><br>
-                  <img id ="" class="displayNone imgFloat" src="" title="">
-                  <div style="width: 100%; margin-bottom:15px;" id = ""></div>
-              </div>
-
-              <div id="_leftSide" style="width: 80%; float:left">
-              </div>
-
-              <div class="div-table" id="tottleTable"></div>
-
-              <div style="clear:both;"></div>
+          </div>
+          <div id="tabs-2">
+            <div id = "searchItemDiv" style = "margin-bottom:15px">
             </div>
+
+            <div id = "searchItemImgDiv" style = "margin-bottom:30px; max-width:770px;">
+            </div>
+
+            <div id="itemSvt_templet" class="displayNone" style = "float: left; margin-right:30px; min-height:420px">
+                <img id ="" class="displayNone imgFloat" src="" >
+                <div style="width: 100%; margin-bottom:15px;" id = ""></div>
+            </div>
+            <div id="_itemSide" style="width: 100%; font-size: 15px; ">
+            </div>
+            <div style="clear:both;"></div>
+
+            <a href="#" style="display: block; position: relative; width: 47px; height: 47px;">
+              <img  src="images/btn_gotop_off.jpg" style=" display: inline; position: fixed; right: 5%; bottom: 5%; z-index:5; ">
+              <img src="images/btn_gotop_on.jpg" style="opacity: 0.8; display: inline; position: fixed; right: 5%; bottom: 5%;">
+            </a>
+
+          </div>
         </div>
-        <div id="tabs-2">
-          <div id = "searchItemDiv" style = "margin-bottom:15px">
-          </div>
-
-          <div id = "searchItemImgDiv" style = "margin-bottom:30px; max-width:770px;">
-          </div>
-
-          <div id="itemSvt_templet" class="displayNone" style = "float: left; margin-right:30px">
-              <img id ="" class="displayNone imgFloat" src="" >
-              <div style="width: 100%; margin-bottom:15px;" id = ""></div>
-          </div>
-          <div id="_itemSide" style="width: 80%; font-size: 15px; ">
-          </div>
-          <div style="clear:both;"></div>
-
-          <a href="#" style="display: block; position: relative; width: 47px; height: 47px;">
-            <img  src="images/btn_gotop_off.jpg" style=" display: inline; position: fixed; right: 20%; bottom: 5%; z-index:5; ">
-            <img src="images/btn_gotop_on.jpg" style="opacity: 0.8; display: inline; position: fixed; right: 20%; bottom: 5%;">
-          </a>
-
-        </div>
-      </div>
+    </div>
+    <div style="position: absolute;top: 50px;right: 10px;font-size: 12px;">
+      英霊画像出典：<a href="https://kazemai.github.io/fgo-vz/" >Fate/GO 茹西教王的理想鄉</a> </br>
+      参考資料：<a href="https://www9.atwiki.jp/f_go/pages/543.html" >Fate/Grand Order @wiki 【FGO】</a>
+    </div>
 
 </body>
 <script src="data.js"></script>
