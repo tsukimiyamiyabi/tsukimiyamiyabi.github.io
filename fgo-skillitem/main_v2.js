@@ -168,15 +168,17 @@ function svtDivCreate(){
     for(var i = 1; i <= tbMax ; i++){
         var newSvtDiv = $(svt_templet).clone();
         newSvtDiv.attr("id","svt_" + i);
-        newSvtDiv.find("span").eq(0).attr("id","svt_" + i + "_span_1");
-        newSvtDiv.find("span").eq(2).attr("id","svt_" + i + "_span_2");
-        newSvtDiv.find("span").eq(4).attr("id","svt_" + i + "_span_3");
+        newSvtDiv.find("span").eq(0).attr("id","svt_" + i + "_spanClass");
+        newSvtDiv.find("span").eq(1).attr("id","svt_" + i + "_span_1");
+        newSvtDiv.find("span").eq(3).attr("id","svt_" + i + "_span_2");
+        newSvtDiv.find("span").eq(5).attr("id","svt_" + i + "_span_3");
         newSvtDiv.find("div").attr("id","dataTalbe" + i);
         newSvtDiv.find("img").attr("id","img_svtNo_" + i);
         newSvtDiv.removeClass("displayNone");
         $("#_leftSide").append(newSvtDiv);
 
-        mySelectSvt("svt_" + i + "_span_1","selcetNo" + i,svtData.length);
+        mySelectSvtClass(i,"svt_" + i + "_spanClass","selcetClassNo" + i);
+        mySelectSvt(i,"svt_" + i + "_span_1","selcetNo" + i,svtData.length);
         mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, 9, "selectchgMin(" + i + ")");
         mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
         myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0);
@@ -203,18 +205,96 @@ function countItemAll(tableMax) {
     }
 }
 
-//英靈編號選單產生
-function mySelectSvt(spanId,selectName,number){
+//英靈職階選單產生
+function mySelectSvtClass(noId,spanId,selectName){
     var i = 0;
     var out = "<select id=";
     out += selectName +
-    " style=\"width: 250px; font-size: 12px;\"" +
+    " style=\"width: 100px; font-size: 12px;\"" +
+    " onChange = \"selectClassChg(" + noId + ")\">" + "<br>" +
+    "<option value =\"-1\">全職階</option>";
+
+    out +=  "<option value ='0'>盾 シールダー 【Shielder】</option><br>"
+        +   "<option value ='1'>劍 セイバー　　【Saber】</option><br>"
+        +   "<option value ='2'>槍 ランサー 　【Lancer】</option><br>"
+        +   "<option value ='3'>弓 アーチャー　【Archer】</option><br>"
+        +   "<option value ='4'>騎 ライダー　 【Rider】</option><br>"
+        +   "<option value ='5'>術 キャスター　【Caster】</option><br>"
+        +   "<option value ='6'>殺 アサシン　 【Assassin】</option><br>"
+        +   "<option value ='7'>狂 バーサーカー【Berserker】</option><br>"
+        +   "<option value ='8'>裁 ルーラー 　【Ruler】</option><br>"
+        +   "<option value ='9'>讐 アヴェンジャー【Avenger】</option><br>";
+    out += "</select>";
+    $("#"+spanId).html(out);
+}
+
+//英靈編號選單產生
+function mySelectSvt(idNo,spanId,selectName,number){
+    var i = 0;
+    var continueFlag = 0;
+    var svtClass = $("#selcetClassNo" + idNo).val();
+    var out = "<select id=";
+    out += selectName +
+    " style=\"width: 200px; font-size: 12px;\"" +
     " onChange = \"selectchg()\">" + "<br>" +
     "<option value =\"-1\">請選擇</option>";
 
     for(i = 0; i < number; i++){
+        continueFlag = 0;
         if(i==82)
             continue;
+
+        switch (svtClass) {
+          case "0":
+            if(i != 0)
+              continueFlag = 1;
+            break;
+          case "1":
+            if(svtData[i].skillLevel[0].skillItem[0].image != 1)
+                continueFlag = 1;
+            if(i == 58 || i == 92 || i == 134)
+                continueFlag = 1;
+            break;
+          case "2":
+            if(svtData[i].skillLevel[0].skillItem[0].image != 4)
+                continueFlag = 1;
+            break;
+          case "3":
+            if(svtData[i].skillLevel[0].skillItem[0].image != 7)
+                continueFlag = 1;
+            break;
+          case "4":
+            if(svtData[i].skillLevel[0].skillItem[0].image != 10)
+                continueFlag = 1;
+            break;
+          case "5":
+            if(svtData[i].skillLevel[0].skillItem[0].image != 13)
+                continueFlag = 1;
+            break;
+          case "6":
+            if(svtData[i].skillLevel[0].skillItem[0].image != 16)
+                continueFlag = 1;
+            break;
+          case "7":
+            if(svtData[i].skillLevel[0].skillItem[0].image != 19)
+                continueFlag = 1;
+            break;
+          case "8":
+            if(i != 58 && i != 92 &&i != 134)
+                continueFlag = 1;
+            break;
+          case "9":
+            if(i != 95 && i != 105 &&i != 106)
+                continueFlag = 1;
+            break;
+          default:
+            continueFlag = 0;
+        }
+
+        if(continueFlag){
+            continue;
+        }
+
         out +=   "<option value =\"" +
         i +
         "\">" +
@@ -225,7 +305,6 @@ function mySelectSvt(spanId,selectName,number){
     }
     out += "</select>";
     $("#"+spanId).html(out);
-    //document.getElementById(spanId).innerHTML = out;
 }
 
 //最小技能等級選單產生
@@ -267,6 +346,12 @@ function mySelectSlvMax(spanId,selectName,slvMin,selchgName){
     $("#"+spanId).html(out);
     //document.getElementById(spanId).innerHTML = out;
 }
+
+//當英靈職階選單變動
+function selectClassChg(noId){
+    mySelectSvt(noId,"svt_" + noId + "_span_1","selcetNo" + noId,svtData.length);
+}
+
 
 //當英靈編號選單 or 最大技能等級選單變動
 function selectchg(){
