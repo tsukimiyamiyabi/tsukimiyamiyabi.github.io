@@ -225,11 +225,11 @@ function svtDivCreate(){
         $("#img_skillNo" + i + "_1").attr("title",1);
         $("#img_skillNo" + i + "_2").attr("title",2);
         $("#img_skillNo" + i + "_3").attr("title",3);
-        $("#img_skillNo" + i + "_1").attr("src","images/btn_dig_1.jpg");
+        $("#img_skillNo" + i + "_1").attr("src","images/btn_dig_1.png");
         $("#img_skillNo" + i + "_1").removeClass("displayNone");
-        $("#img_skillNo" + i + "_2").attr("src","images/btn_dig_2.jpg");
+        $("#img_skillNo" + i + "_2").attr("src","images/btn_dig_2.png");
         $("#img_skillNo" + i + "_2").removeClass("displayNone");
-        $("#img_skillNo" + i + "_3").attr("src","images/btn_dig_3.jpg");
+        $("#img_skillNo" + i + "_3").attr("src","images/btn_dig_3.png");
         $("#img_skillNo" + i + "_3").removeClass("displayNone");
         mySelectSvtClass(i,"svt_" + i + "_spanClass","selcetClassNo" + i);
         mySelectSvt(i,"svt_" + i + "_span_1","selcetNo" + i,svtData.length);
