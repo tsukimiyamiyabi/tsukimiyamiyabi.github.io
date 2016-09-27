@@ -222,6 +222,9 @@ function svtDivCreate(){
         newSvtDiv.removeClass("displayNone");
         $("#_leftSide").append(newSvtDiv);
 
+        $("#img_skillNo" + i + "_1").attr("title",1);
+        $("#img_skillNo" + i + "_2").attr("title",2);
+        $("#img_skillNo" + i + "_3").attr("title",3);
         $("#img_skillNo" + i + "_1").attr("src","images/btn_dig_1.jpg");
         $("#img_skillNo" + i + "_1").removeClass("displayNone");
         $("#img_skillNo" + i + "_2").attr("src","images/btn_dig_2.jpg");
@@ -425,7 +428,7 @@ function selectchg(type){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type 
             ttDataClear(tbMax * 2 + i);
             $("#img_skillNo" + i + "_" + skillNow).addClass("whiteCover");
             $("#img_skillNo" + i + "_1").removeClass("whiteCover");
-            $("#svt_" + i).attr("data-skillNow" , 1);        
+            $("#svt_" + i).attr("data-skillNow" , 1);
             $("#img_skillNo" + i + "_1").attr("data-min","-1");
             $("#img_skillNo" + i + "_1").attr("data-max","10");
             $("#img_skillNo" + i + "_2").attr("data-min","-1");
