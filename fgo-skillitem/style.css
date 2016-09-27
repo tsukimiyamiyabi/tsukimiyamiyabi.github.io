@@ -31,7 +31,7 @@ table tr:nth-child(even) {
 }
 
 .span-tag{
-    margin-left:15px;
+    margin-left:5px;
 }
 .div-inline1{
     display:inline;
@@ -105,4 +105,8 @@ a img{
   opacity:1;
   -mox-opacity:1;
   filter:alpha(opacity=1);
+}
+
+.nonFloat{
+  float: none;
 }

@@ -1,10 +1,10 @@
-var ttData = [];         //當前頁面所有英靈資訊暫存陣列
+var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var itemKindMAx = 47;    //目前素材種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
 
-ttDataClear(tbMax);
+ttDataClear(0);
 svtDivCreate();
 myTable2();
 mySelectItem();
@@ -83,18 +83,14 @@ function itemDivCreate(itemNo){
         for(var j = 0; j < 9; j++){
             for(var k = 0; k < svtData[i].skillLevel[j].skillItem.length; k++){
               if(svtData[i].skillLevel[j].skillItem[k].image == (parseInt(itemNo) + 1)){
-                //console.log(svtData[i].skillLevel[j].skillItem[k].image );
                 if(minSLV == 0){
                   minSLV = j + 1;
                   maxSLV = j + 2;
-              //    console.log("min: min:"+minSLV+" ,"+"max:"+maxSLV);
                   targetSvtNo = i;
                   countSvt++;
                 }else {
                   if(j+1 >= maxSLV){
                     maxSLV = j + 2;
-                //    console.log(j);
-              //      console.log("max: min:"+minSLV+" ,"+"max:"+maxSLV);
                   }
                 }
               }
@@ -134,30 +130,75 @@ $(function() {
 
 //清除按鈕
 $("#clear").click(function(e){
-    ttDataClear(tbMax);
+    ttDataClear(0);
     svtDivCreate();
     myTable2();
 });
 
-//隱藏按鈕
+//隱藏素材表，並縮小化英靈圖
 $("#_leftSide").click(function(e){
     var target = $(e.target);
     var mdiv =  target.closest("div");
+    var target_i;
+    var skillNow;
+    var isSkillNoChg = 0;
+
+    //技能組數字圖示切換
+    for(var i = 1; i <= tbMax; i++){
+        skillNow = $("#svt_" + i).attr("data-skillNow");
+        for(var j = 1; j <= 3; j++){
+            if(target.attr("id") == ("img_skillNo" + i + "_" + j)){
+                if(skillNow != j){
+                    $("#img_skillNo" + i + "_" + skillNow).addClass("whiteCover");
+                    target.removeClass("whiteCover");
+                    $("#svt_" + i).attr("data-skillNow", j) ;
+                    //將目前最小技能跟最大技能存入IMG TAG
+                    $("#img_skillNo" + i + "_" + skillNow).attr("data-min", $("#selcetMin_" + i ).val()) ;
+                    $("#img_skillNo" + i + "_" + skillNow).attr("data-max", $("#selcetMax_" + i ).val()) ;
+                    target_i = i;
+                    isSkillNoChg = 1;
+                    skillNow = j;
+                    break;
+                }
+            }
+        }
+        if(isSkillNoChg)
+          break;
+    }
+
+    if(isSkillNoChg){ //No是Number 不是NO
+        //console.log(target_i + "," + $("#img_skillNo" + target_i + "_" + skillNow).attr("data-min") + "," + $("#img_skillNo" + target_i + "_" + skillNow).attr("data-max"));
+        myTable(target_i,$("#selcetNo" + target_i).val(),$("#img_skillNo" + target_i + "_" + skillNow).attr("data-min"),$("#img_skillNo" + target_i + "_" + skillNow).attr("data-max"),0,1);
+        mySelectSlvMin("svt_" + target_i + "_span_2","selcetMin_" + target_i, 9, "selectchgMin(" + target_i + ")");
+        mySelectSlvMax("svt_" + target_i + "_span_3","selcetMax_" + target_i, parseInt($("#img_skillNo" + target_i + "_" + skillNow).attr("data-min")), "selectchg");
+        $("#selcetMin_" + target_i).val($("#img_skillNo" + target_i + "_" + skillNow).attr("data-min"));
+        $("#selcetMax_" + target_i).val($("#img_skillNo" + target_i + "_" + skillNow).attr("data-max"));
+        //如果最大技能設為"0"，則將英靈圖片設為整行
+        if($("#selcetMax_" + target_i).val() == 0){
+            $("#img_svtNo_" + target_i).addClass("nonFloat");
+        }else{
+            $("#img_svtNo_" + target_i).removeClass("nonFloat");
+        }
+    }
+
+    //隱藏
     if(mdiv.find("[type=checkbox]")[0].checked==true){
         mdiv.find("div").addClass("displayNone");
-        mdiv.find("img:eq(0)").removeClass("imgFloat");
-        mdiv.find("img:eq(0)").addClass("imgWhenHide");
-    }else{
+        mdiv.find("img:eq(3)").removeClass("imgFloat");
+        mdiv.find("img:eq(3)").addClass("imgWhenHide");
+    }else {
         mdiv.find("div").removeClass("displayNone");
-        mdiv.find("img:eq(0)").addClass("imgFloat");
-        mdiv.find("img:eq(0)").removeClass("imgWhenHide");
+        mdiv.find("img:eq(3)").addClass("imgFloat");
+        mdiv.find("img:eq(3)").removeClass("imgWhenHide");
     }
+
+
 });
 
 //英靈最大數量改變
 function tbMaxChange() {
     tbMax = $("#maxSvtNum").val();
-    ttDataClear(tbMax);
+    ttDataClear(0);
     svtDivCreate();
     myTable2();
 }
@@ -168,37 +209,54 @@ function svtDivCreate(){
     for(var i = 1; i <= tbMax ; i++){
         var newSvtDiv = $(svt_templet).clone();
         newSvtDiv.attr("id","svt_" + i);
+        newSvtDiv.attr("data-number", i);
         newSvtDiv.find("span").eq(0).attr("id","svt_" + i + "_spanClass");
         newSvtDiv.find("span").eq(1).attr("id","svt_" + i + "_span_1");
         newSvtDiv.find("span").eq(3).attr("id","svt_" + i + "_span_2");
         newSvtDiv.find("span").eq(5).attr("id","svt_" + i + "_span_3");
         newSvtDiv.find("div").attr("id","dataTalbe" + i);
-        newSvtDiv.find("img").attr("id","img_svtNo_" + i);
+        newSvtDiv.find("img").eq(0).attr("id","img_skillNo" + i + "_1");
+        newSvtDiv.find("img").eq(1).attr("id","img_skillNo" + i + "_2");
+        newSvtDiv.find("img").eq(2).attr("id","img_skillNo" + i + "_3");
+        newSvtDiv.find("img").eq(3).attr("id","img_svtNo_" + i);
         newSvtDiv.removeClass("displayNone");
         $("#_leftSide").append(newSvtDiv);
 
+        $("#img_skillNo" + i + "_1").attr("src","images/btn_dig_1.jpg");
+        $("#img_skillNo" + i + "_1").removeClass("displayNone");
+        $("#img_skillNo" + i + "_2").attr("src","images/btn_dig_2.jpg");
+        $("#img_skillNo" + i + "_2").removeClass("displayNone");
+        $("#img_skillNo" + i + "_3").attr("src","images/btn_dig_3.jpg");
+        $("#img_skillNo" + i + "_3").removeClass("displayNone");
         mySelectSvtClass(i,"svt_" + i + "_spanClass","selcetClassNo" + i);
         mySelectSvt(i,"svt_" + i + "_span_1","selcetNo" + i,svtData.length);
-        mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, 9, "selectchgMin(" + i + ")");
+        mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
         mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
-        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0);
+        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0,0);
     }
 }
 
 //素材總計陣列初始化
-function ttDataClear(tableMax) {
-    for(var j = 0; j < tableMax + 1; j++){
-        ttData[j] = [];
+function ttDataClear(tableNo) {
+    if(tableNo == 0){  //0, 全部清出
+        for(var j = 0; j < (tbMax * 3 + 1); j++){
+            ttData[j] = [];
+            for(var i = 0; i < itemKindMAx + 1; i++){
+                ttData[j][i] = 0;
+            }
+        }
+    }else{    //清除第N個表格的資料
         for(var i = 0; i < itemKindMAx + 1; i++){
-            ttData[j][i] = 0;
+            ttData[parseInt(tableNo)][i] = 0;
         }
     }
 }
 
 //素材總計陣列重新計算
-function countItemAll(tableMax) {
+function countItemAll() {
     for(var i = 0; i < itemKindMAx + 1; i++){
-        for(var j = 1; j < tableMax + 1; j++){
+        ttData[0][i] = 0;
+        for(var j = 1; j < parseInt(tbMax) * 3 + 1; j++){
             if(ttData[j][i]!=0)
               ttData[0][i]+=ttData[j][i];
         }
@@ -236,7 +294,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
     var out = "<select id=";
     out += selectName +
     " style=\"width: 200px; font-size: 12px;\"" +
-    " onChange = \"selectchg()\">" + "<br>" +
+    " onChange = \"selectchg(" + idNo +")\">" + "<br>" +
     "<option value =\"-1\">請選擇</option>";
 
     for(i = 0; i < number; i++){
@@ -332,7 +390,7 @@ function mySelectSlvMax(spanId,selectName,slvMin,selchgName){
     var i = 0;
     var out = "<select id=";
     out += selectName +
-    " onChange = \"" + selchgName +"()\">" + "<br>" +
+    " onChange = \"" + selchgName +"(0)\">" + "<br>" +
     "<option value =\"10\">請選擇</option>";
 
     for(i = slvMin; i < 10; i++){
@@ -354,12 +412,45 @@ function selectClassChg(noId){
 
 
 //當英靈編號選單 or 最大技能等級選單變動
-function selectchg(){
-    ttDataClear(tbMax);
+function selectchg(type){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type = 0, 最大技能選單
+    var skillNow;
     for(var i = 1; i <= tbMax ; i++){
-        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0);
+        skillNow = parseInt($("#svt_" + i).attr("data-skillNow"));
+        ttDataClear(tbMax * ( skillNow - 1) + i);
+
+        //
+        if(type == i){
+            ttDataClear(tbMax * 0 + i);
+            ttDataClear(tbMax * 1 + i);
+            ttDataClear(tbMax * 2 + i);
+            $("#img_skillNo" + i + "_" + skillNow).addClass("whiteCover");
+            $("#img_skillNo" + i + "_1").removeClass("whiteCover");
+            $("#svt_" + i).attr("data-skillNow" , 1);        
+            $("#img_skillNo" + i + "_1").attr("data-min","-1");
+            $("#img_skillNo" + i + "_1").attr("data-max","10");
+            $("#img_skillNo" + i + "_2").attr("data-min","-1");
+            $("#img_skillNo" + i + "_2").attr("data-max","0");
+            $("#img_skillNo" + i + "_3").attr("data-min","-1");
+            $("#img_skillNo" + i + "_3").attr("data-max","0");
+            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
+            mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
+        }
+
+        //將最小技能設為"請選擇"
+        if($("#selcetMin_" + i).val() == -1)
+            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, 9, "selectchgMin(" + i + ")");
+
+        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0,0);
         $("#img_svtNo_"+i).attr("src","./images/"+"svtNo_" + $("#selcetNo" + i).val() + ".png");
 
+        //如果最大技能設為"0"，則將英靈圖片設為整行
+        if($("#selcetMax_" + i).val() == 0){
+            $("#img_svtNo_" + i).addClass("nonFloat");
+        }else{
+            $("#img_svtNo_" + i).removeClass("nonFloat");
+        }
+
+        //如果英靈設為"請選擇"，則隱藏英靈圖片
         if($("#selcetNo" + i).val()!=-1){
             $("#img_svtNo_" + i).attr("src","./images/svtNo_" + (parseInt($("#selcetNo" + i).val()) + 1) + ".png");
             $("#img_svtNo_" + i).attr("title", svtData[parseInt($("#selcetNo" + i).val())].svtName);
@@ -367,11 +458,12 @@ function selectchg(){
         }else{
             $("#img_svtNo_" + i).attr("src","");
             $("#img_svtNo_" + i).addClass("displayNone");
-
+            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
+            mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
         }
     }
 
-    countItemAll(tbMax);
+    countItemAll();
     myTable2();
 
 }
@@ -382,20 +474,32 @@ function selectchgMin(svtNo){
     var wk_selectMin = "#selcetMin_" + svtNo;
     var wk_selectMax = "#selcetMax_" + svtNo;
     var wk_svtNo_span = "svt_" + svtNo + "_span_3";
-    myTable(svtNo,$(wk_selectNo).val(),parseInt($(wk_selectMin).val()),parseInt($(wk_selectMax).val()),0);
+    var skillNow = parseInt($("#svt_" + svtNo).attr("data-skillNow"));
+
+    //如果最小技能等於最大技能，則將英靈圖片設為整行
+    if($("#selcetMax_" + svtNo).val() <= $("#selcetMin_" + svtNo).val() && $("#selcetMax_" + svtNo).val()!=10){
+        $("#img_svtNo_" + svtNo).addClass("nonFloat");
+    }else{
+        $("#img_svtNo_" + svtNo).removeClass("nonFloat");
+    }
+
+    myTable(svtNo,$(wk_selectNo).val(),parseInt($(wk_selectMin).val()),parseInt($(wk_selectMax).val()),0,0);
     mySelectSlvMax(wk_svtNo_span,"selcetMax_" + svtNo,parseInt($(wk_selectMin).val()),"selectchg");
-    ttDataClear(tbMax);
+    ttDataClear(tbMax * ( skillNow - 1) + svtNo);
     myTable2();
+
+
 }
 
 //英靈素材資訊表格產生
-function myTable(tableNum, svtNo, min, max, type) {
+function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
     var i = 0, j = 0, t = 0;
     var qpTemp = 0;
     var itemMax = 0;
     var tableName = "dataTalbe" + tableNum.toString();
     var out = "<table";
     var flag = 1;
+    var skillNow = parseInt($("#svt_" + tableNum).attr("data-skillNow"));
 
     if(type)
       out += " class='mtable'>";
@@ -440,8 +544,10 @@ function myTable(tableNum, svtNo, min, max, type) {
                 if(svtData[svtNo].skillLevel[i].QP[0].value[t]!=",")
                     qpTemp = qpTemp*10 + parseInt(svtData[svtNo].skillLevel[i].QP[0].value[t]);
             }
-            if(tableNum < 100)
-              ttData[tableNum][0]+=qpTemp;
+            //QP數存入ttData陣列
+            if(tableNum < 100 && isSkillNumChg == 0){
+                ttData[tbMax * (skillNow - 1) + tableNum][0]+=qpTemp;
+            }
 
               //素材搜尋 且 素材數量大於3時，合併儲存格
               if(type == 1 && itemMax >= 3)
@@ -477,8 +583,9 @@ function myTable(tableNum, svtNo, min, max, type) {
                     "'> <br> x " +
                     svtData[svtNo].skillLevel[i].skillItem[j].number;
 
-                    if(tableNum < 100)
-                      ttData[tableNum][svtData[svtNo].skillLevel[i].skillItem[j].image]+=svtData[svtNo].skillLevel[i].skillItem[j].number;
+                    //盪具數存入ttData陣列
+                    if(tableNum < 100 && isSkillNumChg == 0)
+                      ttData[tbMax * (skillNow - 1) + tableNum][svtData[svtNo].skillLevel[i].skillItem[j].image]+=svtData[svtNo].skillLevel[i].skillItem[j].number;
                 }
                 out += "</td>";
             }
@@ -508,7 +615,6 @@ function myTable2() {
     out += "</td></tr>";
     out += "<br>";
 
-    //console.log(ttData[0][0]);
 
     for(i = 1; i < itemKindMAx + 1; i++){
 
