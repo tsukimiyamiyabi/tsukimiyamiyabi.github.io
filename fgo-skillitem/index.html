@@ -21,6 +21,7 @@
 
 <body>
       <div style="height:80%; display:inline">
+        <img src="images/fgo_logo.png" style="float:left; width:165px; margin-right:20px">
         <h1>Fate/Grand Order <br>
             サーヴァントスキル 強化素材
         </h1>
@@ -32,9 +33,9 @@
           </ul>
           <div id="tabs-1">
               <div style="width: 100%; font-size: 15px; min-width: 900px;">
-                <div>
+                <div id="top_div">
                   <label for="maxSvtNum"  style="margin-right:10px">育成英靈數：</label>
-                  <select name ="maxSvtNum" id = "maxSvtNum" style="width:125px; margin-bottom:10px" onChange = "tbMaxChange()">
+                  <select name ="maxSvtNum" id = "maxSvtNum" style="width:125px; margin-bottom:10px; margin-right: 50px;" onChange = "tbMaxChange()">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3" selected="">3</option>
@@ -46,7 +47,11 @@
                     <option value="9">9</option>
                     <option value="10">10</option>
                   </select>
-                  <input type="button" id="clear" value="清除" style="margin-left:50px">
+                  <input type="button" id="clear" value="清除" style="margin-right:0px">
+                  <input type="checkbox" name="chkChinese" id="chkChinese" style="position:relative; left:100px;">
+                  <label for="chkChinese" style="position:relative; left:95px;">英霊選單中文化</label>
+                  <input type="checkbox" name="chkItemHide" id="chkItemHide" style="margin-right:0px; position:relative; left:120px;">
+                  <label for="chkItemHide" style="position:relative; left:120px;">總和隱藏</label>
                 </div>
 
                 <div id="svt_templet" class="displayNone" data-number="" data-skillNow ="1">
@@ -98,13 +103,15 @@
           </div>
         </div>
     </div>
-    <div style="position: absolute;top: 50px;right: 10px;font-size: 12px;">
+    <div style="position: absolute; top: 35px; right: 15px;font-size: 12px;">
       英霊画像出典：<a href="https://kazemai.github.io/fgo-vz/" >Fate/GO 茹西教王的理想鄉</a> </br>
+      英霊名翻訳出典：<a href="https://kazemai.github.io/fgo-vz/" >Fate/GO 茹西教王的理想鄉</a> </br>
       参考資料：<a href="https://www9.atwiki.jp/f_go/pages/543.html" >Fate/Grand Order @wiki 【FGO】</a>
     </div>
 
 </body>
 <script src="data.js"></script>
+<script src="chinesedata.js"></script>
 <script src="itemdata.js"></script>
 <script src="main_v2.js"></script>
 </html>

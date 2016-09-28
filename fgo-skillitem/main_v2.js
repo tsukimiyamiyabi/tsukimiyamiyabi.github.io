@@ -3,6 +3,7 @@ var tbMax = 3;           //育成英靈數，預設為3
 var itemKindMAx = 47;    //目前素材種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
+var isChinese = 0;
 
 ttDataClear(0);
 svtDivCreate();
@@ -18,7 +19,7 @@ mySerchItemCreate();
 //搜尋素材圖片建立
 function mySerchItemCreate(){
     var out = "";
-    for(var i = 1; i < itemKindMAx; i++ )
+    for(var i = 1; i <= itemKindMAx; i++ )
       out += "<img class='imgItemFloat whiteCover'  src='images/S_" + i + ".png' data-itemNo = '" + i + "'"
             + " title='" + itemData[i - 1].name + "''>";
     out += "<div style='clear:both;''></div>";
@@ -133,6 +134,31 @@ $("#clear").click(function(e){
     ttDataClear(0);
     svtDivCreate();
     myTable2();
+});
+
+//總數量table隱藏 & 中文化
+$("#top_div").click(function(e){
+    var target = $(e.target);
+    var mdiv =  target.closest("div");
+    if(mdiv.find("[type=checkbox]")[1].checked == true){
+        $("#tottleTable").addClass("displayNone");
+    }else {
+        $("#tottleTable").removeClass("displayNone");
+    }
+
+    if(target.attr("id") == "chkChinese"){
+        if(mdiv.find("[type=checkbox]")[0].checked == true){
+            isChinese = 1;
+            ttDataClear(0);
+            svtDivCreate();
+            myTable2();
+        }else {
+            isChinese = 0;
+            ttDataClear(0);
+            svtDivCreate();
+            myTable2();
+        }
+    }
 });
 
 //隱藏素材表，並縮小化英靈圖
@@ -360,9 +386,12 @@ function mySelectSvt(idNo,spanId,selectName,number){
         i +
         "\">" +
         "No." +
-        (i + 1) + " " +
-        svtData[i].svtName +
-        "</option>" + "<br>";
+        (i + 1) + " ";
+        if(isChinese)
+            out += svtChineseData[i].name;
+        else
+            out += svtData[i].svtName;
+        out += "</option>" + "<br>";
     }
     out += "</select>";
     $("#"+spanId).html(out);

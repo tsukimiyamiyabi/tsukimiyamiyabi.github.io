@@ -2,6 +2,7 @@ html, body {
   height: 100%;
   margin: 5px;
   padding: 0;
+  min-width: 900px;
 }
 
 h1 {
