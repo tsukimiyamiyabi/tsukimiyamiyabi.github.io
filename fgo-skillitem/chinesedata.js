@@ -409,5 +409,14 @@ var svtChineseData = [
   },
   {
     "name": "克洛伊・馮・愛因茲貝倫"
+  },
+  {
+    "name": "伊莉莎白・巴托里〔Brave〕"
+  },
+  {
+    "name": "克麗奧佩脫拉"
+  },
+  {
+    "name": "弗拉德三世〔EXTRA〕"
   }
 ];
