@@ -418,5 +418,11 @@ var svtChineseData = [
   },
   {
     "name": "弗拉德三世〔EXTRA〕"
+  },
+  {
+    "name": "貞德〔聖誕AlterLily〕"
+  },
+  {
+    "name": "伊絲塔"
   }
 ];
