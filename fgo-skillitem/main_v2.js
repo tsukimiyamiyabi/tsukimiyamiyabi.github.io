@@ -46,6 +46,13 @@ $("#searchItemImgDiv").click(function(e){
     }
 });
 
+function itemClick(e) {
+    var id = +$(e.target).data("itemno");
+    $("#searchItemImgDiv img").addClass("whiteCover");
+    $("#searchItemImgDiv img").eq(id - 1).removeClass("whiteCover");
+    itemDivCreate(id - 1);
+    $("#tabs").tabs({active: 1});
+}
 
 //搜尋素材編號選單產生
 function mySelectItem(){
@@ -525,6 +532,10 @@ function selectchgMin(svtNo){
 
 }
 
+function buildSImage(id, title) {
+    return "<img style='width: " + maxImgWidth + "px' src='images/S_" + id + ".png' title='" + title + "' onclick='itemClick(event)' data-itemno='" + id + "'>";
+}
+
 //英靈素材資訊表格產生
 function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
     var i = 0, j = 0, t = 0;
@@ -610,11 +621,11 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
             for(i = min - 1; i < max - 1; i++){
                 out += "<td>";
                 if(svtData[svtNo].skillLevel[i].skillItem.length > j){
-                    out += "<img style='width:" + maxImgWidth +"px' src =\"./images/S_" +
-                    svtData[svtNo].skillLevel[i].skillItem[j].image +
-                    ".png\" title='" +
-                    svtData[svtNo].skillLevel[i].skillItem[j].name +
-                    "'> <br> x " +
+                    out += buildSImage(
+                        svtData[svtNo].skillLevel[i].skillItem[j].image,
+                        svtData[svtNo].skillLevel[i].skillItem[j].name
+                    ) +
+                    " <br> x " +
                     svtData[svtNo].skillLevel[i].skillItem[j].number;
 
                     //盪具數存入ttData陣列
@@ -704,9 +715,8 @@ function _myTable2(ttData, itemKindMAx) {
             out+="<tr>";
         }
         out += "<td>"
-        out += "<img style='width:" + maxImgWidth +"px' src =\"./images/S_";
-        out += i;
-        out += ".png\"> <br> x " ;
+        out += buildSImage(i, "");
+        out += " <br> x " ;
         out += ttData[0][i];
         out += "</td>";
 
