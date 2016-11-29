@@ -99,7 +99,7 @@ function itemDivCreate(itemNo){
         }
 
         if(targetSvtNo!=-1){
-            var newItemSvtDiv = $(itemSvt_templet).clone();
+            var newItemSvtDiv = $("#itemSvt_templet").clone();
             newItemSvtDiv.attr("id","itemSvt_" + countSvt);
             newItemSvtDiv.find("div").attr("id","dataTalbe" + countSvt);
             newItemSvtDiv.find("img").attr("id","img_itemSvtNo_" + (countSvt-100));
@@ -116,7 +116,7 @@ function itemDivCreate(itemNo){
 
 //英靈最大數量改變
 function itemSlectNoChange() {
-    itemSlectNo = $("#searchItemSlect").val();
+    var itemSlectNo = $("#searchItemSlect").val();
     itemDivCreate(itemSlectNo);
 }
 
@@ -233,7 +233,7 @@ function tbMaxChange() {
 function svtDivCreate(){
     $("#_leftSide").html("");
     for(var i = 1; i <= tbMax ; i++){
-        var newSvtDiv = $(svt_templet).clone();
+        var newSvtDiv = $("#svt_templet").clone();
         newSvtDiv.attr("id","svt_" + i);
         newSvtDiv.attr("data-number", i);
         newSvtDiv.find("span").eq(0).attr("id","svt_" + i + "_spanClass");
@@ -268,15 +268,16 @@ function svtDivCreate(){
 
 //素材總計陣列初始化
 function ttDataClear(tableNo) {
+    var i, j;
     if(tableNo == 0){  //0, 全部清出
-        for(var j = 0; j < (tbMax * 3 + 1); j++){
+        for(j = 0; j < (tbMax * 3 + 1); j++){
             ttData[j] = [];
-            for(var i = 0; i < itemKindMAx + 1; i++){
+            for(i = 0; i < itemKindMAx + 1; i++){
                 ttData[j][i] = 0;
             }
         }
     }else{    //清除第N個表格的資料
-        for(var i = 0; i < itemKindMAx + 1; i++){
+        for(i = 0; i < itemKindMAx + 1; i++){
             ttData[parseInt(tableNo)][i] = 0;
         }
     }
@@ -295,7 +296,6 @@ function countItemAll() {
 
 //英靈職階選單產生
 function mySelectSvtClass(noId,spanId,selectName){
-    var i = 0;
     var out = "<select id=";
     out += selectName +
     " style=\"width: 100px; font-size: 12px;\"" +
@@ -643,7 +643,7 @@ function myTable2() {
         var as = getAscension(this);
         if (!as) return;
         
-        as.forEach(o => {
+        as.forEach(function(o){
             for (var key in o) {
                 if (!sum[key]) sum[key] = 0;
                 sum[key] += o[key];
@@ -659,9 +659,6 @@ function myTable2() {
         if (!clonedTable[0][id]) clonedTable[0][id] = 0;
         clonedTable[0][id] += sum[key];
     }
-    
-    console.log(ttData);
-    console.log(clonedTable);
     
     _myTable2(clonedTable, Object.keys(itemImage).length);
 }
@@ -680,7 +677,7 @@ function getAscension(el) {
 
 //右邊總計表格產生
 function _myTable2(ttData, itemKindMAx) {
-    var i = 0, j = 0;
+    var i = 0;
     var itemCount = 0;
     var qpString = 0;
     var out = "<table>";
@@ -699,7 +696,7 @@ function _myTable2(ttData, itemKindMAx) {
 
         if (ttData[0][i] < 1 || ttData[0][i] == undefined){
             continue;
-        };
+        }
 
         itemCount++;
 
@@ -749,21 +746,21 @@ function updateAscensionTable(el) {
     if (!as) return;
     
     // count max rows
-    var maxRow = as.reduce((m, o) => {
+    var maxRow = as.reduce(function(m, o){
             var l = Object.keys(o).length;
             return l > m ? l : m;
         }, 0),
         rows = [],
         min = $int(root, ".asc-min"),
-        max = $int(root, ".asc-max");
+        max = $int(root, ".asc-max"),
+        i;
         
-    for (var i = 0; i < maxRow; i++) {
+    for (i = 0; i < maxRow; i++) {
         rows.push("<tr>");
     }
     
-    var item;
-    as.forEach(o => {
-        var i = 0;
+    as.forEach(function(o){
+        var i = 0, key;
         for (key in o) {
             var imageId = itemImage[key] || key;
             rows[i] += "<td><img src='images/S_" + imageId + ".png' title='" + key + "'><br>x " + formatNumber(o[key]) + "</td>";
@@ -774,13 +771,13 @@ function updateAscensionTable(el) {
         }
     });
         
-    for (var i = 0; i < maxRow; i++) {
+    for (i = 0; i < maxRow; i++) {
         rows[i] += "</tr>";
     }
     
     // header
     var out = "<tr>";
-    for (var i = min; i < max; i++) {
+    for (i = min; i < max; i++) {
         out += "<td>靈基 " + i + " → " + (i + 1) + "</td>";
     }
     out += "</tr>";
@@ -793,14 +790,14 @@ function updateAscensionMax(e) {
         min = $int(root, ".asc-min"),
         maxFirst = $int(root, ".asc-max option:first-child");
         
-    var out = "";
+    var out = "", i;
     if (maxFirst == null) {
-        for (var i = min; i <= 4; i++) {
+        for (i = min; i <= 4; i++) {
             out += "<option value='" + i + "'>" + i + "</option>";
         }
         root.find(".asc-max").html(out);
     } else if (min < maxFirst) {
-        for (var i = min; i < maxFirst; i++) {
+        for (i = min; i < maxFirst; i++) {
             out += "<option value='" + i + "'>" + i + "</option>";
         }
         root.find(".asc-max").prepend(out);
