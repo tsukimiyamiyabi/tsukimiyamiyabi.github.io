@@ -468,6 +468,7 @@ function mySelectSlvMax(spanId,selectName,slvMin,selchgName){
     "<option value =\"10\">請選擇</option>";
 
     for(i = slvMin; i < 10; i++){
+        if (i < 0) continue;
         out +=   "<option value =\"" +
         (i + 1) +
         "\">" +
