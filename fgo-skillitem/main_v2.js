@@ -52,6 +52,7 @@ function itemClick(e) {
         
     if (!item.length) return;
     
+    targetItemNo = id;
     $("#searchItemImgDiv img").addClass("whiteCover");
     item.removeClass("whiteCover");
     itemDivCreate(id - 1);
