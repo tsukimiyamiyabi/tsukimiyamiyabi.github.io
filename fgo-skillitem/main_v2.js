@@ -257,13 +257,18 @@ function tbMaxChange() {
     tbMax = $("#maxSvtNum").val();
     ttDataClear(0);
     svtDivCreate();
-    myTable2();
+    selectchg(0);
 }
 
 //左邊區塊初始化
 function svtDivCreate(){
-    $("#_leftSide").html("");
-    for(var i = 1; i <= tbMax ; i++){
+    var currentCount = $("#_leftSide").children().length;
+
+    if (currentCount > tbMax) {
+        $("#_leftSide").children().slice(tbMax).remove();
+    }
+    
+    for(var i = currentCount + 1; i <= tbMax ; i++){
         var newSvtDiv = $("#svt_templet").clone();
         newSvtDiv.attr("id","svt_" + i);
         newSvtDiv.attr("data-number", i);
