@@ -802,7 +802,7 @@ function updateAscensionTable(el) {
         var i = 0, key;
         for (key in o) {
             var imageId = itemImage[key] || key;
-            rows[i] += "<td><img src='images/S_" + imageId + ".png' title='" + key + "'><br>x " + formatNumber(o[key]) + "</td>";
+            rows[i] += "<td>" + buildSImage(imageId, key) + "<br>x " + formatNumber(o[key]) + "</td>";
             i++;
         }
         for (; i < maxRow; i++) {
