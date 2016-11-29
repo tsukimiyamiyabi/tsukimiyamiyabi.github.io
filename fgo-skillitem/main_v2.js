@@ -566,8 +566,8 @@ function selectchgMin(svtNo){
 
 }
 
-function buildSImage(id, title) {
-    return "<img style='width: " + maxImgWidth + "px' src='images/S_" + id + ".png' title='" + title + "' onclick='itemClick(event)' data-itemno='" + id + "'>";
+function buildSImage(id, title, noclick) {
+    return "<img style='width: " + maxImgWidth + "px' src='images/S_" + id + ".png' title='" + title + "'" + (noclick ? "" : " onclick='itemClick(event)'") + " data-itemno='" + id + "'>";
 }
 
 //英靈素材資訊表格產生
@@ -749,7 +749,7 @@ function _myTable2(ttData, itemKindMAx) {
             out+="<tr>";
         }
         out += "<td>"
-        out += buildSImage(i, "");
+        out += buildSImage(i, "", true);
         out += " <br> x " ;
         out += ttData[0][i];
         out += "</td>";
