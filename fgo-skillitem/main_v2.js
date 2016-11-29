@@ -262,6 +262,7 @@ function svtDivCreate(){
         mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
         mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
         myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0,0);
+        updateAscensionTable(newSvtDiv);
     }
 }
 
@@ -323,7 +324,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
     var out = "<select id=";
     out += selectName +
     " style=\"width: 200px; font-size: 12px;\"" +
-    " onChange = \"selectchg(" + idNo +")\">" + "<br>" +
+    " onChange = \"selectchg(" + idNo +")\" class='select-svt-id'>" + "<br>" +
     "<option value =\"-1\">請選擇</option>";
 
     for(i = 0; i < number; i++){
@@ -466,6 +467,7 @@ function selectchg(type){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type 
             $("#img_skillNo" + i + "_3").attr("data-max","0");
             mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
             mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
+            updateAscensionTable($("#svt_" + i));
         }
 
         //將最小技能設為"請選擇"
@@ -631,8 +633,53 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
     //document.getElementById(tableName).innerHTML = out;
 }
 
-//右邊總計表格產生
+// inject ascension data into summary table before rendering
 function myTable2() {
+    var clonedTable = JSON.parse(JSON.stringify(ttData));
+    
+    var sum = {};
+    // get all items from all servants
+    $("#_leftSide .svt-panel").each(function(){
+        var as = getAscension(this);
+        if (!as) return;
+        
+        as.forEach(o => {
+            for (var key in o) {
+                if (!sum[key]) sum[key] = 0;
+                sum[key] += o[key];
+            }
+        });
+    });
+    
+    clonedTable[0][0] += sum.QP || 0;
+    for (var key in sum) {
+        var id = itemImage[key];
+        if (!id) continue;
+        
+        if (!clonedTable[0][id]) clonedTable[0][id] = 0;
+        clonedTable[0][id] += sum[key];
+    }
+    
+    console.log(ttData);
+    console.log(clonedTable);
+    
+    _myTable2(clonedTable, Object.keys(itemImage).length);
+}
+
+function getAscension(el) {
+    var root = $root(el, ".svt-panel"),
+        min = $int(root, ".asc-min"),
+        max = $int(root, ".asc-max"),
+        svid = $int(root, ".select-svt-id");
+        
+    if (svid <= 0) return;
+    if (!ascension[svid + 1]) return;
+    
+    return ascension[svid + 1].ascension.slice(min, max);
+}
+
+//右邊總計表格產生
+function _myTable2(ttData, itemKindMAx) {
     var i = 0, j = 0;
     var itemCount = 0;
     var qpString = 0;
@@ -650,7 +697,7 @@ function myTable2() {
 
     for(i = 1; i < itemKindMAx + 1; i++){
 
-        if (ttData[0][i] < 1){
+        if (ttData[0][i] < 1 || ttData[0][i] == undefined){
             continue;
         };
 
@@ -686,5 +733,98 @@ function thousandComma(number) {
         num = num.replace(pattern, "$1,$2");
     }
     return num;
+}
 
+function updateAscensionTable(el) {
+    var root = $root(el, ".svt-panel");
+        
+    updateAscensionMax(root);
+    
+    // render table
+    var table = root.find(".ascension-table tbody"),
+        as = getAscension(root);
+        
+    table.empty();
+    
+    if (!as) return;
+    
+    // count max rows
+    var maxRow = as.reduce((m, o) => {
+            var l = Object.keys(o).length;
+            return l > m ? l : m;
+        }, 0),
+        rows = [],
+        min = $int(root, ".asc-min"),
+        max = $int(root, ".asc-max");
+        
+    for (var i = 0; i < maxRow; i++) {
+        rows.push("<tr>");
+    }
+    
+    var item;
+    as.forEach(o => {
+        var i = 0;
+        for (key in o) {
+            var imageId = itemImage[key] || key;
+            rows[i] += "<td><img src='images/S_" + imageId + ".png' title='" + key + "'><br>x " + formatNumber(o[key]) + "</td>";
+            i++;
+        }
+        for (; i < maxRow; i++) {
+            rows[i] += "<td></td>";
+        }
+    });
+        
+    for (var i = 0; i < maxRow; i++) {
+        rows[i] += "</tr>";
+    }
+    
+    // header
+    var out = "<tr>";
+    for (var i = min; i < max; i++) {
+        out += "<td>靈基 " + i + " → " + (i + 1) + "</td>";
+    }
+    out += "</tr>";
+    
+    table.html(out + rows.join(""));
+}
+
+function updateAscensionMax(e) {
+    var root = $root(e, ".svt-panel"),
+        min = $int(root, ".asc-min"),
+        maxFirst = $int(root, ".asc-max option:first-child");
+        
+    var out = "";
+    if (maxFirst == null) {
+        for (var i = min; i <= 4; i++) {
+            out += "<option value='" + i + "'>" + i + "</option>";
+        }
+        root.find(".asc-max").html(out);
+    } else if (min < maxFirst) {
+        for (var i = min; i < maxFirst; i++) {
+            out += "<option value='" + i + "'>" + i + "</option>";
+        }
+        root.find(".asc-max").prepend(out);
+    } else if (min > maxFirst) {
+        root.find(".asc-max option:lt(" + (min - maxFirst) + ")").remove();
+    }
+}
+
+function $root(el, sel) {
+    if (el instanceof Event) {
+        el = $(el.target);
+    } else {
+        el = $(el);
+    }
+    return el.closest(sel);
+}
+
+function $int(el, sel) {
+    var val = el.find(sel).val();
+    if (val == null) return null;
+    return +val;
+}
+
+function formatNumber(n) {
+    if (n < 1000) return n;
+    return thousandComma(Math.floor(n / 1000)) + " k";
 }

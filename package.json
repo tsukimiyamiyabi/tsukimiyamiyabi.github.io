@@ -1,0 +1,14 @@
+{
+  "name": "tsukimiyamiyabi.github.io",
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsukimiyamiyabi/tsukimiyamiyabi.github.io.git"
+  },
+  "homepage": "https://github.com/tsukimiyamiyabi/tsukimiyamiyabi.github.io#readme",
+  "devDependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.79.0"
+  }
+}
