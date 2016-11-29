@@ -54,6 +54,28 @@ function itemClick(e) {
     $("#tabs").tabs({active: 1});
 }
 
+function servantClick(e) {
+    var id = +$(e.target).data("svtno"),
+        emptySlot = $("#_leftSide .select-svt-id").filter(function(){
+            return $(this).val() == null || +$(this).val() < 0;
+        }).first();
+        
+    if (!emptySlot.length) {
+        var l = $("#_leftSide").children().length;
+        if (l >= 10) {
+            return;
+        }
+        $("#maxSvtNum").val(l + 1);
+        tbMaxChange();
+        emptySlot = $("#_leftSide .select-svt-id").last();
+    }
+    
+    var pid = +emptySlot.closest(".svt-panel").data("number");
+    emptySlot.val(id - 1);
+    selectchg(pid);
+    $("#tabs").tabs({active: 0});
+}
+
 //搜尋素材編號選單產生
 function mySelectItem(){
     var i = 0;
@@ -117,6 +139,8 @@ function itemDivCreate(itemNo){
             $("#img_itemSvtNo_" + (countSvt-100)).attr("title", "No." + (targetSvtNo+1) + " " + svtData[targetSvtNo].svtName);
             $("#img_itemSvtNo_" + (countSvt-100)).removeClass("displayNone");
             $("#img_itemSvtNo_" + (countSvt-100)).attr("style","margin-left: 20px");
+            $("#img_itemSvtNo_" + (countSvt-100)).data("svtno", targetSvtNo + 1);
+            $("#img_itemSvtNo_" + (countSvt-100)).on("click", servantClick);
         }
     }
 }
