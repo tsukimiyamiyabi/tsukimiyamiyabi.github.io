@@ -47,9 +47,13 @@ $("#searchItemImgDiv").click(function(e){
 });
 
 function itemClick(e) {
-    var id = +$(e.target).data("itemno");
+    var id = +$(e.target).data("itemno"),
+        item = $("#searchItemImgDiv img").eq(id - 1);
+        
+    if (!item.length) return;
+    
     $("#searchItemImgDiv img").addClass("whiteCover");
-    $("#searchItemImgDiv img").eq(id - 1).removeClass("whiteCover");
+    item.removeClass("whiteCover");
     itemDivCreate(id - 1);
     $("#tabs").tabs({active: 1});
 }
