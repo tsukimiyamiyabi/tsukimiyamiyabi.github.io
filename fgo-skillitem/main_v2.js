@@ -179,13 +179,14 @@ $(function() {
 //  $( "input" ).checkboxradio({ icon: false  });
 });
 
+function resetAllTable() {
+    ttDataClear(0);
+    svtDivCreate(true);
+    myTable2();
+}
 
 //清除按鈕
-$("#clear").click(function(e){
-    ttDataClear(0);
-    svtDivCreate();
-    myTable2();
-});
+$("#clear").click(resetAllTable);
 
 //總數量table隱藏 & 中文化
 $("#top_div").click(function(e){
@@ -200,15 +201,10 @@ $("#top_div").click(function(e){
     if(target.attr("id") == "chkChinese"){
         if(mdiv.find("[type=checkbox]")[0].checked == true){
             isChinese = 1;
-            ttDataClear(0);
-            svtDivCreate();
-            myTable2();
         }else {
             isChinese = 0;
-            ttDataClear(0);
-            svtDivCreate();
-            myTable2();
         }
+        resetAllTable();
     }
 });
 
@@ -281,11 +277,17 @@ function tbMaxChange() {
 }
 
 //左邊區塊初始化
-function svtDivCreate(){
-    var currentCount = $("#_leftSide").children().length;
-
-    if (currentCount > tbMax) {
-        $("#_leftSide").children().slice(tbMax).remove();
+function svtDivCreate(clear){
+    var currentCount;
+    
+    if (clear) {
+        $("#_leftSide").empty();
+        currentCount = 0;
+    } else {
+        currentCount = $("#_leftSide").children().length;
+        if (currentCount > tbMax) {
+            $("#_leftSide").children().slice(tbMax).remove();
+        }
     }
     
     for(var i = currentCount + 1; i <= tbMax ; i++){
