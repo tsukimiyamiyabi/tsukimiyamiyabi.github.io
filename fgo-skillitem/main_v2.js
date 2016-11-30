@@ -132,9 +132,9 @@ function itemDivCreate(itemNo){
             }
         }
         var ascs = [];
-        if (ascension[i]) {
-            for (j = 0; j < ascension[i].ascension.length; j++) {
-                var asc = ascension[i].ascension[j];
+        if (ascension[i + 1]) {
+            for (j = 0; j < ascension[i + 1].ascension.length; j++) {
+                var asc = ascension[i + 1].ascension[j];
                 for (var key in asc) {
                     if (itemImage[key] == +itemNo + 1) {
                         ascs.push([j, asc]);
