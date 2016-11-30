@@ -158,7 +158,6 @@ function itemDivCreate(itemNo){
             $("#img_itemSvtNo_" + (countSvt-100)).attr("src","./images/svtNo_" + (targetSvtNo+1)  + ".png");
             $("#img_itemSvtNo_" + (countSvt-100)).attr("title", "No." + (targetSvtNo+1) + " " + svtData[targetSvtNo].svtName);
             $("#img_itemSvtNo_" + (countSvt-100)).removeClass("displayNone");
-            $("#img_itemSvtNo_" + (countSvt-100)).attr("style","margin-left: 20px");
             $("#img_itemSvtNo_" + (countSvt-100)).data("svtno", targetSvtNo + 1);
             $("#img_itemSvtNo_" + (countSvt-100)).on("click", servantClick);
             newItemSvtDiv.find(".ascension-table tbody").html(buildAscensionTable(ascs));

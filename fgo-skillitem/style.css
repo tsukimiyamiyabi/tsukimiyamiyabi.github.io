@@ -111,3 +111,36 @@ a img{
 .nonFloat{
   float: none;
 }
+
+.table-group {
+	white-space: nowrap;
+	text-align: center;
+}
+
+.table-group > div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.item-search-svt > img {
+	display: block;
+	float: none;
+	margin: 0 auto;
+}
+
+.item-search-svt table {
+	margin-top: 0;
+}
+
+.item-search-svt table td {
+	white-space: nowrap;
+}
+
+#_itemSide {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#_itemSide > div {
+	margin-bottom: 30px;
+}
