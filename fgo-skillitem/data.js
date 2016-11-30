@@ -11615,7 +11615,7 @@ var svtData = [
           {
             "image": 33,
             "name": "鳳凰の羽根",
-            "number": 10
+            "number": 15
           },
           {
             "image": 36,
