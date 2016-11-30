@@ -131,11 +131,26 @@ function itemDivCreate(itemNo){
               }
             }
         }
-
+        var ascs = [];
+        if (ascension[i]) {
+            for (j = 0; j < ascension[i].ascension.length; j++) {
+                var asc = ascension[i].ascension[j];
+                for (var key in asc) {
+                    if (itemImage[key] == +itemNo + 1) {
+                        ascs.push([j, asc]);
+                        break;
+                    }
+                }
+            }
+        }
+        if (targetSvtNo < 0 && ascs.length) {
+            targetSvtNo = i;
+            countSvt++;
+        }
         if(targetSvtNo!=-1){
             var newItemSvtDiv = $("#itemSvt_templet").clone();
             newItemSvtDiv.attr("id","itemSvt_" + countSvt);
-            newItemSvtDiv.find("div").attr("id","dataTalbe" + countSvt);
+            newItemSvtDiv.find(".skill-table").attr("id","dataTalbe" + countSvt);
             newItemSvtDiv.find("img").attr("id","img_itemSvtNo_" + (countSvt-100));
             newItemSvtDiv.removeClass("displayNone");
             $("#_itemSide").append(newItemSvtDiv);
@@ -146,6 +161,7 @@ function itemDivCreate(itemNo){
             $("#img_itemSvtNo_" + (countSvt-100)).attr("style","margin-left: 20px");
             $("#img_itemSvtNo_" + (countSvt-100)).data("svtno", targetSvtNo + 1);
             $("#img_itemSvtNo_" + (countSvt-100)).on("click", servantClick);
+            newItemSvtDiv.find(".ascension-table tbody").html(buildAscensionTable(ascs));
         }
     }
 }
@@ -690,6 +706,7 @@ function myTable2() {
         if (!as) return;
         
         as.forEach(function(o){
+            o = o[1];
             for (var key in o) {
                 if (!sum[key]) sum[key] = 0;
                 sum[key] += o[key];
@@ -718,7 +735,14 @@ function getAscension(el) {
     if (svid <= 0) return;
     if (!ascension[svid + 1]) return;
     
-    return ascension[svid + 1].ascension.slice(min, max);
+    var ascs = [],
+        i;
+        
+    for (i = min; i < max; i++) {
+        ascs.push([i, ascension[svid + 1].ascension[i]]);
+    }
+    
+    return ascs;
 }
 
 //右邊總計表格產生
@@ -777,6 +801,41 @@ function thousandComma(number) {
     return num;
 }
 
+function buildAscensionTable(ascs) {
+    // count max rows
+    var maxRow = ascs.reduce(function(m, asc){
+            var l = Object.keys(asc[1]).length;
+            return l > m ? l : m;
+        }, 0),
+        rows = [],
+        i;
+        
+    for (i = 0; i < maxRow + 1; i++) {
+        rows.push("<tr>");
+    }
+    
+    ascs.forEach(function(o){
+        var i, key;
+        rows[0] += "<td>靈基 " + o[0] + " → " + (o[0] + 1) + "</td>";
+        
+        i = 1
+        for (key in o[1]) {
+            var imageId = itemImage[key] || key;
+            rows[i] += "<td>" + buildSImage(imageId, key) + "<br>x " + formatNumber(o[1][key]) + "</td>";
+            i++;
+        }
+        for (; i < maxRow + 1; i++) {
+            rows[i] += "<td></td>";
+        }
+    });
+        
+    for (i = 0; i < maxRow; i++) {
+        rows[i] += "</tr>";
+    }
+    
+    return rows.join("");
+}
+
 function updateAscensionTable(el) {
     var root = $root(el, ".svt-panel");
         
@@ -790,44 +849,7 @@ function updateAscensionTable(el) {
     
     if (!as) return;
     
-    // count max rows
-    var maxRow = as.reduce(function(m, o){
-            var l = Object.keys(o).length;
-            return l > m ? l : m;
-        }, 0),
-        rows = [],
-        min = $int(root, ".asc-min"),
-        max = $int(root, ".asc-max"),
-        i;
-        
-    for (i = 0; i < maxRow; i++) {
-        rows.push("<tr>");
-    }
-    
-    as.forEach(function(o){
-        var i = 0, key;
-        for (key in o) {
-            var imageId = itemImage[key] || key;
-            rows[i] += "<td>" + buildSImage(imageId, key) + "<br>x " + formatNumber(o[key]) + "</td>";
-            i++;
-        }
-        for (; i < maxRow; i++) {
-            rows[i] += "<td></td>";
-        }
-    });
-        
-    for (i = 0; i < maxRow; i++) {
-        rows[i] += "</tr>";
-    }
-    
-    // header
-    var out = "<tr>";
-    for (i = min; i < max; i++) {
-        out += "<td>靈基 " + i + " → " + (i + 1) + "</td>";
-    }
-    out += "</tr>";
-    
-    table.html(out + rows.join(""));
+    table.html(buildAscensionTable(as));
 }
 
 function updateAscensionMax(e) {
