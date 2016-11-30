@@ -112,6 +112,14 @@ a img{
   float: none;
 }
 
+.svt-panel {
+	margin-bottom: 15px;
+}
+
+.svt-panel .ascension-table label {
+	font-size: 12px;
+}
+
 .table-group {
 	white-space: nowrap;
 	text-align: center;

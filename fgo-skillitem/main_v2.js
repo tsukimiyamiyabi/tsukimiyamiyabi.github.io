@@ -296,7 +296,7 @@ function svtDivCreate(){
         newSvtDiv.find("span").eq(1).attr("id","svt_" + i + "_span_1");
         newSvtDiv.find("span").eq(3).attr("id","svt_" + i + "_span_2");
         newSvtDiv.find("span").eq(5).attr("id","svt_" + i + "_span_3");
-        newSvtDiv.find("div").attr("id","dataTalbe" + i);
+        newSvtDiv.find(".skill-table").attr("id","dataTalbe" + i);
         newSvtDiv.find("img").eq(0).attr("id","img_skillNo" + i + "_1");
         newSvtDiv.find("img").eq(1).attr("id","img_skillNo" + i + "_2");
         newSvtDiv.find("img").eq(2).attr("id","img_skillNo" + i + "_3");
