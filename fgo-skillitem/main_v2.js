@@ -84,21 +84,16 @@ function servantClick(e) {
 //搜尋素材編號選單產生
 function mySelectItem(){
     var i = 0;
-    var out = "<select id=";
-    out += "searchItemSlect" +
-    " style=\"width: 250px; font-size: 12px;\"" +
-    " onChange = \"itemSlectNoChange()\">" + "<br>" +
-    "<option value =\"-1\">請選擇</option>";
+    var out = "<option value =\"-1\">請選擇</option>";
 
     for(i = 0; i < itemKindMAx; i++){
         out +=   "<option value =\"" +
         i +
         "\">" +
         itemData[i].name +
-        "</option>" + "<br>";
+        "</option>";
     }
-    out += "</select>";
-    $("#searchItemDiv").html(out);
+    $("#searchItemSlect").html(out);
 }
 
 //素材搜尋區塊初始化
@@ -108,6 +103,11 @@ function itemDivCreate(itemNo){
     var minSLV = 0;
     var targetSvtNo = -1;
     $("#_itemSide").html("");
+    
+    var searchSkill = $("#searchSkill").prop("checked"),
+        searchAscension = $("#searchAscension").prop("checked");
+        
+    if (!searchSkill && !searchAscension) return;
 
     //console.log(itemNo);
     for(var i = 0; i < svtData.length ; i++){
@@ -115,24 +115,26 @@ function itemDivCreate(itemNo){
         maxSLV = 0;
         minSLV = 0;
         targetSvtNo = -1;
-        for(var j = 0; j < 9; j++){
-            for(var k = 0; k < svtData[i].skillLevel[j].skillItem.length; k++){
-              if(svtData[i].skillLevel[j].skillItem[k].image == (parseInt(itemNo) + 1)){
-                if(minSLV == 0){
-                  minSLV = j + 1;
-                  maxSLV = j + 2;
-                  targetSvtNo = i;
-                  countSvt++;
-                }else {
-                  if(j+1 >= maxSLV){
-                    maxSLV = j + 2;
+        if (searchSkill) {
+            for(var j = 0; j < 9; j++){
+                for(var k = 0; k < svtData[i].skillLevel[j].skillItem.length; k++){
+                  if(svtData[i].skillLevel[j].skillItem[k].image == (parseInt(itemNo) + 1)){
+                    if(minSLV == 0){
+                      minSLV = j + 1;
+                      maxSLV = j + 2;
+                      targetSvtNo = i;
+                      countSvt++;
+                    }else {
+                      if(j+1 >= maxSLV){
+                        maxSLV = j + 2;
+                      }
+                    }
                   }
                 }
-              }
             }
         }
         var ascs = [];
-        if (ascension[i + 1]) {
+        if (searchAscension && ascension[i + 1]) {
             for (j = 0; j < ascension[i + 1].ascension.length; j++) {
                 var asc = ascension[i + 1].ascension[j];
                 for (var key in asc) {
