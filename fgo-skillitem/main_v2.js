@@ -400,7 +400,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "1":
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 92 || i == 134)
+            if(i == 58 || i == 92 || i == 134) //Ruler 秤
                 continueFlag = 1;
             break;
           case "2":
@@ -428,11 +428,11 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "8":
-            if(i != 58 && i != 92 &&i != 134)
+            if(i != 58 && i != 92 &&i != 134 ) //Ruler 秤
                 continueFlag = 1;
             break;
           case "9":
-            if(i != 95 && i != 105 &&i != 106)
+            if(i != 95 && i != 105 && i != 106 && i != 146)  //Avenger 讐
                 continueFlag = 1;
             break;
           default:
