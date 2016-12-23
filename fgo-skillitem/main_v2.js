@@ -1,6 +1,6 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
-var itemKindMAx = 47;    //目前素材種類數
+var itemKindMAx = 50;    //目前素材種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
 var isChinese = 0;
@@ -49,9 +49,9 @@ $("#searchItemImgDiv").click(function(e){
 function itemClick(e) {
     var id = +$(e.target).data("itemno"),
         item = $("#searchItemImgDiv img").eq(id - 1);
-        
+
     if (!item.length) return;
-    
+
     targetItemNo = id;
     $("#searchItemImgDiv img").addClass("whiteCover");
     item.removeClass("whiteCover");
@@ -64,7 +64,7 @@ function servantClick(e) {
         emptySlot = $("#_leftSide .select-svt-id").filter(function(){
             return $(this).val() == null || +$(this).val() < 0;
         }).first();
-        
+
     if (!emptySlot.length) {
         var l = $("#_leftSide").children().length;
         if (l >= 10) {
@@ -74,7 +74,7 @@ function servantClick(e) {
         tbMaxChange();
         emptySlot = $("#_leftSide .select-svt-id").last();
     }
-    
+
     var pid = +emptySlot.closest(".svt-panel").data("number");
     emptySlot.val(id - 1);
     selectchg(pid);
@@ -103,15 +103,15 @@ function itemDivCreate(itemNo){
     var minSLV = 0;
     var targetSvtNo = -1;
     $("#_itemSide").html("");
-    
+
     var searchSkill = $("#searchSkill").prop("checked"),
         searchAscension = $("#searchAscension").prop("checked");
-        
+
     if (!searchSkill && !searchAscension) return;
 
     //console.log(itemNo);
     for(var i = 0; i < svtData.length ; i++){
-        if(i == 82) continue;
+        if(i == 82 || i == 148) continue;
         maxSLV = 0;
         minSLV = 0;
         targetSvtNo = -1;
@@ -281,7 +281,7 @@ function tbMaxChange() {
 //左邊區塊初始化
 function svtDivCreate(clear){
     var currentCount;
-    
+
     if (clear) {
         $("#_leftSide").empty();
         currentCount = 0;
@@ -291,7 +291,7 @@ function svtDivCreate(clear){
             $("#_leftSide").children().slice(tbMax).remove();
         }
     }
-    
+
     for(var i = currentCount + 1; i <= tbMax ; i++){
         var newSvtDiv = $("#svt_templet").clone();
         newSvtDiv.attr("id","svt_" + i);
@@ -389,7 +389,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
 
     for(i = 0; i < number; i++){
         continueFlag = 0;
-        if(i==82)
+        if(i==82 || i == 148)
             continue;
 
         switch (svtClass) {
@@ -701,13 +701,13 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
 // inject ascension data into summary table before rendering
 function myTable2() {
     var clonedTable = JSON.parse(JSON.stringify(ttData));
-    
+
     var sum = {};
     // get all items from all servants
     $("#_leftSide .svt-panel").each(function(){
         var as = getAscension(this);
         if (!as) return;
-        
+
         as.forEach(function(o){
             o = o[1];
             for (var key in o) {
@@ -716,16 +716,16 @@ function myTable2() {
             }
         });
     });
-    
+
     clonedTable[0][0] += sum.QP || 0;
     for (var key in sum) {
         var id = itemImage[key];
         if (!id) continue;
-        
+
         if (!clonedTable[0][id]) clonedTable[0][id] = 0;
         clonedTable[0][id] += sum[key];
     }
-    
+
     _myTable2(clonedTable, Object.keys(itemImage).length);
 }
 
@@ -734,17 +734,17 @@ function getAscension(el) {
         min = $int(root, ".asc-min"),
         max = $int(root, ".asc-max"),
         svid = $int(root, ".select-svt-id");
-        
+
     if (svid <= 0) return;
     if (!ascension[svid + 1]) return;
-    
+
     var ascs = [],
         i;
-        
+
     for (i = min; i < max; i++) {
         ascs.push([i, ascension[svid + 1].ascension[i]]);
     }
-    
+
     return ascs;
 }
 
@@ -812,15 +812,15 @@ function buildAscensionTable(ascs) {
         }, 0),
         rows = [],
         i;
-        
+
     for (i = 0; i < maxRow + 1; i++) {
         rows.push("<tr>");
     }
-    
+
     ascs.forEach(function(o){
         var i, key;
         rows[0] += "<td>靈基 " + o[0] + " → " + (o[0] + 1) + "</td>";
-        
+
         i = 1
         for (key in o[1]) {
             var imageId = itemImage[key] || key;
@@ -831,27 +831,27 @@ function buildAscensionTable(ascs) {
             rows[i] += "<td></td>";
         }
     });
-        
+
     for (i = 0; i < maxRow; i++) {
         rows[i] += "</tr>";
     }
-    
+
     return rows.join("");
 }
 
 function updateAscensionTable(el) {
     var root = $root(el, ".svt-panel");
-        
+
     updateAscensionMax(root);
-    
+
     // render table
     var table = root.find(".ascension-table tbody"),
         as = getAscension(root);
-        
+
     table.empty();
-    
+
     if (!as) return;
-    
+
     table.html(buildAscensionTable(as));
 }
 
@@ -859,7 +859,7 @@ function updateAscensionMax(e) {
     var root = $root(e, ".svt-panel"),
         min = $int(root, ".asc-min"),
         maxFirst = $int(root, ".asc-max option:first-child");
-        
+
     var out = "", i;
     if (maxFirst == null) {
         for (i = min; i <= 4; i++) {
