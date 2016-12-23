@@ -54,7 +54,7 @@
                   <label for="chkItemHide" style="position:relative; left:120px;">總和隱藏</label>
                 </div>
 
-                <div id="svt_templet" class="displayNone" data-number="" data-skillNow ="1">
+                <div id="svt_templet" class="displayNone svt-panel" data-number="" data-skillNow ="1">
                     <span id = ""></span>
                     <span id = ""></span>
                     <img id = "" class="displayNone" src="" title="" style="width:16px" data-min="-1" data-max="10">
@@ -69,7 +69,27 @@
                         <label for="chkHide">隱藏</label>
                     </span><br>
                     <img id ="" class="displayNone imgFloat" src="" title="">
-                    <div style="width: 100%; margin-bottom:15px;" id = ""></div>
+                    <div style="width: 100%; margin-bottom:15px;" id = "" class="skill-table"></div>
+                    <div class="ascension-table">
+                      <label>
+                        現在靈基︰
+                        <select class="asc-min" onchange="updateAscensionTable(event), myTable2()">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                        </select>
+                      </label>
+                      <label>
+                        目標靈基︰
+                        <select class="asc-max" onchange="updateAscensionTable(event), myTable2()"></select>
+                      </label>
+                      <table>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </div>
                 </div>
 
                 <div id="_leftSide" style="width: 80%; float:left">
@@ -82,14 +102,30 @@
           </div>
           <div id="tabs-2">
             <div id = "searchItemDiv" style = "margin-bottom:15px">
+              <select id="searchItemSlect" onchange="itemSlectNoChange()"></select>
+              <label>
+                <input type="checkbox" id="searchSkill" checked>
+                技能素材
+              </label>
+              <label>
+                <input type="checkbox" id="searchAscension" checked>
+                靈基素材
+              </label>
             </div>
 
             <div id = "searchItemImgDiv" style = "margin-bottom:30px; max-width:770px;">
             </div>
 
-            <div id="itemSvt_templet" class="displayNone" style = "float: left; margin-right:30px; min-height:420px">
+            <div id="itemSvt_templet" class="displayNone item-search-svt" style = "float: left; margin-right:30px; min-height:420px">
                 <img id ="" class="displayNone imgFloat" src="" >
-                <div style="width: 100%; margin-bottom:15px;" id = ""></div>
+                <div class="table-group">
+                  <div class="skill-table"></div>
+                  <div class="ascension-table">
+                    <table>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
             </div>
             <div id="_itemSide" style="width: 100%; font-size: 15px; ">
             </div>
@@ -113,5 +149,7 @@
 <script src="data.js"></script>
 <script src="chinesedata.js"></script>
 <script src="itemdata.js"></script>
+<script src="data-ascension.js"></script>
+<script src="data-item.js"></script>
 <script src="main_v2.js"></script>
 </html>
