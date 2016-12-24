@@ -23750,8 +23750,8 @@ var svtData = [
         ],
         "skillItem": [
           {
-            "image": 38,
-            "name": "ﾎﾑﾝｸｽﾙﾍﾞﾋﾞｰ",
+            "image": 27,
+            "name": "ﾎﾑﾝｸﾙｽﾍﾞﾋﾞｰ",
             "number": 18
           },
           {
