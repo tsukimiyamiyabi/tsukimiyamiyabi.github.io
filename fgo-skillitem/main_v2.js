@@ -111,7 +111,7 @@ function itemDivCreate(itemNo){
 
     //console.log(itemNo);
     for(var i = 0; i < svtData.length ; i++){
-        if(i == 82 || i == 148) continue;
+        if(i == 82 || i == 148 || i == 150 || i == 151) continue;
         maxSLV = 0;
         minSLV = 0;
         targetSvtNo = -1;
@@ -389,7 +389,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
 
     for(i = 0; i < number; i++){
         continueFlag = 0;
-        if(i==82 || i == 148)
+        if(i==82 || i == 148 || i == 150 || i == 151)
             continue;
 
         switch (svtClass) {

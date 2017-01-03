@@ -1,6 +1,6 @@
 var svtData = [
   {
-    "id": ﻿1,
+    "id": 1,
     "svtName": "マシュ",
     "skillLevel": [
       {
@@ -24895,6 +24895,504 @@ var svtData = [
             "image": 36,
             "name": "蛮神の心臓",
             "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "svtName": "ゲーティア",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 12
+          },
+          {
+            "image": 35,
+            "name": "混沌の爪",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 5
+          },
+          {
+            "image": 35,
+            "name": "混沌の爪",
+            "number": 6
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 12
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 20
+          },
+          {
+            "image": 25,
+            "name": "凶骨",
+            "number": 18
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 25,
+            "name": "凶骨",
+            "number": 54
+          },
+          {
+            "image": 36,
+            "name": "蛮神の心臓",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "svtName": "ソロモン",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 12
+          },
+          {
+            "image": 35,
+            "name": "混沌の爪",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 5
+          },
+          {
+            "image": 35,
+            "name": "混沌の爪",
+            "number": 6
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 12
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 20
+          },
+          {
+            "image": 25,
+            "name": "凶骨",
+            "number": 18
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 25,
+            "name": "凶骨",
+            "number": 54
+          },
+          {
+            "image": 36,
+            "name": "蛮神の心臓",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "svtName": "宮本武蔵",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 12
+          },
+          {
+            "image": 31,
+            "name": "八連双晶",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 5
+          },
+          {
+            "image": 31,
+            "name": "八連双晶",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 12
+          },
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 15
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 29
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 36
+          },
+          {
+            "image": 49,
+            "name": "原初の産毛",
+            "number": 15
           }
         ]
       },
