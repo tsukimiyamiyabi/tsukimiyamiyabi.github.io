@@ -183,14 +183,7 @@ $(function() {
 //  $( "input" ).checkboxradio({ icon: false  });
 });
 
-function resetAllTable() {
-	html2canvas($("#tabs-1"), {
-        onrendered: function(canvas) {
-            // canvas is the final rendered <canvas> element
-            var myImage = canvas.toDataURL("image/png");
-            window.open(myImage);
-        }
-    });
+function resetAllTable() {	
     ttDataClear(0);
     svtDivCreate(true);
     myTable2();
@@ -198,6 +191,16 @@ function resetAllTable() {
 
 //清除按鈕
 $("#clear").click(resetAllTable);
+
+$("#screenShot").click(function() {
+	html2canvas($("#tottleTable"), {
+        onrendered: function(canvas) {
+            // canvas is the final rendered <canvas> element
+            var myImage = canvas.toDataURL("image/png");
+            window.open(myImage);
+        }
+    });
+});
 
 //總數量table隱藏 & 中文化
 $("#top_div").click(function(e){
