@@ -457,5 +457,8 @@ var svtChineseData = [
   },
   {
     "name": "宮本武藏"
+  },
+  {
+    "name": "“山之翁”"
   }
 ];

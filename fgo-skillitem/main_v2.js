@@ -16,6 +16,8 @@ mySerchItemCreate();
   console.log($("#_itemSide").width());
 });*/
 
+
+
 //搜尋素材圖片建立
 function mySerchItemCreate(){
     var out = "";
@@ -182,6 +184,13 @@ $(function() {
 });
 
 function resetAllTable() {
+	html2canvas($("#tabs-1"), {
+        onrendered: function(canvas) {
+            // canvas is the final rendered <canvas> element
+            var myImage = canvas.toDataURL("image/png");
+            window.open(myImage);
+        }
+    });
     ttDataClear(0);
     svtDivCreate(true);
     myTable2();
