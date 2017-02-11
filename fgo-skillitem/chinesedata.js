@@ -460,5 +460,8 @@ var svtChineseData = [
   },
   {
     "name": "“山之翁”"
-  }
+  },
+  {
+    "name": "謎之女主角X〔Alter〕"
+  }  
 ];
