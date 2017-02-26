@@ -463,5 +463,17 @@ var svtChineseData = [
   },
   {
     "name": "謎之女主角X〔Alter〕"
+  },
+  {
+    "name": "詹姆斯・莫里亞蒂"
+  },
+  {
+    "name": "衛宮〔Alter〕"
+  } ,
+  {
+    "name": "海森・羅伯"
+  } ,
+  {
+    "name": "詹姆斯・莫里亞蒂"
   }  
 ];
