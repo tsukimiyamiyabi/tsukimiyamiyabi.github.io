@@ -16617,7 +16617,7 @@ var svtData = [
           {
             "image": 42,
             "name": "黒獣脂",
-            "number": 6
+            "number": 9
           },
           {
             "image": 33,
