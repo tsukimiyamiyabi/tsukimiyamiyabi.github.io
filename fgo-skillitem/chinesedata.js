@@ -475,5 +475,14 @@ var svtChineseData = [
   } ,
   {
     "name": "燕青"
-  }  
+  },
+  {
+    "name": "亞瑟・潘德拉剛〔Prototype〕"
+  } ,
+  {
+    "name": "土方歳三"
+  } ,
+  {
+    "name": "茶茶"
+  } 
 ];

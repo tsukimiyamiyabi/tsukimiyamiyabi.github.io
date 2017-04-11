@@ -1,7 +1,7 @@
 var svtData = [
   {
-    "id":1,
-    "svtName": "マシュ",
+    "id": 1,
+    "svtName": "マシュ・キリエライト",
     "skillLevel": [
       {
         "QP": [
@@ -142,7 +142,7 @@ var svtData = [
   },
   {
     "id": 2,
-    "svtName": "アルトリア",
+    "svtName": "アルトリア・ペンドラゴン",
     "skillLevel": [
       {
         "QP": [
@@ -308,7 +308,7 @@ var svtData = [
   },
   {
     "id": 3,
-    "svtName": "セイバー・オルタ",
+    "svtName": "アルトリア・ペンドラゴン〔オルタ〕",
     "skillLevel": [
       {
         "QP": [
@@ -474,7 +474,7 @@ var svtData = [
   },
   {
     "id": 4,
-    "svtName": "セイバー・リリィ",
+    "svtName": "アルトリア・ペンドラゴン〔リリィ〕",
     "skillLevel": [
       {
         "QP": [
@@ -640,7 +640,7 @@ var svtData = [
   },
   {
     "id": 5,
-    "svtName": "ネロ",
+    "svtName": "ネロ・クラウディウス",
     "skillLevel": [
       {
         "QP": [
@@ -3130,7 +3130,7 @@ var svtData = [
   },
   {
     "id": 20,
-    "svtName": "クー・フーリン(プロト)",
+    "svtName": "クー・フーリン〔プロトタイプ〕",
     "skillLevel": [
       {
         "QP": [
@@ -26364,6 +26364,504 @@ var svtData = [
             "image": 27,
             "name": "ﾎﾑﾝｸﾙｽﾍﾞﾋﾞｰ",
             "number": 20
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "svtName": "アーサー・ペンドラゴン〔プロトタイプ〕",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 12
+          },
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 15
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 5
+          },
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 29
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 12
+          },
+          {
+            "image": 45,
+            "name": "大騎士勲章",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 45,
+            "name": "大騎士勲章",
+            "number": 20
+          },
+          {
+            "image": 49,
+            "name": "原初の産毛",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 49,
+            "name": "原初の産毛",
+            "number": 11
+          },
+          {
+            "image": 39,
+            "name": "精霊根",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 161,
+    "svtName": "土方歳三",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 12
+          },
+          {
+            "image": 43,
+            "name": "愚者の鎖",
+            "number": 15
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 5
+          },
+          {
+            "image": 43,
+            "name": "愚者の鎖",
+            "number": 29
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 12
+          },
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 15
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 29
+          },
+          {
+            "image": 51,
+            "name": "魔術髄液",
+            "number": 18
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 51,
+            "name": "魔術髄液",
+            "number": 54
+          },
+          {
+            "image": 32,
+            "name": "無間の歯車",
+            "number": 24
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "svtName": "茶々",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 10
+          },
+          {
+            "image": 31,
+            "name": "八連双晶",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 4
+          },
+          {
+            "image": 31,
+            "name": "八連双晶",
+            "number": 8
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 10
+          },
+          {
+            "image": 33,
+            "name": "鳳凰の羽根",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 33,
+            "name": "鳳凰の羽根",
+            "number": 7
+          },
+          {
+            "image": 44,
+            "name": "封魔のランプ",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 44,
+            "name": "封魔のランプ",
+            "number": 9
+          },
+          {
+            "image": 46,
+            "name": "智慧のスカラベ",
+            "number": 8
           }
         ]
       },
