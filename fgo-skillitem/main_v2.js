@@ -383,7 +383,8 @@ function mySelectSvtClass(noId,spanId,selectName){
         +   "<option value ='6'>殺 アサシン　 【Assassin】</option><br>"
         +   "<option value ='7'>狂 バーサーカー【Berserker】</option><br>"
         +   "<option value ='8'>裁 ルーラー 　【Ruler】</option><br>"
-        +   "<option value ='9'>讐 アヴェンジャー【Avenger】</option><br>";
+        +   "<option value ='9'>讐 アヴェンジャー【Avenger】</option><br>"
+        +   "<option value ='10'>丑 アルターエゴ【Alter Ego】</option><br>";
     out += "</select>";
     $("#"+spanId).html(out);
 }
@@ -418,9 +419,13 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "2":
             if(svtData[i].skillLevel[0].skillItem[0].image != 4)
                 continueFlag = 1;
+			if(i == 162) //Alter Ego メルトリリス
+                continueFlag = 1;
             break;
           case "3":
             if(svtData[i].skillLevel[0].skillItem[0].image != 7)
+                continueFlag = 1;
+			if(i == 163) //Alter Ego パッションリップ
                 continueFlag = 1;
             break;
           case "4":
@@ -445,6 +450,10 @@ function mySelectSvt(idNo,spanId,selectName,number){
             break;
           case "9":
             if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157)  //Avenger 讐
+                continueFlag = 1;
+            break;
+		　case "10":
+            if(i != 162 && i != 163)  //Alter Ego 丑
                 continueFlag = 1;
             break;
           default:
