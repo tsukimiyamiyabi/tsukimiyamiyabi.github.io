@@ -27046,12 +27046,12 @@ var svtData = [
           {
             "image": 34,
             "name": "竜の逆鱗",
-            "number": 5
+            "number": 9
           },
           {
             "image": 46,
             "name": "智慧のスカラベ",
-            "number": 5
+            "number": 9
           }
         ]
       },
