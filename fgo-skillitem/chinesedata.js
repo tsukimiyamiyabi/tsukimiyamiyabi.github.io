@@ -493,5 +493,11 @@ var svtChineseData = [
   } ,
   {
     "name": "鈴鹿御前"
+  } ,
+  {
+    "name": "BB"
+  } ,
+  {
+    "name": "殺生院祈荒"
   } 
 ];
