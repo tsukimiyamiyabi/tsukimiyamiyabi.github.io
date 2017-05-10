@@ -384,7 +384,8 @@ function mySelectSvtClass(noId,spanId,selectName){
         +   "<option value ='7'>狂 バーサーカー【Berserker】</option><br>"
         +   "<option value ='8'>裁 ルーラー 　【Ruler】</option><br>"
         +   "<option value ='9'>讐 アヴェンジャー【Avenger】</option><br>"
-        +   "<option value ='10'>丑 アルターエゴ【Alter Ego】</option><br>";
+        +   "<option value ='10'>分 アルターエゴ【AlterEgo】</option><br>"	
+        +   "<option value ='11'>月 ムーンキャンサー【MoonCancer】</option><br>";
     out += "</select>";
     $("#"+spanId).html(out);
 }
@@ -413,7 +414,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "1":
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 92 || i == 134) //Ruler 秤
+            if(i == 58 || i == 92 || i == 134 || i == 166) //Ruler 裁
                 continueFlag = 1;
             break;
           case "2":
@@ -430,6 +431,8 @@ function mySelectSvt(idNo,spanId,selectName,number){
             break;
           case "4":
             if(svtData[i].skillLevel[0].skillItem[0].image != 10)
+                continueFlag = 1;
+			if(i == 165) //MoonCancer BB
                 continueFlag = 1;
             break;
           case "5":
@@ -452,8 +455,12 @@ function mySelectSvt(idNo,spanId,selectName,number){
             if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157)  //Avenger 讐
                 continueFlag = 1;
             break;
-		　case "10":
-            if(i != 162 && i != 163)  //Alter Ego 丑
+		  case "10":
+            if(i != 162 && i != 163 && i != 166)  //Alter Ego 分
+                continueFlag = 1;
+            break;
+		  case "11":
+            if(i != 165)  //MoonCancer BB
                 continueFlag = 1;
             break;
           default:
