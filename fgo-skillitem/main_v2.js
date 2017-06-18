@@ -1,11 +1,12 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
+var Max_tbMax = 20; 	 //育成英靈數最大數10
 var itemKindMAx = 51;    //目前素材種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
 var isChinese = 0;
 
-ttDataClear(0);
+ttDataClear(-1);
 svtDivCreate();
 myTable2();
 mySelectItem();
@@ -169,7 +170,7 @@ function itemDivCreate(itemNo){
     }
 }
 
-//英靈最大數量改變
+//搜尋素材選單改變
 function itemSlectNoChange() {
     var itemSlectNo = $("#searchItemSlect").val();
     itemDivCreate(itemSlectNo);
@@ -285,9 +286,10 @@ $("#_leftSide").click(function(e){
 //英靈最大數量改變
 function tbMaxChange() {
     tbMax = $("#maxSvtNum").val();
-    ttDataClear(0);
+    //ttDataClear(0);
     svtDivCreate();
     selectchg(0);
+	
 }
 
 //左邊區塊初始化
@@ -341,9 +343,15 @@ function svtDivCreate(clear){
 //素材總計陣列初始化
 function ttDataClear(tableNo) {
     var i, j;
-    if(tableNo == 0){  //0, 全部清出
-        for(j = 0; j < (tbMax * 3 + 1); j++){
+	if(tableNo == -1){
+		for(j = 0; j < (Max_tbMax * 3 + 1); j++){
             ttData[j] = [];
+            for(i = 0; i < itemKindMAx + 1; i++){
+                ttData[j][i] = 0;
+            }
+        }
+    }else if(tableNo == 0){  //0, 全部清除
+        for(j = 0; j < (tbMax * 3 + 1); j++){
             for(i = 0; i < itemKindMAx + 1; i++){
                 ttData[j][i] = 0;
             }
@@ -538,13 +546,13 @@ function selectchg(type){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type 
     var skillNow;
     for(var i = 1; i <= tbMax ; i++){
         skillNow = parseInt($("#svt_" + i).attr("data-skillNow"));
-        ttDataClear(tbMax * ( skillNow - 1) + i);
+        ttDataClear(3 * (i - 1) + skillNow);
 
         //
         if(type == i){
-            ttDataClear(tbMax * 0 + i);
-            ttDataClear(tbMax * 1 + i);
-            ttDataClear(tbMax * 2 + i);
+            ttDataClear(3 * (i - 1) + 1);
+            ttDataClear(3 * (i - 1) + 2);
+            ttDataClear(3 * (i - 1) + 3);
             $("#img_skillNo" + i + "_" + skillNow).addClass("whiteCover");
             $("#img_skillNo" + i + "_1").removeClass("whiteCover");
             $("#svt_" + i).attr("data-skillNow" , 1);
@@ -608,7 +616,7 @@ function selectchgMin(svtNo){
 
     myTable(svtNo,$(wk_selectNo).val(),parseInt($(wk_selectMin).val()),parseInt($(wk_selectMax).val()),0,0);
     mySelectSlvMax(wk_svtNo_span,"selcetMax_" + svtNo,parseInt($(wk_selectMin).val()),"selectchg");
-    ttDataClear(tbMax * ( skillNow - 1) + svtNo);
+    ttDataClear(3 * ( svtNo - 1) + skillNow);
     myTable2();
 
 
@@ -673,7 +681,7 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
             }
             //QP數存入ttData陣列
             if(tableNum < 100 && isSkillNumChg == 0){
-                ttData[tbMax * (skillNow - 1) + tableNum][0]+=qpTemp;
+                ttData[3 * (tableNum - 1) + skillNow][0]+=qpTemp;
             }
 
               //素材搜尋 且 素材數量大於3時，合併儲存格
@@ -710,9 +718,9 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
                     " <br> x " +
                     svtData[svtNo].skillLevel[i].skillItem[j].number;
 
-                    //盪具數存入ttData陣列
+                    //道具數存入ttData陣列
                     if(tableNum < 100 && isSkillNumChg == 0)
-                      ttData[tbMax * (skillNow - 1) + tableNum][svtData[svtNo].skillLevel[i].skillItem[j].image]+=svtData[svtNo].skillLevel[i].skillItem[j].number;
+                      ttData[3 * (tableNum - 1) + skillNow][svtData[svtNo].skillLevel[i].skillItem[j].image]+=svtData[svtNo].skillLevel[i].skillItem[j].number;
                 }
                 out += "</td>";
             }
