@@ -19017,7 +19017,7 @@ var svtData = [
           {
             "image": 12,
             "name": "騎の秘石",
-            "number": 4
+            "number": 10
           },
           {
             "image": 24,
