@@ -1,22 +1,61 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 51;    //目前素材種類數
+var itemKindMAx = 52;    //目前素材種類數
+var classMax = 12;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
 var isChinese = 0;
+var ClassData = ["全","剣","槍","弓","騎","術","殺","狂","盾","裁","讐","分","月"];
 
 ttDataClear(-1);
 svtDivCreate();
 myTable2();
 mySelectItem();
 mySerchItemCreate();
+mySerchClassCreate();
 
 
 /*$(window).resize(function() {
   console.log($("#_itemSide").width());
 });*/
 
+
+//搜尋職階過濾圖片建立
+function mySerchClassCreate(){
+	var out = "";
+    for(var i = 0; i <= classMax; i++ )
+      out += "<img class='imgItemFloat' id='class_filter_" + i + "' " + "src='images/class_" + i + ".png' data-ClassNo = '" + i + "'"
+			+ " title='" + ClassData[i] + "''>";
+    out += "<div style='clear:both;''></div>";
+    $("#searchClassImgDiv").html(out);
+}
+
+//搜尋職階過濾圖片點擊
+$("#searchClassImgDiv").click(function(e){
+    var target = $(e.target);
+    if(target.attr("id")!= "searchClassImgDiv"){
+		if(target.attr("data-ClassNo")!= 0){
+			if(target.hasClass("whiteCover")){
+				target.removeClass("whiteCover");
+				itemDivCreate(targetItemNo - 1);
+			}else{
+				target.addClass("whiteCover");
+				itemDivCreate(targetItemNo - 1);
+			}
+		}else{
+			if(target.hasClass("whiteCover")){				
+				for(var i = 0; i <= classMax; i++)
+					$("#searchClassImgDiv img").eq(i).removeClass("whiteCover");
+				itemDivCreate(targetItemNo - 1);
+			}else{
+				for(var i = 0; i <= classMax; i++)
+					$("#searchClassImgDiv img").eq(i).addClass("whiteCover");
+				itemDivCreate(targetItemNo - 1);
+			}
+		}
+    }
+});
 
 
 //搜尋素材圖片建立
@@ -105,6 +144,7 @@ function itemDivCreate(itemNo){
     var maxSLV = 0;
     var minSLV = 0;
     var targetSvtNo = -1;
+	var filterSkip = 0;
     $("#_itemSide").html("");
 
     var searchSkill = $("#searchSkill").prop("checked"),
@@ -114,7 +154,20 @@ function itemDivCreate(itemNo){
 
     //console.log(itemNo);
     for(var i = 0; i < svtData.length ; i++){
-        if(i == 82 || i == 148 || i == 150 || i == 151) continue;
+		filterSkip = 0;
+        if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167) continue;
+		if(ascension["" + ( i + 1 ) + ""] != undefined){
+			for(var n = 1; n <= classMax; n++){
+				if($("#class_filter_" + n).hasClass("whiteCover")){
+					if(ascension["" + ( i + 1 ) + ""].cls == ClassData[n]) {
+						filterSkip = 1;
+						break;
+					}
+				}
+			}
+		}
+		if(filterSkip) continue;
+		
         maxSLV = 0;
         minSLV = 0;
         targetSvtNo = -1;
@@ -220,7 +273,7 @@ $("#top_div").click(function(e){
             isChinese = 0;
         }
         resetAllTable();
-    }
+    }	
 });
 
 //隱藏素材表，並縮小化英靈圖
@@ -411,7 +464,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
 
     for(i = 0; i < number; i++){
         continueFlag = 0;
-        if(i==82 || i == 148 || i == 150 || i == 151)
+        if(i==82 || i == 148 || i == 150 || i == 151 || i == 167)
             continue;
 
         switch (svtClass) {
@@ -422,7 +475,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "1":
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 92 || i == 134 || i == 166) //Ruler 裁
+            if(i == 58 || i == 92 || i == 134 || i == 166 || i == 172) //Ruler 裁
                 continueFlag = 1;
             break;
           case "2":
@@ -456,7 +509,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "8":
-            if(i != 58 && i != 92 &&i != 134 ) //Ruler 秤
+            if(i != 58 && i != 92 &&i != 134 &&i != 172 ) //Ruler 秤
                 continueFlag = 1;
             break;
           case "9":
