@@ -517,5 +517,8 @@ var svtChineseData = [
   } ,
   {
     "name": "夏洛克・福爾摩斯"
+  }  ,
+  {
+    "name": "保羅·班揚"
   } 
 ];

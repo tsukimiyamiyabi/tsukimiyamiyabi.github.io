@@ -28814,5 +28814,171 @@ var svtData = [
         ]
       }
     ]
+  },
+  {
+    "id": 174,
+    "svtName": "ポール・バニヤン",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "10,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 2
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "60,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 2
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "80,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 4
+          },
+          {
+            "image": 31,
+            "name": "八連双晶",
+            "number": 2
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 2
+          },
+          {
+            "image": 31,
+            "name": "八連双晶",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "250,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 4
+          },
+          {
+            "image": 24,
+            "name": "世界樹の種",
+            "number": 2
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 24,
+            "name": "世界樹の種",
+            "number": 4
+          },
+          {
+            "image": 43,
+            "name": "愚者の鎖",
+            "number": 6
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 43,
+            "name": "愚者の鎖",
+            "number": 18
+          },
+          {
+            "image": 27,
+            "name": "ﾎﾑﾝｸﾙｽﾍﾞﾋﾞｰ",
+            "number": 8
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
   }
 ];
