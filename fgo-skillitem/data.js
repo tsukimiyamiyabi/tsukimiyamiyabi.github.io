@@ -28980,5 +28980,669 @@ var svtData = [
         ]
       }
     ]
+  },
+  {
+    "id": 175,
+    "svtName": "ネロ・クラウディウス〔キャスター〕",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 13,
+            "name": "術の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 13,
+            "name": "術の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 14,
+            "name": "術の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 14,
+            "name": "術の魔石",
+            "number": 12
+          },
+          {
+            "image": 33,
+            "name": "鳳凰の羽根",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 15,
+            "name": "術の秘石",
+            "number": 5
+          },
+          {
+            "image": 33,
+            "name": "鳳凰の羽根",
+            "number": 8
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 15,
+            "name": "術の秘石",
+            "number": 12
+          },
+          {
+            "image": 30,
+            "name": "禁断の頁",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 30,
+            "name": "禁断の頁",
+            "number": 10
+          },
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 6
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 18
+          },
+          {
+            "image": 49,
+            "name": "原初の産毛",
+            "number": 15
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 176,
+    "svtName": "フランケンシュタイン〔セイバー〕",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 1,
+            "name": "剣の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 2,
+            "name": "剣の魔石",
+            "number": 10
+          },
+          {
+            "image": 42,
+            "name": "黒獣脂",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 4
+          },
+          {
+            "image": 42,
+            "name": "黒獣脂",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 3,
+            "name": "剣の秘石",
+            "number": 10
+          },
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 8
+          },
+          {
+            "image": 27,
+            "name": "ﾎﾑﾝｸﾙｽﾍﾞﾋﾞｰ",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 27,
+            "name": "ﾎﾑﾝｸﾙｽﾍﾞﾋﾞｰ",
+            "number": 15
+          },
+          {
+            "image": 51,
+            "name": "魔術髄液",
+            "number": 60
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "svtName": "ニトクリス〔アサシン〕",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 16,
+            "name": "殺の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 16,
+            "name": "殺の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 17,
+            "name": "殺の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 17,
+            "name": "殺の魔石",
+            "number": 10
+          },
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 18,
+            "name": "殺の秘石",
+            "number": 4
+          },
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 8
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 18,
+            "name": "殺の秘石",
+            "number": 10
+          },
+          {
+            "image": 26,
+            "name": "ｺﾞｰｽﾄﾗﾝﾀﾝ",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 26,
+            "name": "ｺﾞｰｽﾄﾗﾝﾀﾝ",
+            "number": 8
+          },
+          {
+            "image": 39,
+            "name": "精霊根",
+            "number": 2
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 39,
+            "name": "精霊根",
+            "number": 6
+          },
+          {
+            "image": 44,
+            "name": "封魔のランプ",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 178,
+    "svtName": "織田信長〔バーサーカー〕",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 10
+          },
+          {
+            "image": 52,
+            "name": "奇奇神酒",
+            "number": 2
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 4
+          },
+          {
+            "image": 52,
+            "name": "奇奇神酒",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 10
+          },
+          {
+            "image": 51,
+            "name": "魔術髄液",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 51,
+            "name": "魔術髄液",
+            "number": 24
+          },
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 15
+          },
+          {
+            "image": 50,
+            "name": "呪獣胆石",
+            "number": 8
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
   }
 ];

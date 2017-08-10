@@ -517,8 +517,20 @@ var svtChineseData = [
   } ,
   {
     "name": "夏洛克・福爾摩斯"
-  }  ,
+  } ,
   {
     "name": "保羅·班揚"
+  } ,
+  {
+    "name": "尼祿〔Caster〕"
+  } ,
+  {
+    "name": "弗蘭肯斯坦〔Saber〕"
+  } ,
+  {
+    "name": "尼托克里絲〔Assassin〕"
+  } ,
+  {
+    "name": "織田信長〔Caster〕"
   } 
 ];
