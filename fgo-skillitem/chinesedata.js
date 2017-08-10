@@ -531,6 +531,6 @@ var svtChineseData = [
     "name": "尼托克里絲〔Assassin〕"
   } ,
   {
-    "name": "織田信長〔Caster〕"
+    "name": "織田信長〔Berserker〕"
   } 
 ];
