@@ -532,5 +532,17 @@ var svtChineseData = [
   } ,
   {
     "name": "織田信長〔Berserker〕"
-  } 
+  } ,
+  {
+    "name": "阿爾托莉亞〔Rider Alter〕"
+  } ,
+  {
+    "name": "海倫娜〔Acher〕"
+  } ,
+  {
+    "name": "源頼光〔Lancer〕"
+  } ,
+  {
+    "name": "伊絲塔〔Rider〕"
+  }
 ];
