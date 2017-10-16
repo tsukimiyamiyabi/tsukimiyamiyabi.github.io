@@ -546,7 +546,7 @@ var svtChineseData = [
     "name": "伊絲塔〔Rider〕"
   },
   {
-    "name": "パールヴァティー"
+    "name": "帕爾瓦蒂"
   },
   {
     "name": "巴御前"
