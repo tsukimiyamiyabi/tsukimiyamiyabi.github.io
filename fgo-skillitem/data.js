@@ -30243,7 +30243,7 @@ var svtData = [
           {
             "image": 12,
             "name": "騎の秘石",
-            "number": 4
+            "number": 10
           },
           {
             "image": 49,
@@ -31285,6 +31285,534 @@ var svtData = [
             "image": 53,
             "name": "枯淡勾玉",
             "number": 20
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 189,
+    "svtName": "刑部姬",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 16,
+            "name": "殺の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 16,
+            "name": "殺の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 17,
+            "name": "殺の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 17,
+            "name": "殺の魔石",
+            "number": 12
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 18,
+            "name": "殺の秘石",
+            "number": 5
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 20
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 18,
+            "name": "殺の秘石",
+            "number": 12
+          },
+          {
+            "image": 24,
+            "name": "世界樹の種",
+            "number": 6
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 24,
+            "name": "世界樹の種",
+            "number": 12
+          },
+          {
+            "image": 52,
+            "name": "奇奇神酒",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 52,
+            "name": "奇奇神酒",
+            "number": 8
+          },
+          {
+            "image": 53,
+            "name": "枯淡勾玉",
+            "number": 24
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 190,
+    "svtName": "メカエリチャン",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 10,
+            "name": "騎の輝石",
+            "number": 4
+          },
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 10,
+            "name": "騎の輝石",
+            "number": 10
+          },
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 11,
+            "name": "騎の魔石",
+            "number": 4
+          },
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 11,
+            "name": "騎の魔石",
+            "number": 10
+          },
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 12,
+            "name": "騎の秘石",
+            "number": 4
+          },
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 12,
+            "name": "騎の秘石",
+            "number": 10
+          },
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 41,
+            "name": "血の涙石",
+            "number": 4
+          },
+          {
+            "image": 42,
+            "name": "黒獣脂",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 34,
+            "name": "竜の逆鱗",
+            "number": 7
+          },
+          {
+            "image": 52,
+            "name": "奇奇神酒",
+            "number": 7
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 191,
+    "svtName": "メカエリチャンⅡ号機",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 10,
+            "name": "騎の輝石",
+            "number": 4
+          },
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 10,
+            "name": "騎の輝石",
+            "number": 10
+          },
+          {
+            "image": 19,
+            "name": "狂の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 11,
+            "name": "騎の魔石",
+            "number": 4
+          },
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 11,
+            "name": "騎の魔石",
+            "number": 10
+          },
+          {
+            "image": 20,
+            "name": "狂の魔石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 12,
+            "name": "騎の秘石",
+            "number": 4
+          },
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 12,
+            "name": "騎の秘石",
+            "number": 10
+          },
+          {
+            "image": 21,
+            "name": "狂の秘石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 41,
+            "name": "血の涙石",
+            "number": 4
+          },
+          {
+            "image": 42,
+            "name": "黒獣脂",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 34,
+            "name": "竜の逆鱗",
+            "number": 7
+          },
+          {
+            "image": 52,
+            "name": "奇奇神酒",
+            "number": 7
           }
         ]
       },

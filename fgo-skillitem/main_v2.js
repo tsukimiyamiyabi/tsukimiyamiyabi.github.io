@@ -493,7 +493,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "4":
             if(svtData[i].skillLevel[0].skillItem[0].image != 10)
                 continueFlag = 1;
-			if(i == 165) //MoonCancer BB
+			if(i == 165 || i == 189 || i == 190) //MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機)
                 continueFlag = 1;
             break;
           case "5":
@@ -517,7 +517,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "10":
-            if(i != 162 && i != 163 && i != 166)  //Alter Ego 分
+            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190)  //Alter Ego 分
                 continueFlag = 1;
             break;
 		  case "11":
