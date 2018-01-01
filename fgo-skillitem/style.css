@@ -53,6 +53,13 @@ table tr:nth-child(even) {
     right:80px;
 }
 
+.div-screenDiv{
+    width: 200px;
+	position:absolute;
+	top:100px;
+	right:280px;
+}
+
 .div-height{
   height: 500px;
 }

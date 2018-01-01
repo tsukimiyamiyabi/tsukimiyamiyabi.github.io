@@ -233,6 +233,7 @@ function itemSlectNoChange() {
 //右邊table可拖曳化
 $(function() {
   $( "#tottleTable" ).draggable({ cursor: "move" });
+  $( "#tottleImageDiv" ).draggable({ cursor: "move" });
   $( "#tabs" ).tabs({ collapsible: true });
 //  $( "input" ).checkboxradio({ icon: false  });
 });
@@ -246,14 +247,29 @@ function resetAllTable() {
 //清除按鈕
 $("#clear").click(resetAllTable);
 
+//總和截圖
 $("#screenShot").click(function() {
 	html2canvas($("#tottleTable"), {
         onrendered: function(canvas) {
             // canvas is the final rendered <canvas> element
-            var myImage = canvas.toDataURL("image/png");
-            window.open(myImage);
+            var myImage = canvas.toDataURL();
+			console.log(myImage);
+			var out = "<img id ='btnClose' style='float:right' src='./images/btn_close.png' >";
+			$("#tottleImageDiv").html(out);
+			$("<img />", { src: myImage }).appendTo($("#tottleImageDiv"));
+			$("#tottleImageDiv").removeClass("displayNone");
+            //window.open(myImage);
         }
     });
+});
+
+$("#tottleImageDiv").click(function(e){
+	var target = $(e.target);
+    var mdiv =  target.closest("div");
+    if(target.attr("id") == "btnClose"){
+        mdiv.addClass("displayNone");
+	}
+    
 });
 
 //總數量table隱藏 & 中文化
@@ -526,7 +542,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "12":
-            if(i != 194)  //Foreigner 阿比
+            if(i != 194 && i != 197)  //Foreigner 阿比, 葛飾
               continueFlag = 1;
             break;
           default:

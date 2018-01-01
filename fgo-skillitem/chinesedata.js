@@ -589,5 +589,8 @@ var svtChineseData = [
   },
   {
     "name": "阿提拉・The・Sun〔誕〕"
+  },
+  {
+    "name": "葛飾北齋"
   }
 ];
