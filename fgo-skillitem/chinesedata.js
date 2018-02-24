@@ -592,5 +592,11 @@ var svtChineseData = [
   },
   {
     "name": "葛飾北齋"
+  },
+  {
+    "name": "賽米拉米斯"
+  },
+  {
+    "name": "淺上藤乃"
   }
 ];

@@ -19017,7 +19017,7 @@ var svtData = [
           {
             "image": 12,
             "name": "騎の秘石",
-            "number": 4
+            "number": 10
           },
           {
             "image": 24,
@@ -32932,6 +32932,338 @@ var svtData = [
         "QP": [
           {
             "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 199,
+    "svtName": "セミラミス",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 16,
+            "name": "殺の輝石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 16,
+            "name": "殺の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 17,
+            "name": "殺の魔石",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 17,
+            "name": "殺の魔石",
+            "number": 12
+          },
+          {
+            "image": 48,
+            "name": "万死の毒針",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "4,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 18,
+            "name": "殺の秘石",
+            "number": 5
+          },
+          {
+            "image": 48,
+            "name": "万死の毒針",
+            "number": 24
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 18,
+            "name": "殺の秘石",
+            "number": 12
+          },
+          {
+            "image": 23,
+            "name": "竜の牙",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 23,
+            "name": "竜の牙",
+            "number": 24
+          },
+          {
+            "image": 33,
+            "name": "鳳凰の羽根",
+            "number": 5
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "12,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 33,
+            "name": "鳳凰の羽根",
+            "number": 15
+          },
+          {
+            "image": 39,
+            "name": "精霊根",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "20,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "svtName": "淺上藤乃",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 7,
+            "name": "弓の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 7,
+            "name": "弓の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 8,
+            "name": "弓の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 8,
+            "name": "弓の魔石",
+            "number": 10
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 8
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 9,
+            "name": "弓の秘石",
+            "number": 4
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 16
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 9,
+            "name": "弓の秘石",
+            "number": 10
+          },
+          {
+            "image": 25,
+            "name": "凶骨",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 25,
+            "name": "凶骨",
+            "number": 24
+          },
+          {
+            "image": 54,
+            "name": "宵哭きの鉄杭",
+            "number": 15
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 54,
+            "name": "宵哭きの鉄杭",
+            "number": 45
+          },
+          {
+            "image": 51,
+            "name": "魔術髄液",
+            "number": 60
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
             "image": "QP"
           }
         ],
