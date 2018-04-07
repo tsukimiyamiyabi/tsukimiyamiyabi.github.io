@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 54;    //目前素材種類數
+var itemKindMAx = 56;    //目前素材種類數
 var classMax = 13;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -530,7 +530,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "9":
-            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157)  //Avenger 讐
+            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203)  //Avenger 讐
                 continueFlag = 1;
             break;
 		  case "10":
