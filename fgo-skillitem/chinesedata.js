@@ -610,5 +610,8 @@ var svtChineseData = [
   },
   {
     "name": "安東尼奧・薩里耶利"
+  },
+  {
+    "name": "伊凡雷帝"
   }
 ];
