@@ -486,62 +486,62 @@ function mySelectSvt(idNo,spanId,selectName,number){
 
         switch (svtClass) {
           case "0":
-            if(i != 0)
+            if(i != 0)  				//盾
               continueFlag = 1;
             break;
-          case "1":
+          case "1":						//剣
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 92 || i == 134 || i == 166 || i == 172) //Ruler 裁
+            if(i == 58 || i == 134 || i == 166) //Ruler 裁
                 continueFlag = 1;
             break;
-          case "2":
+          case "2":						//槍
             if(svtData[i].skillLevel[0].skillItem[0].image != 4)
                 continueFlag = 1;
 			if(i == 162) //Alter Ego メルトリリス
                 continueFlag = 1;
             break;
-          case "3":
+          case "3":						//弓
             if(svtData[i].skillLevel[0].skillItem[0].image != 7)
                 continueFlag = 1;
-			if(i == 163) //Alter Ego パッションリップ
+			if(i == 163 || i == 172) //Alter Ego パッションリップ Ruler シャーロック
                 continueFlag = 1;
             break;
-          case "4":
+          case "4":						//騎
             if(svtData[i].skillLevel[0].skillItem[0].image != 10)
                 continueFlag = 1;
-			if(i == 165 || i == 189 || i == 190) //MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機)
+			if(i == 92 ||  i == 165 || i == 189 || i == 190) //Ruler 天草 MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機)
                 continueFlag = 1;
             break;
-          case "5":
+          case "5":						//術
             if(svtData[i].skillLevel[0].skillItem[0].image != 13)
                 continueFlag = 1;
             break;
-          case "6":
+          case "6":						//殺
             if(svtData[i].skillLevel[0].skillItem[0].image != 16)
                 continueFlag = 1;
             break;
-          case "7":
+          case "7":						//狂
             if(svtData[i].skillLevel[0].skillItem[0].image != 19)
                 continueFlag = 1;
             break;
-          case "8":
-            if(i != 58 && i != 92 &&i != 134 &&i != 172 ) //Ruler 秤
+          case "8":						//裁
+            if(i != 58 && i != 92 && i != 134 && i != 172 ) //Ruler 秤
                 continueFlag = 1;
             break;
-          case "9":
+          case "9":						//讐
             if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203)  //Avenger 讐
                 continueFlag = 1;
             break;
-		  case "10":
+		  case "10":					//分
             if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190)  //Alter Ego 分
                 continueFlag = 1;
             break;
-		  case "11":
+		  case "11":					//月
             if(i != 165)  //MoonCancer BB
                 continueFlag = 1;
             break;
-		  case "12":
+		  case "12":					//降
             if(i != 194 && i != 197)  //Foreigner 阿比, 葛飾
               continueFlag = 1;
             break;

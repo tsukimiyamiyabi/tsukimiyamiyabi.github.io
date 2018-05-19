@@ -613,5 +613,14 @@ var svtChineseData = [
   },
   {
     "name": "伊凡雷帝"
+  },
+  {
+    "name": "阿基里斯"
+  },
+  {
+    "name": "凱隆"
+  },
+  {
+    "name": "齊格"
   }
 ];
