@@ -622,5 +622,14 @@ var svtChineseData = [
   },
   {
     "name": "齊格"
+  },
+  {
+    "name": "沖田總司〔Alter〕"
+  },
+  {
+    "name": "岡田以藏"
+  },
+  {
+    "name": "坂本龍馬"
   }
 ];
