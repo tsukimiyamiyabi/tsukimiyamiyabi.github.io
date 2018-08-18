@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 56;    //目前素材種類數
+var itemKindMAx = 58;    //目前素材種類數
 var classMax = 13;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -492,7 +492,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "1":						//剣
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 134 || i == 166 || i == 208) //Ruler 裁
+            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219) //Ruler 裁, No.220 MoonCancer BB
                 continueFlag = 1;
             break;
           case "2":						//槍
@@ -542,7 +542,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "12":					//降
-            if(i != 194 && i != 197)  //Foreigner 阿比, 葛飾
+            if(i != 194 && i != 197 && i != 221)  //Foreigner 阿比, 葛飾, XX
               continueFlag = 1;
             break;
           default:
