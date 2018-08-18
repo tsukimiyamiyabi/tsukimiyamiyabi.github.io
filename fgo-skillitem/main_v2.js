@@ -538,7 +538,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "11":					//月
-            if(i != 165)  //MoonCancer BB
+            if(i != 165 && i != 219)  //MoonCancer BB
                 continueFlag = 1;
             break;
 		  case "12":					//降
