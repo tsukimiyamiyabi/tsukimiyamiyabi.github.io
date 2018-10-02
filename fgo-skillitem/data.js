@@ -33377,7 +33377,7 @@ var svtData = [
           {
             "image": 15,
             "name": "術の秘石",
-            "number": 8
+            "number": 12
           },
           {
             "image": 37,
@@ -35691,7 +35691,7 @@ var svtData = [
           {
             "image": 15,
             "name": "術の秘石",
-            "number": 8
+            "number": 12
           },
           {
             "image": 49,
