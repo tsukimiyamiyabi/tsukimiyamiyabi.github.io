@@ -516,6 +516,8 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "5":						//術
             if(svtData[i].skillLevel[0].skillItem[0].image != 13)
                 continueFlag = 1;
+			if(i == 223 ) //Alter Ego シトナイ
+                continueFlag = 1;
             break;
           case "6":						//殺
             if(svtData[i].skillLevel[0].skillItem[0].image != 16)
@@ -534,7 +536,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "10":					//分
-            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208)  //Alter Ego 分
+            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223)  //Alter Ego 分
                 continueFlag = 1;
             break;
 		  case "11":					//月
