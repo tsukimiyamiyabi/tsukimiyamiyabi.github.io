@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 58;    //目前素材種類數
+var itemKindMAx = 60;    //目前素材種類數
 var classMax = 13;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -492,11 +492,13 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "1":						//剣
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219) //Ruler 裁, No.220 MoonCancer BB
+            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219 || i == 228) //Ruler 裁, No.220 MoonCancer BB
                 continueFlag = 1;
             break;
           case "2":						//槍
             if(svtData[i].skillLevel[0].skillItem[0].image != 4)
+                continueFlag = 1;
+			if(i == 232) //Ruler 裁
                 continueFlag = 1;
 			if(i == 162) //Alter Ego メルトリリス
                 continueFlag = 1;
@@ -528,7 +530,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "8":						//裁
-            if(i != 58 && i != 92 && i != 134 && i != 172 ) //Ruler 秤
+            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 ) //Ruler 秤
                 continueFlag = 1;
             break;
           case "9":						//讐
@@ -699,6 +701,8 @@ function selectchgMin(svtNo){
 }
 
 function buildSImage(id, title, noclick) {
+	if( id > itemKindMAx )
+		id = id + 100- itemKindMAx;
     return "<img style='width: " + maxImgWidth + "px' src='images/S_" + id + ".png' title='" + title + "'" + (noclick ? "" : " onclick='itemClick(event)'") + " data-itemno='" + id + "'>";
 }
 
@@ -833,6 +837,9 @@ function myTable2() {
     for (var key in sum) {
         var id = itemImage[key];
         if (!id) continue;
+		
+		if(id > itemKindMAx)
+			id = id - 100 + itemKindMAx;
 
         if (!clonedTable[0][id]) clonedTable[0][id] = 0;
         clonedTable[0][id] += sum[key];
@@ -936,6 +943,10 @@ function buildAscensionTable(ascs) {
         i = 1
         for (key in o[1]) {
             var imageId = itemImage[key] || key;
+			
+			if( imageId > itemKindMAx )
+				imageId = imageId - 100 + itemKindMAx;
+			
             rows[i] += "<td>" + buildSImage(imageId, key) + "<br>x " + formatNumber(o[1][key]) + "</td>";
             i++;
         }
