@@ -39175,5 +39175,171 @@ var svtData = [
         ]
       }
     ]
+  },
+  {
+    "id": 236,
+    "svtName": "美遊・エーデルフェルト",
+    "skillLevel": [
+      {
+        "QP": [
+          {
+            "value": "100,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 13,
+            "name": "術の輝石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "200,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 13,
+            "name": "術の輝石",
+            "number": 10
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "600,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 14,
+            "name": "術の魔石",
+            "number": 4
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "800,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 14,
+            "name": "術の魔石",
+            "number": 10
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 8
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 15,
+            "name": "術の秘石",
+            "number": 4
+          },
+          {
+            "image": 37,
+            "name": "虚影の塵",
+            "number": 16
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "2,500,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 15,
+            "name": "術の秘石",
+            "number": 10
+          },
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "5,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 22,
+            "name": "英雄の証",
+            "number": 24
+          },
+          {
+            "image": 49,
+            "name": "原初の産毛",
+            "number": 3
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "6,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 49,
+            "name": "原初の産毛",
+            "number": 9
+          },
+          {
+            "image": 47,
+            "name": "追憶の貝殻",
+            "number": 20
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "10,000,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 38,
+            "name": "伝承結晶",
+            "number": 1
+          }
+        ]
+      }
+    ]
   }
 ];

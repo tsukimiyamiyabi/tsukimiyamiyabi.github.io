@@ -703,5 +703,8 @@ var svtChineseData = [
   },
   {
     "name": "李書文"
+  },
+  {
+    "name": "美遊・艾蒂菲爾特"
   }
 ];
