@@ -90,9 +90,9 @@ table tr:nth-child(even) {
 }
 
 .imgItemFloat{
-  float: left;
+  /*float: left;*/
   margin-right: 5px;
-  margin-bottom: 5px;
+  /*margin-bottom: 3px;*/
   width: 45px;
 }
 

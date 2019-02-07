@@ -706,5 +706,8 @@ var svtChineseData = [
   },
   {
     "name": "美遊・艾蒂菲爾特"
+  },
+  {
+    "name": "紫式部"
   }
 ];
