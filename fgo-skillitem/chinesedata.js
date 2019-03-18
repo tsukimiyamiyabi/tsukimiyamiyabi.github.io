@@ -709,5 +709,8 @@ var svtChineseData = [
   },
   {
     "name": "紫式部"
+  },
+  {
+    "name": "帝王花"
   }
 ];

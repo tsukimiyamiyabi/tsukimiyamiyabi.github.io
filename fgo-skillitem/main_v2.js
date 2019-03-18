@@ -492,7 +492,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "1":						//剣
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219 || i == 228) //Ruler 裁, No.220 MoonCancer BB
+            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219 || i == 228 || i == 237 ) //Ruler 裁, 沖田,  BB, 始皇帝, キングプロテア
                 continueFlag = 1;
             break;
           case "2":						//槍
@@ -538,7 +538,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "10":					//分
-            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223)  //Alter Ego 分
+            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237)  //Alter Ego 分
                 continueFlag = 1;
             break;
 		  case "11":					//月
