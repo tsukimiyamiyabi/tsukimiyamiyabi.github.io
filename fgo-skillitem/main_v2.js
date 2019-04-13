@@ -481,7 +481,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
 
     for(i = 0; i < number; i++){
         continueFlag = 0;
-        if(i==82 || i == 148 || i == 150 || i == 151 || i == 167)
+        if(i==82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239)
             continue;
 
         switch (svtClass) {

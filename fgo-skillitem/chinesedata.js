@@ -712,5 +712,8 @@ var svtChineseData = [
   },
   {
     "name": "帝王花"
+  },
+  {
+    "name": "伽摩"
   }
 ];
