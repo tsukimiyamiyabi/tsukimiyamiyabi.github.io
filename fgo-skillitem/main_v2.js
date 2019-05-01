@@ -155,7 +155,7 @@ function itemDivCreate(itemNo){
     //console.log(itemNo);
     for(var i = 0; i < svtData.length ; i++){
 		filterSkip = 0;
-        if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167) continue;
+        if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 ) continue;  //跳過缺號的英靈
 		if(ascension["" + ( i + 1 ) + ""] != undefined){
 			for(var n = 1; n <= classMax; n++){
 				if($("#class_filter_" + n).hasClass("whiteCover")){
@@ -492,7 +492,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "1":						//剣
             if(svtData[i].skillLevel[0].skillItem[0].image != 1)
                 continueFlag = 1;
-            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219 || i == 228 || i == 237 ) //Ruler 裁, 沖田,  BB, 始皇帝, キングプロテア
+            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219 || i == 228 || i == 237 || i == 241 ) //Ruler 裁, 沖田,  BB, 始皇帝, キングプロテア, アストライア
                 continueFlag = 1;
             break;
           case "2":						//槍
@@ -530,7 +530,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "8":						//裁
-            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 ) //Ruler 秤
+            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 ) //Ruler 秤
                 continueFlag = 1;
             break;
           case "9":						//讐

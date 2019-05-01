@@ -715,5 +715,17 @@ var svtChineseData = [
   },
   {
     "name": "伽摩"
+  },
+  {
+    "name": "BeastⅢ／L"
+  },
+  {
+    "name": "司馬懿〔萊涅絲〕"
+  },
+  {
+    "name": "阿斯特蕾亞"
+  },
+  {
+    "name": "格蕾"
   }
 ];
