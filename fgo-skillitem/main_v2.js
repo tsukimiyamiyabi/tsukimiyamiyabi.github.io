@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 61;    //目前素材種類數
+var itemKindMAx = 63;    //目前素材種類數
 var classMax = 13;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -498,9 +498,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "2":						//槍
             if(svtData[i].skillLevel[0].skillItem[0].image != 4)
                 continueFlag = 1;
-			if(i == 232) //Ruler 裁
-                continueFlag = 1;
-			if(i == 162) //Alter Ego メルトリリス
+			if(i == 162 || i == 232 || i == 243) //Ruler 裁 Alter Ego メルトリリス ジナコ
                 continueFlag = 1;
             break;
           case "3":						//弓
@@ -534,7 +532,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "9":						//讐
-            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203)  //Avenger 讐
+            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203 && i !=249 )  //Avenger 讐
                 continueFlag = 1;
             break;
 		  case "10":					//分
@@ -542,7 +540,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "11":					//月
-            if(i != 165 && i != 219)  //MoonCancer BB
+            if(i != 165 && i != 219 &&  i!= 243 )  //MoonCancer BB ジナコ
                 continueFlag = 1;
             break;
 		  case "12":					//降
