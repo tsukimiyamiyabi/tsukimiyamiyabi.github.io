@@ -45565,21 +45565,6 @@ var svtData = [
       {
         "QP": [
           {
-            "value": "100,000",
-            "image": "QP"
-          }
-        ],
-        "skillItem": [
-          {
-            "image": 10,
-            "name": "騎の輝石",
-            "number": 4
-          }
-        ]
-      },
-      {
-        "QP": [
-          {
             "value": "200,000",
             "image": "QP"
           }
@@ -45588,14 +45573,29 @@ var svtData = [
           {
             "image": 10,
             "name": "騎の輝石",
-            "number": 10
+            "number": 5
           }
         ]
       },
       {
         "QP": [
           {
-            "value": "600,000",
+            "value": "400,000",
+            "image": "QP"
+          }
+        ],
+        "skillItem": [
+          {
+            "image": 10,
+            "name": "騎の輝石",
+            "number": 12
+          }
+        ]
+      },
+      {
+        "QP": [
+          {
+            "value": "1,200,000",
             "image": "QP"
           }
         ],
@@ -45603,14 +45603,14 @@ var svtData = [
           {
             "image": 11,
             "name": "騎の魔石",
-            "number": 4
+            "number": 5
           }
         ]
       },
       {
         "QP": [
           {
-            "value": "800,000",
+            "value": "1,600,000",
             "image": "QP"
           }
         ],
@@ -45618,7 +45618,7 @@ var svtData = [
           {
             "image": 11,
             "name": "騎の魔石",
-            "number": 10
+            "number": 12
           },
           {
             "image": 39,
@@ -45630,7 +45630,7 @@ var svtData = [
       {
         "QP": [
           {
-            "value": "2,000,000",
+            "value": "4,000,000",
             "image": "QP"
           }
         ],
@@ -45638,7 +45638,7 @@ var svtData = [
           {
             "image": 12,
             "name": "騎の秘石",
-            "number": 4
+            "number": 5
           },
           {
             "image": 39,
@@ -45650,7 +45650,7 @@ var svtData = [
       {
         "QP": [
           {
-            "value": "2,500,000",
+            "value": "5,000,000",
             "image": "QP"
           }
         ],
@@ -45658,7 +45658,7 @@ var svtData = [
           {
             "image": 12,
             "name": "騎の秘石",
-            "number": 10
+            "number": 12
           },
           {
             "image": 24,
@@ -45670,7 +45670,7 @@ var svtData = [
       {
         "QP": [
           {
-            "value": "5,000,000",
+            "value": "10,000,000",
             "image": "QP"
           }
         ],
@@ -45690,7 +45690,7 @@ var svtData = [
       {
         "QP": [
           {
-            "value": "6,000,000",
+            "value": "12,000,000",
             "image": "QP"
           }
         ],
@@ -45710,7 +45710,7 @@ var svtData = [
       {
         "QP": [
           {
-            "value": "10,000,000",
+            "value": "20,000,000",
             "image": "QP"
           }
         ],
