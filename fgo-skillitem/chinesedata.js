@@ -823,5 +823,8 @@ var svtChineseData = [
   },
   {
     "name": "楊貴妃"
+  },
+  {
+    "name": "清少納言"
   }
 ];
