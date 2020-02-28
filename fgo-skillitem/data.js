@@ -37361,7 +37361,7 @@ var svtData = [
           {
             "image": 48,
             "name": "万死の毒針",
-            "number": 1
+            "number": 10
           }
         ]
       },
