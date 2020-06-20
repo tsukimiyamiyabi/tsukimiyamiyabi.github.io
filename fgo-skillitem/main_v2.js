@@ -544,7 +544,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "12":					//降
-            if(i != 194 && i != 197 && i != 221 && i != 274)  //Foreigner 阿比, 葛飾, XX, 楊貴妃
+            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280)  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager
               continueFlag = 1;
             break;
           default:

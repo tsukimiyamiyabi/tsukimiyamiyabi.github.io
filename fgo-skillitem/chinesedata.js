@@ -838,5 +838,14 @@ var svtChineseData = [
   },
   {
     "name": "羅慕路斯＝奎里努斯"
+  },
+  {
+    "name": "Voyager"
+  },
+  {
+    "name": "鬼女紅葉"
+  },
+  {
+    "name": "宇津見繪里世"
   }
 ];
