@@ -847,5 +847,8 @@ var svtChineseData = [
   },
   {
     "name": "宇津見繪里世"
+  },
+  {
+    "name": "阿爾托莉亞・Caster"
   }
 ];
