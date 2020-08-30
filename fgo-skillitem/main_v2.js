@@ -510,7 +510,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "4":						//騎
             if(svtData[i].skillLevel[0].skillItem[0].image != 10)
                 continueFlag = 1;
-			if(i == 92 ||  i == 165 || i == 189 || i == 190) //Ruler 天草 MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機)
+			if(i == 92 ||  i == 165 || i == 189 || i == 190 || i == 284) //Ruler 天草 MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機) 殺生院アキラ
                 continueFlag = 1;
             break;
           case "5":						//術
@@ -540,11 +540,11 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "11":					//月
-            if(i != 165 && i != 219 &&  i!= 243 )  //MoonCancer BB ジナコ
+            if(i != 165 && i != 219 &&  i!= 243 &&  i!= 284)  //MoonCancer BB ジナコ 殺生院アキラ
                 continueFlag = 1;
             break;
 		  case "12":					//降
-            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280)  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager
+            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288)  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕
               continueFlag = 1;
             break;
           default:
