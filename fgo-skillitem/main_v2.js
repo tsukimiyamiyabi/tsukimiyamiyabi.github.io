@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 67;    //目前素材種類數
+var itemKindMAx = 69;    //目前素材種類數
 var classMax = 13;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -516,7 +516,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "5":						//術
             if(svtData[i].skillLevel[0].skillItem[0].image != 13)
                 continueFlag = 1;
-			if(i == 223 ) //Alter Ego シトナイ
+			if(i == 223 ||  i == 296 ) //Alter Ego シトナイ, Alter Ego 芦屋道満
                 continueFlag = 1;
             break;
           case "6":						//殺
@@ -536,7 +536,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "10":					//分
-            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237)  //Alter Ego 分
+            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237 && i != 296)  //Alter Ego 分
                 continueFlag = 1;
             break;
 		  case "11":					//月
