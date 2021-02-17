@@ -504,7 +504,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "3":						//弓
             if(svtData[i].skillLevel[0].skillItem[0].image != 7)
                 continueFlag = 1;
-			if(i == 163 || i == 172 || i == 264 || i == 291) //Alter Ego パッションリップ Ruler シャーロック Ruler アルトリア・ペンドラゴン Ruler 卑弥呼
+			if(i == 163 || i == 172 || i == 264 || i == 291 || i == 304 ) //Alter Ego パッションリップ Ruler シャーロック Ruler アルトリア・ペンドラゴン Ruler 卑弥呼 Ruler アムール〔カレン〕
                 continueFlag = 1;
             break;
           case "4":						//騎
@@ -528,11 +528,11 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "8":						//裁
-            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 && i != 264 && i != 291 ) //Ruler 裁
+            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 && i != 264 && i != 291 && i != 304 ) //Ruler 裁
                 continueFlag = 1;
             break;
           case "9":						//讐
-            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203 && i != 249 && i != 267 )  //Avenger 讐
+            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203 && i != 249 && i != 267 && i != 302 )  //Avenger 讐
                 continueFlag = 1;
             break;
 		  case "10":					//分
