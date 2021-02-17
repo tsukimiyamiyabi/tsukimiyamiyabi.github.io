@@ -44853,7 +44853,7 @@ var svtData = [
           {
             "image": 55,
             "name": "永遠結氷",
-            "number": 3
+            "number": 5
           }
         ]
       },
@@ -44868,7 +44868,7 @@ var svtData = [
           {
             "image": 55,
             "name": "永遠結氷",
-            "number": 9
+            "number": 15
           },
           {
             "image": 62,
