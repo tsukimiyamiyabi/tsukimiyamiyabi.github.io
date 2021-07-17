@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 69;    //目前素材種類數
+var itemKindMAx = 71;    //目前素材種類數
 var classMax = 13;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -544,7 +544,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "12":					//降
-            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288)  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕
+            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 307)  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,謎のアイドルX〔オルタ〕
               continueFlag = 1;
             break;
           default:
