@@ -912,6 +912,9 @@ var svtChineseData = [
     "name": "鬼一法眼"
   },
   {
+    "name": "埃莫〔卡蓮〕"
+  },
+  {
     "name": "伽拉忒亞"
   },
   {
