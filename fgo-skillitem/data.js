@@ -51138,8 +51138,8 @@ var svtData = [
             "number": 12
           },
           {
-            "image": 38,
-            "name": "世鳳凰の羽根",
+            "image": 33,
+            "name": "鳳凰の羽根",
             "number": 4
           }
         ]
