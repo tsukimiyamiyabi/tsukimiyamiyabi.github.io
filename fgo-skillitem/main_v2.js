@@ -2,11 +2,11 @@ var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
 var itemKindMAx = 71;    //目前素材種類數
-var classMax = 13;		 //目前職階種類數
+var classMax = 14;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
 var isChinese = 0;
-var ClassData = ["全","剣","槍","弓","騎","術","殺","狂","盾","裁","讐","分","月","降"];
+var ClassData = ["全","剣","槍","弓","騎","術","殺","狂","盾","裁","讐","分","月","降","詐"];
 
 ttDataClear(-1);
 svtDivCreate();
@@ -463,7 +463,8 @@ function mySelectSvtClass(noId,spanId,selectName){
         +   "<option value ='9'>讐 アヴェンジャー【Avenger】</option><br>"
         +   "<option value ='10'>分 アルターエゴ【AlterEgo】</option><br>"	
         +   "<option value ='11'>月 ムーンキャンサー【MoonCancer】</option><br>"	
-        +   "<option value ='12'>降 フォーリナー【Foreigner】</option><br>";
+        +   "<option value ='12'>降 フォーリナー【Foreigner】</option><br>"
+        +   "<option value ='13'>詐 プリテンダー【Pretender】</option><br>"
     out += "</select>";
     $("#"+spanId).html(out);
 }
@@ -547,6 +548,10 @@ function mySelectSvt(idNo,spanId,selectName,number){
             if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 307)  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,謎のアイドルX〔オルタ〕
               continueFlag = 1;
             break;
+		  case "13":					//詐
+            if(i != 315 )  //オペロン
+                continueFlag = 1;
+			break;
           default:
             continueFlag = 0;
         }
