@@ -85,6 +85,10 @@ table tr:nth-child(even) {
   margin-right: 15px;
   width: 128px;
 }
+
+.imgASkill{
+}
+
 .imgWhenHide{
   width: 64px;
 }

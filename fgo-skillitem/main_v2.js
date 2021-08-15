@@ -8,8 +8,8 @@ var targetItemNo = -1;
 var isChinese = 0;
 var ClassData = ["全","剣","槍","弓","騎","術","殺","狂","盾","裁","讐","分","月","降","詐"];
 
-ttDataClear(-1);
-svtDivCreate();
+ttDataClear(-1, 0);
+svtDivCreate(true);
 myTable2();
 mySelectItem();
 mySerchItemCreate();
@@ -119,7 +119,7 @@ function servantClick(e) {
 
     var pid = +emptySlot.closest(".svt-panel").data("number");
     emptySlot.val(id - 1);
-    selectchg(pid);
+    selectchg(pid, 2);
     $("#tabs").tabs({active: 0});
 }
 
@@ -141,18 +141,18 @@ function mySelectItem(){
 //素材搜尋區塊初始化
 function itemDivCreate(itemNo){
     var countSvt = 100;
-    var maxSLV = 0;
-    var minSLV = 0;
+    var maxSLV = 0, maxASLV = 0;
+    var minSLV = 0, minASLV = 0;
     var targetSvtNo = -1;
 	var filterSkip = 0;
     $("#_itemSide").html("");
 
     var searchSkill = $("#searchSkill").prop("checked"),
-        searchAscension = $("#searchAscension").prop("checked");
+        searchAscension = $("#searchAscension").prop("checked"),
+		searchASkill = $("#searchASkill").prop("checked");
 
-    if (!searchSkill && !searchAscension) return;
+    if (!searchSkill && !searchAscension && !searchASkill) return;
 
-    //console.log(itemNo);
     for(var i = 0; i < svtData.length ; i++){
 		filterSkip = 0;
         if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 ) continue;  //跳過缺號的英靈
@@ -174,18 +174,41 @@ function itemDivCreate(itemNo){
         if (searchSkill) {
             for(var j = 0; j < 9; j++){
                 for(var k = 0; k < svtData[i].skillLevel[j].skillItem.length; k++){
-                  if(svtData[i].skillLevel[j].skillItem[k].image == (parseInt(itemNo) + 1)){
-                    if(minSLV == 0){
-                      minSLV = j + 1;
-                      maxSLV = j + 2;
-                      targetSvtNo = i;
-                      countSvt++;
-                    }else {
-                      if(j+1 >= maxSLV){
-                        maxSLV = j + 2;
-                      }
-                    }
-                  }
+					if(svtData[i].skillLevel[j].skillItem[k].image == (parseInt(itemNo) + 1)){
+						if(minSLV == 0){
+							minSLV = j + 1;
+							maxSLV = j + 2;
+							targetSvtNo = i;
+							countSvt++;
+						}else {
+							if(j + 1 >= maxSLV){
+								maxSLV = j + 2;
+							}
+						}
+					}
+                }
+            }
+        }
+		
+		maxASLV = 0;
+        minASLV = 0;
+        if (searchASkill) {
+            for(var j = 0; j < 9; j++){
+                for(var k = 0; k < asvtData[i].skillLevel[j].skillItem.length; k++){
+					if(asvtData[i].skillLevel[j].skillItem[k].image == (parseInt(itemNo) + 1)){
+						if(minASLV == 0){
+							minASLV = j + 1;
+							maxASLV = j + 2;
+							if( targetSvtNo < 0 ){							  
+								targetSvtNo = i;
+								countSvt++;
+							}
+						}else {
+							if( j + 1 >= maxASLV){
+								maxASLV = j + 2;
+							}							
+						}
+					}
                 }
             }
         }
@@ -205,14 +228,18 @@ function itemDivCreate(itemNo){
             targetSvtNo = i;
             countSvt++;
         }
-        if(targetSvtNo!=-1){
+        if( targetSvtNo != -1 ){
             var newItemSvtDiv = $("#itemSvt_templet").clone();
             newItemSvtDiv.attr("id","itemSvt_" + countSvt);
             newItemSvtDiv.find(".skill-table").attr("id","dataTalbe" + countSvt);
+			newItemSvtDiv.find(".askill-table").attr("id","adataTalbe" + countSvt);
             newItemSvtDiv.find("img").attr("id","img_itemSvtNo_" + (countSvt-100));
             newItemSvtDiv.removeClass("displayNone");
             $("#_itemSide").append(newItemSvtDiv);
-            myTable(countSvt, targetSvtNo , minSLV, maxSLV, 1);
+			console.log(targetSvtNo,minSLV,maxSLV);
+            myTable(countSvt, targetSvtNo , minSLV, maxSLV, 1,0,0);
+			console.log(targetSvtNo,minASLV,maxASLV);
+			myTable(countSvt, targetSvtNo , minASLV, maxASLV, 1,0,1);
             $("#img_itemSvtNo_" + (countSvt-100)).attr("src","./images/svtNo_" + (targetSvtNo+1)  + ".png");
             $("#img_itemSvtNo_" + (countSvt-100)).attr("title", "No." + (targetSvtNo+1) + " " + svtData[targetSvtNo].svtName);
             $("#img_itemSvtNo_" + (countSvt-100)).removeClass("displayNone");
@@ -239,7 +266,9 @@ $(function() {
 });
 
 function resetAllTable() {	
-    ttDataClear(0);
+    ttDataClear(0, 0);
+	$("#svt_templet").find("[type=checkbox]")[0].checked = false;
+	$("#svt_templet").find("[type=checkbox]")[1].checked = false;
     svtDivCreate(true);
     myTable2();
 }
@@ -298,11 +327,14 @@ $("#_leftSide").click(function(e){
     var mdiv =  target.closest("div");
     var target_i;
     var skillNow;
+	var askillNow;
     var isSkillNoChg = 0;
+	var isASkillNoChg = 0;
 
     //技能組數字圖示切換
     for(var i = 1; i <= tbMax; i++){
         skillNow = $("#svt_" + i).attr("data-skillNow");
+		askillNow = $("#svt_" + i).attr("data-askillNow");
         for(var j = 1; j <= 3; j++){
             if(target.attr("id") == ("img_skillNo" + i + "_" + j)){
                 if(skillNow != j){
@@ -317,36 +349,71 @@ $("#_leftSide").click(function(e){
                     skillNow = j;
                     break;
                 }
-            }
+            }else if(target.attr("id") == ("img_askillNo" + i + "_" + j)){
+				if(askillNow != j){
+                    $("#img_askillNo" + i + "_" + askillNow).addClass("whiteCover");
+                    target.removeClass("whiteCover");
+                    $("#svt_" + i).attr("data-askillNow", j) ;
+                    //將目前最小技能跟最大技能存入IMG TAG
+                    $("#img_askillNo" + i + "_" + askillNow).attr("adata-min", $("#selcetMinAS_" + i ).val()) ;
+                    $("#img_askillNo" + i + "_" + askillNow).attr("adata-max", $("#selcetMaxAS_" + i ).val()) ;
+                    target_i = i;
+                    isASkillNoChg = 1;
+                    askillNow = j;
+                    break;
+                }
+			}
         }
-        if(isSkillNoChg)
-          break;
+        if( isSkillNoChg || isASkillNoChg )
+			break;
     }
 
-    if(isSkillNoChg){ //No是Number 不是NO
-        //console.log(target_i + "," + $("#img_skillNo" + target_i + "_" + skillNow).attr("data-min") + "," + $("#img_skillNo" + target_i + "_" + skillNow).attr("data-max"));
-        myTable(target_i,$("#selcetNo" + target_i).val(),$("#img_skillNo" + target_i + "_" + skillNow).attr("data-min"),$("#img_skillNo" + target_i + "_" + skillNow).attr("data-max"),0,1);
-        mySelectSlvMin("svt_" + target_i + "_span_2","selcetMin_" + target_i, 9, "selectchgMin(" + target_i + ")");
-        mySelectSlvMax("svt_" + target_i + "_span_3","selcetMax_" + target_i, parseInt($("#img_skillNo" + target_i + "_" + skillNow).attr("data-min")), "selectchg");
+    if( isSkillNoChg) { //No是Number 不是NO
+        myTable(target_i,$("#selcetNo" + target_i).val(),$("#img_skillNo" + target_i + "_" + skillNow).attr("data-min"),$("#img_skillNo" + target_i + "_" + skillNow).attr("data-max"),0,1,0);
+        mySelectSlvMin("svt_" + target_i + "_span_2","selcetMin_" + target_i, 9, "selectchgMin", target_i, 0);
+        mySelectSlvMax("svt_" + target_i + "_span_3","selcetMax_" + target_i, parseInt($("#img_skillNo" + target_i + "_" + skillNow).attr("data-min")), "selectchg",0);
         $("#selcetMin_" + target_i).val($("#img_skillNo" + target_i + "_" + skillNow).attr("data-min"));
         $("#selcetMax_" + target_i).val($("#img_skillNo" + target_i + "_" + skillNow).attr("data-max"));
         //如果最大技能設為"0"，則將英靈圖片設為整行
-        if($("#selcetMax_" + target_i).val() == 0){
+       /* if($("#selcetMax_" + target_i).val() == 0){
             $("#img_svtNo_" + target_i).addClass("nonFloat");
         }else{
             $("#img_svtNo_" + target_i).removeClass("nonFloat");
-        }
-    }
+        }*/
+    }else if( isASkillNoChg ){
+		myTable(target_i,$("#selcetNo" + target_i).val(),$("#img_askillNo" + target_i + "_" + askillNow).attr("adata-min"),$("#img_askillNo" + target_i + "_" + askillNow).attr("adata-max"),0,1,1);
+        mySelectSlvMin("svt_" + target_i + "_span_4","selcetMinAS_" + target_i, 9, "selectchgMin", target_i, 1);
+        mySelectSlvMax("svt_" + target_i + "_span_5","selcetMaxAS_" + target_i, parseInt($("#img_askillNo" + target_i + "_" + askillNow).attr("adata-min")), "selectchg",1);
+        $("#selcetMinAS_" + target_i).val($("#img_askillNo" + target_i + "_" + askillNow).attr("adata-min"));
+        $("#selcetMaxAS_" + target_i).val($("#img_askillNo" + target_i + "_" + askillNow).attr("adata-max"));
+	}
 
+
+	
     //隱藏
-    if(mdiv.find("[type=checkbox]")[0].checked==true){
+    if(mdiv.find("[type=checkbox]")[1].checked==true){
         mdiv.find("div").addClass("displayNone");
         mdiv.find("img:eq(3)").removeClass("imgFloat");
         mdiv.find("img:eq(3)").addClass("imgWhenHide");
+		mdiv.find(".imgASkill").addClass("displayNone");
+		mdiv.find(".askill-table").addClass("displayNone");
     }else {
         mdiv.find("div").removeClass("displayNone");
         mdiv.find("img:eq(3)").addClass("imgFloat");
         mdiv.find("img:eq(3)").removeClass("imgWhenHide");
+		mdiv.find(".imgASkill").removeClass("displayNone");
+		mdiv.find(".askill-table").removeClass("displayNone");
+			//附加技能顯示FLAG ON/OFF
+		if(mdiv.find("[type=checkbox]")[0].checked == true){
+			mdiv.find(".imgASkill").removeClass("displayNone");
+			mdiv.find(".askill-table").removeClass("displayNone");
+		}else {
+			mdiv.find(".imgASkill").addClass("displayNone");
+			mdiv.find(".askill-table").addClass("displayNone");
+		}	
+		countItemAll();
+		myTable2();
+
     }
 
 
@@ -355,9 +422,8 @@ $("#_leftSide").click(function(e){
 //英靈最大數量改變
 function tbMaxChange() {
     tbMax = $("#maxSvtNum").val();
-    //ttDataClear(0);
     svtDivCreate();
-    selectchg(0);
+    selectchg(0, 2);
 	
 }
 
@@ -389,6 +455,13 @@ function svtDivCreate(clear){
         newSvtDiv.find("img").eq(2).attr("id","img_skillNo" + i + "_3");
         newSvtDiv.find("img").eq(3).attr("id","img_svtNo_" + i);
         newSvtDiv.removeClass("displayNone");
+		
+        newSvtDiv.find("span").eq(9).attr("id","svt_" + i + "_span_4");
+        newSvtDiv.find("span").eq(11).attr("id","svt_" + i + "_span_5");
+		newSvtDiv.find(".askill-table").attr("id","adataTalbe" + i);
+		newSvtDiv.find("img").eq(4).attr("id","img_askillNo" + i + "_1");
+        newSvtDiv.find("img").eq(5).attr("id","img_askillNo" + i + "_2");
+        newSvtDiv.find("img").eq(6).attr("id","img_askillNo" + i + "_3");
         $("#_leftSide").append(newSvtDiv);
 
         $("#img_skillNo" + i + "_1").attr("title",1);
@@ -402,45 +475,71 @@ function svtDivCreate(clear){
         $("#img_skillNo" + i + "_3").removeClass("displayNone");
         mySelectSvtClass(i,"svt_" + i + "_spanClass","selcetClassNo" + i);
         mySelectSvt(i,"svt_" + i + "_span_1","selcetNo" + i,svtData.length);
-        mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
-        mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
-        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0,0);
+        mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin", i, 0);
+        mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg",0);
+        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0,0,0);
+		
+		$("#img_askillNo" + i + "_1").attr("title",1);
+        $("#img_askillNo" + i + "_2").attr("title",2);
+        $("#img_askillNo" + i + "_3").attr("title",3);
+        $("#img_askillNo" + i + "_1").attr("src","images/btn_dig_1.png");
+        $("#img_askillNo" + i + "_2").attr("src","images/btn_dig_2.png");
+        $("#img_askillNo" + i + "_3").attr("src","images/btn_dig_3.png");
+		mySelectSlvMin("svt_" + i + "_span_4","selcetMinAS_" + i, -1, "selectchgMin", i, 1);
+		mySelectSlvMax("svt_" + i + "_span_5","selcetMaxAS_" + i, 10, "selectchg",1);
+		myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMinAS_" + i).val()),parseInt($("#selcetMaxAS_" + i).val()),0,0,1);
+		newSvtDiv.find(".askill-table").addClass("displayNone");
+		newSvtDiv.find(".imgASkill").addClass("displayNone");
         updateAscensionTable(newSvtDiv);
     }
 }
 
 //素材總計陣列初始化
-function ttDataClear(tableNo) {
+function ttDataClear(tableNo , isASkill) {
     var i, j;
 	if(tableNo == -1){
-		for(j = 0; j < (Max_tbMax * 3 + 1); j++){
-            ttData[j] = [];
-            for(i = 0; i < itemKindMAx + 1; i++){
-                ttData[j][i] = 0;
-            }
-        }
+		for(z = 0; z < 2; z++){
+			ttData[z] = [];
+			for(j = 0; j < (Max_tbMax * 3 + 1); j++){
+				ttData[z][j] = [];
+				for(i = 0; i < itemKindMAx + 1; i++){
+					ttData[z][j][i] = 0;
+				}
+			}
+		}
     }else if(tableNo == 0){  //0, 全部清除
-        for(j = 0; j < (tbMax * 3 + 1); j++){
-            for(i = 0; i < itemKindMAx + 1; i++){
-                ttData[j][i] = 0;
-            }
-        }
+		for(z = 0; z < 2 ; z++){
+			for(j = 0; j < (tbMax * 3 + 1); j++){
+				for(i = 0; i < itemKindMAx + 1; i++){
+					ttData[z][j][i] = 0;
+				}
+			}
+		}
     }else{    //清除第N個表格的資料
         for(i = 0; i < itemKindMAx + 1; i++){
-            ttData[parseInt(tableNo)][i] = 0;
+            ttData[isASkill][parseInt(tableNo)][i] = 0;
         }
     }
 }
 
 //素材總計陣列重新計算
 function countItemAll() {
-    for(var i = 0; i < itemKindMAx + 1; i++){
-        ttData[0][i] = 0;
-        for(var j = 1; j < parseInt(tbMax) * 3 + 1; j++){
-            if(ttData[j][i]!=0)
-              ttData[0][i]+=ttData[j][i];
-        }
-    }
+	var svtTableNo = 0;
+	for(var i = 0; i < itemKindMAx + 1; i++){
+		ttData[0][0][i] = 0;	
+		for(var j = 1; j < parseInt(tbMax) * 3 + 1; j++){
+			svtTableNo = ((j - 1)  - ( j - 1) % 3 ) / 3 + 1;
+			if(ttData[0][j][i] != 0)
+				ttData[0][0][i] += ttData[0][j][i];
+			if($("#svt_" + svtTableNo).find("[type=checkbox]")[0].checked == true){				
+				if(ttData[1][j][i] != 0)
+				{
+					ttData[0][0][i] += ttData[1][j][i];
+				}
+			}		
+	
+		}
+	}	
 }
 
 //英靈職階選單產生
@@ -449,7 +548,7 @@ function mySelectSvtClass(noId,spanId,selectName){
     out += selectName +
     " style=\"width: 100px; font-size: 12px;\"" +
     " onChange = \"selectClassChg(" + noId + ")\">" + "<br>" +
-    "<option value =\"-1\">全職階</option>";
+    "<option value =\"-1\">全職階 All</option>";
 
     out +=  "<option value ='0'>盾 シールダー 【Shielder】</option><br>"
         +   "<option value ='1'>劍 セイバー　　【Saber】</option><br>"
@@ -477,8 +576,8 @@ function mySelectSvt(idNo,spanId,selectName,number){
     var out = "<select id=";
     out += selectName +
     " style=\"width: 200px; font-size: 12px;\"" +
-    " onChange = \"selectchg(" + idNo +")\" class='select-svt-id'>" + "<br>" +
-    "<option value =\"-1\">請選擇</option>";
+    " onChange = \"selectchg(" + idNo +",2)\" class='select-svt-id'>" + "<br>" +
+    "<option value =\"-1\">請選擇 Select Servant</option>";
 
     for(i = 0; i < number; i++){
         continueFlag = 0;
@@ -576,11 +675,15 @@ function mySelectSvt(idNo,spanId,selectName,number){
 }
 
 //最小技能等級選單產生
-function mySelectSlvMin(spanId,selectName,number,selchgName){
+function mySelectSlvMin(spanId,selectName,number, selchgName, pid, isASkill){
     var i = 0;
-    var out = "<select id=";
-    out += selectName +
-    " onChange = \"" + selchgName +"\">" + "<br>" +
+    var out = "";
+	out = "<select id=" + selectName;
+	if (isASkill == 1){
+		out += " class = \"imgASkill\"";
+	}
+	
+    out += " onChange = \"" + selchgName + "(" + pid + "," + isASkill + ")" + "\">" + "<br>" +
     "<option value =\"-1\">請選擇</option>";
 
     for(i = 0; i < number; i++){
@@ -596,12 +699,16 @@ function mySelectSlvMin(spanId,selectName,number,selchgName){
 }
 
 //最大技能等級選單產生
-function mySelectSlvMax(spanId,selectName,slvMin,selchgName){
+function mySelectSlvMax(spanId,selectName,slvMin,selchgName,isASkill){
     var i = 0;
-    var out = "<select id=";
-    out += selectName +
-    " onChange = \"" + selchgName +"(0)\">" + "<br>" +
-    "<option value =\"10\">請選擇</option>";
+    var out = "";
+	
+	out = "<select id=" + selectName;
+	if (isASkill == 1){
+		out += " class = \"imgASkill\"";
+	}
+	out += " onChange = \"" + selchgName +"(0," + isASkill.toString() + ")\">" + "<br>";
+    out += "<option value =\"10\">請選擇</option>";
 
     for(i = slvMin; i < 10; i++){
         if (i < 0) continue;
@@ -623,17 +730,25 @@ function selectClassChg(noId){
 
 
 //當英靈編號選單 or 最大技能等級選單變動
-function selectchg(type){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type = 0, 最大技能選單
+function selectchg(type, isASkill){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type = 0, 最大技能選單
     var skillNow;
+	var askillNow;
     for(var i = 1; i <= tbMax ; i++){
-        skillNow = parseInt($("#svt_" + i).attr("data-skillNow"));
-        ttDataClear(3 * (i - 1) + skillNow);
+        
+		skillNow = parseInt($("#svt_" + i).attr("data-skillNow"));
+		askillNow = parseInt($("#svt_" + i).attr("data-askillNow"));
 
-        //
+		ttDataClear(3 * (i - 1) + skillNow, 0);
+		if($("#svt_" + i).find("[type=checkbox]")[0].checked == true){
+			ttDataClear(3 * (i - 1) + askillNow, 1);			
+		}
         if(type == i){
-            ttDataClear(3 * (i - 1) + 1);
-            ttDataClear(3 * (i - 1) + 2);
-            ttDataClear(3 * (i - 1) + 3);
+            ttDataClear(3 * (i - 1) + 1, 0);
+            ttDataClear(3 * (i - 1) + 2, 0);
+            ttDataClear(3 * (i - 1) + 3, 0);
+			ttDataClear(3 * (i - 1) + 1, 1);
+            ttDataClear(3 * (i - 1) + 2, 1);
+            ttDataClear(3 * (i - 1) + 3, 1);
             $("#img_skillNo" + i + "_" + skillNow).addClass("whiteCover");
             $("#img_skillNo" + i + "_1").removeClass("whiteCover");
             $("#svt_" + i).attr("data-skillNow" , 1);
@@ -643,16 +758,36 @@ function selectchg(type){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type 
             $("#img_skillNo" + i + "_2").attr("data-max","0");
             $("#img_skillNo" + i + "_3").attr("data-min","-1");
             $("#img_skillNo" + i + "_3").attr("data-max","0");
-            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
-            mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
+            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin", i, 0);
+            mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg",0);
+			
+			$("#img_askillNo" + i + "_" + askillNow).addClass("whiteCover");
+            $("#img_askillNo" + i + "_1").removeClass("whiteCover");
+            $("#svt_" + i).attr("data-askillNow" , 1);
+            $("#img_askillNo" + i + "_1").attr("data-min","-1");
+            $("#img_askillNo" + i + "_1").attr("data-max","10");
+            $("#img_askillNo" + i + "_2").attr("data-min","-1");
+            $("#img_askillNo" + i + "_2").attr("data-max","0");
+            $("#img_askillNo" + i + "_3").attr("data-min","-1");
+            $("#img_askillNo" + i + "_3").attr("data-max","0");
+			mySelectSlvMin("svt_" + i + "_span_4","selcetMinAS_" + i, -1, "selectchgMin", i, 1);
+			mySelectSlvMax("svt_" + i + "_span_5","selcetMaxAS_" + i, 10, "selectchg",1);
+			
             updateAscensionTable($("#svt_" + i));
         }
 
         //將最小技能設為"請選擇"
-        if($("#selcetMin_" + i).val() == -1)
-            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, 9, "selectchgMin(" + i + ")");
-
-        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0,0);
+        if($("#selcetMin_" + i).val() == -1){
+            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, 9, "selectchgMin", i, 0);
+		}
+		if($("#selcetMinAS_" + i).val() == -1){		
+			 mySelectSlvMin("svt_" + i + "_span_4","selcetMinAS_" + i, 9, "selectchgMin", i, 1);
+		}
+		
+        myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMin_" + i).val()),parseInt($("#selcetMax_" + i).val()),0,0,0);
+		myTable(i,$("#selcetNo" + i).val(),parseInt($("#selcetMinAS_" + i).val()),parseInt($("#selcetMaxAS_" + i).val()),0,0,1);
+		
+		//英靈圖片更新
         $("#img_svtNo_"+i).attr("src","./images/"+"svtNo_" + $("#selcetNo" + i).val() + ".png");
 
         //如果最大技能設為"0"，則將英靈圖片設為整行
@@ -670,34 +805,65 @@ function selectchg(type){   //type = 1 ~ tbMax, 英靈編號選單變動 ; type 
         }else{
             $("#img_svtNo_" + i).attr("src","");
             $("#img_svtNo_" + i).addClass("displayNone");
-            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin(" + i + ")");
-            mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg");
+            mySelectSlvMin("svt_" + i + "_span_2","selcetMin_" + i, -1, "selectchgMin", i, 0);
+            mySelectSlvMax("svt_" + i + "_span_3","selcetMax_" + i, 10, "selectchg",0);
+			mySelectSlvMin("svt_" + i + "_span_4","selcetMinAS_" + i, -1, "selectchgMin", i, 1);
+            mySelectSlvMax("svt_" + i + "_span_5","selcetMaxAS_" + i, 10, "selectchg",1);
         }
+		
+		if($("#svt_" + i).find("[type=checkbox]")[0].checked == false){
+			$("#selcetMinAS_" + i).addClass("displayNone");
+			$("#selcetMaxAS_" + i).addClass("displayNone");
+		}
     }
-
+	
     countItemAll();
     myTable2();
 
 }
 
 //當最小技能等級選單變動
-function selectchgMin(svtNo){
+function selectchgMin(svtNo, isASkill){
     var wk_selectNo = "#selcetNo" + svtNo;
-    var wk_selectMin = "#selcetMin_" + svtNo;
-    var wk_selectMax = "#selcetMax_" + svtNo;
-    var wk_svtNo_span = "svt_" + svtNo + "_span_3";
-    var skillNow = parseInt($("#svt_" + svtNo).attr("data-skillNow"));
+    var wk_selectMin;
+    var wk_selectMax;
+	var wk_selectMaxName;
+    var wk_svtNo_span;
+    var skillNow;
+	var skillMin = 0;
+	var skillMax = 0;
+	
+	if( isASkill == 1 ){
+		wk_selectMin = "#selcetMinAS_" + svtNo;
+		wk_selectMax = "#selcetMaxAS_" + svtNo;
+		wk_selectMaxName = "selcetMaxAS_" + svtNo;
+		wk_svtNo_span = "svt_" + svtNo + "_span_5";
+		skillNow = parseInt($("#svt_" + svtNo).attr("data-askillNow"));
+	}
+	else{
+		wk_selectMin = "#selcetMin_" + svtNo;
+		wk_selectMax = "#selcetMax_" + svtNo;
+		wk_selectMaxName = "selcetMax_" + svtNo;
+		wk_svtNo_span = "svt_" + svtNo + "_span_3";
+		skillNow = parseInt($("#svt_" + svtNo).attr("data-skillNow"));
+	}
 
+	skillMin = parseInt($(wk_selectMin).val());
+	skillMax = parseInt($(wk_selectMax).val());
+	
     //如果最小技能等於最大技能，則將英靈圖片設為整行
-    if($("#selcetMax_" + svtNo).val() <= $("#selcetMin_" + svtNo).val() && $("#selcetMax_" + svtNo).val()!=10){
-        $("#img_svtNo_" + svtNo).addClass("nonFloat");
+    if(skillMax <= skillMin && skillMax != 10 ){
+        $("#img_svtNo_" + svtNo).addClass("nonFloat");	
     }else{
         $("#img_svtNo_" + svtNo).removeClass("nonFloat");
     }
-
-    myTable(svtNo,$(wk_selectNo).val(),parseInt($(wk_selectMin).val()),parseInt($(wk_selectMax).val()),0,0);
-    mySelectSlvMax(wk_svtNo_span,"selcetMax_" + svtNo,parseInt($(wk_selectMin).val()),"selectchg");
-    ttDataClear(3 * ( svtNo - 1) + skillNow);
+	
+	if($(wk_selectMin).val() == -1){
+		skillMax = 0;
+	}
+	mySelectSlvMax(wk_svtNo_span, wk_selectMaxName, skillMin, "selectchg", isASkill);
+    myTable(svtNo,$(wk_selectNo).val(), skillMin, skillMax,0,0,isASkill);    
+    ttDataClear(3 * ( svtNo - 1) + skillNow, isASkill);
     myTable2();
 
 
@@ -710,17 +876,26 @@ function buildSImage(id, title, noclick) {
 }
 
 //英靈素材資訊表格產生
-function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
+function myTable(tableNum, svtNo, min, max, type, isSkillNumChg, isASkill) {
     var i = 0, j = 0, t = 0;
     var qpTemp = 0;
     var itemMax = 0;
-    var tableName = "dataTalbe" + tableNum.toString();
+    var tableName; 
     var out = "<table";
     var flag = 1;
-    var skillNow = parseInt($("#svt_" + tableNum).attr("data-skillNow"));
-
-    if(type)
+    var skillNow;
+	
+	if(isASkill == 1){
+		tableName = "adataTalbe" + tableNum.toString();
+		skillNow = parseInt($("#svt_" + tableNum).attr("data-askillNow"));
+	}
+	else{
+		tableName = "dataTalbe" + tableNum.toString();
+		skillNow = parseInt($("#svt_" + tableNum).attr("data-skillNow"));
+	}
+    if(type){
       out += " class='mtable'>";
+	}
     else {
       out += ">";
     }
@@ -733,23 +908,48 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
 
     if(svtNo != -1){
         for(i = min - 1; i < max - 1; i++){
-            if(svtData[svtNo].skillLevel[i].skillItem.length > itemMax)
-                itemMax = svtData[svtNo].skillLevel[i].skillItem.length;
-        }
+			if( isASkill == 1){
+				if(asvtData[svtNo].skillLevel[i].skillItem.length > itemMax)
+					itemMax = asvtData[svtNo].skillLevel[i].skillItem.length;
+			}else{
+				if(svtData[svtNo].skillLevel[i].skillItem.length > itemMax)
+					itemMax = svtData[svtNo].skillLevel[i].skillItem.length;
+			}
+		}
     }
 
+	if(max > 0 && max <= 10){
+		tempMax = max;
+	}
+	else{
+		tempMax = 10;
+	}
+	if(type == 1){
+		tempMax = max;
+	}
+	
     out += "<tr>";
-    for(i = min - 1; i < max - 1; i++){
+    for(i = min - 1; i < tempMax - 1; i++){
         //素材搜尋 且 素材數量大於3時，合併儲存格
         if(type == 1 && itemMax >= 3)
             out += "<td colspan='2'>";
         else
             out += "<td>";
-        out += "Slv " +
-        (i + 1).toString() +
-        " → " +
-        (i + 2).toString() +
-        "</td>";
+		if( isASkill == 1)
+		{
+			out += "ASlv " ;
+			out += (i + 1).toString();
+			out += "→" ;
+		}
+		else{
+			out += "Slv " ;
+			out += (i + 1).toString();
+			out += " → " ;
+        }
+		
+        
+        out += (i + 2).toString();
+        out += "</td>";
     }
     out += "</tr>";
 
@@ -758,23 +958,42 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
     if(svtNo != -1){
         for(i = min - 1; i < max - 1; i++){
             qpTemp = 0;
-            for(t = 0; t < svtData[svtNo].skillLevel[i].QP[0].value.length; t++){
-                if(svtData[svtNo].skillLevel[i].QP[0].value[t]!=",")
-                    qpTemp = qpTemp*10 + parseInt(svtData[svtNo].skillLevel[i].QP[0].value[t]);
-            }
+			if(isASkill == 1){
+				for(t = 0; t < asvtData[svtNo].skillLevel[i].QP[0].value.length; t++){
+					if(asvtData[svtNo].skillLevel[i].QP[0].value[t]!=",")
+						qpTemp = qpTemp*10 + parseInt(asvtData[svtNo].skillLevel[i].QP[0].value[t]);
+				}
+			}
+			else{
+				for(t = 0; t < svtData[svtNo].skillLevel[i].QP[0].value.length; t++){
+					if(svtData[svtNo].skillLevel[i].QP[0].value[t]!=",")
+						qpTemp = qpTemp*10 + parseInt(svtData[svtNo].skillLevel[i].QP[0].value[t]);
+				}
+			}
             //QP數存入ttData陣列
             if(tableNum < 100 && isSkillNumChg == 0){
-                ttData[3 * (tableNum - 1) + skillNow][0]+=qpTemp;
+				if(isASkill == 1){
+					if($("#svt_" + tableNum).find("[type=checkbox]")[0].checked == true){
+						ttData[isASkill][3 * (tableNum - 1) + skillNow][0] += qpTemp;
+					}
+				}else{
+					ttData[isASkill][3 * (tableNum - 1) + skillNow][0] += qpTemp;
+				}                
             }
 
-              //素材搜尋 且 素材數量大於3時，合併儲存格
-              if(type == 1 && itemMax >= 3)
-                  out += "<td colspan='2'>";
-              else
-                  out += "<td>";
-            out += "<img style='width:" + maxImgWidth +"px' src =\"./images/S_" +
-            svtData[svtNo].skillLevel[i].QP[0].image +
-            ".png\" title='QP'> <br> x " ;
+			//素材搜尋 且 素材數量大於3時，合併儲存格
+			if(type == 1 && itemMax >= 3)
+				out += "<td colspan='2'>";
+			else
+				out += "<td>";
+            out += "<img style='width:" + maxImgWidth +"px' src =\"./images/S_" ;
+			if(isASkill == 1){
+				out += asvtData[svtNo].skillLevel[i].QP[0].image ;
+			}
+			else{
+				out += svtData[svtNo].skillLevel[i].QP[0].image ;
+			}
+            out += ".png\" title='QP'> <br> x " ;
             out += thousandComma(qpTemp/1000) + " k";
             out += "</td>";
 
@@ -784,32 +1003,64 @@ function myTable(tableNum, svtNo, min, max, type, isSkillNumChg) {
         for( j = 0; j < itemMax; j++) {
             flag = 1;
             if(type == 1 && itemMax >= 3 && (j == 1 || j == 3))
-              flag = 1;
+				flag = 1;
             else
-              out += "<tr>";
+				out += "<tr>";
 
             if(type == 1 && itemMax >= 3 && (j == 0 || j == 2))   //素材搜尋 且 素材數量大於3時，寫入左邊格子
+			{
                 flag = 0;
+			}
 
             for(i = min - 1; i < max - 1; i++){
                 out += "<td>";
-                if(svtData[svtNo].skillLevel[i].skillItem.length > j){
-                    out += buildSImage(
-                        svtData[svtNo].skillLevel[i].skillItem[j].image,
-                        svtData[svtNo].skillLevel[i].skillItem[j].name
-                    ) +
-                    " <br> x " +
-                    svtData[svtNo].skillLevel[i].skillItem[j].number;
+				if( isASkill == 1 ){
+					if(asvtData[svtNo].skillLevel[i].skillItem.length > j){
+						out += buildSImage(
+							asvtData[svtNo].skillLevel[i].skillItem[j].image,
+							asvtData[svtNo].skillLevel[i].skillItem[j].name
+						) +
+						" <br> x " +
+						asvtData[svtNo].skillLevel[i].skillItem[j].number;
 
-                    //道具數存入ttData陣列
-                    if(tableNum < 100 && isSkillNumChg == 0)
-                      ttData[3 * (tableNum - 1) + skillNow][svtData[svtNo].skillLevel[i].skillItem[j].image]+=svtData[svtNo].skillLevel[i].skillItem[j].number;
-                }
+						//道具數存入ttData陣列
+						if(tableNum < 100 && isSkillNumChg == 0){
+							if(isASkill == 1){
+								if($("#svt_" + tableNum).find("[type=checkbox]")[0].checked == true){
+									ttData[isASkill][3 * (tableNum - 1) + skillNow][asvtData[svtNo].skillLevel[i].skillItem[j].image]+=asvtData[svtNo].skillLevel[i].skillItem[j].number;
+								}
+							}else{
+								ttData[isASkill][3 * (tableNum - 1) + skillNow][asvtData[svtNo].skillLevel[i].skillItem[j].image]+=asvtData[svtNo].skillLevel[i].skillItem[j].number
+							}
+						}
+					}
+				}
+				else{
+					if(svtData[svtNo].skillLevel[i].skillItem.length > j){
+						out += buildSImage(
+							svtData[svtNo].skillLevel[i].skillItem[j].image,
+							svtData[svtNo].skillLevel[i].skillItem[j].name
+						) +
+						" <br> x " +
+						svtData[svtNo].skillLevel[i].skillItem[j].number;
+
+						//道具數存入ttData陣列
+						if(tableNum < 100 && isSkillNumChg == 0){
+							if(isASkill == 1){
+								if($("#svt_" + tableNum).find("[type=checkbox]")[0].checked == true){
+									ttData[isASkill][3 * (tableNum - 1) + skillNow][svtData[svtNo].skillLevel[i].skillItem[j].image]+=svtData[svtNo].skillLevel[i].skillItem[j].number;
+								}
+							}else{
+								ttData[isASkill][3 * (tableNum - 1) + skillNow][svtData[svtNo].skillLevel[i].skillItem[j].image]+=svtData[svtNo].skillLevel[i].skillItem[j].number
+							}
+						}
+					}
+				}
                 out += "</td>";
             }
 
             if(flag)
-              out += "</tr>";
+				out += "</tr>";
         }
     }
     out += "</table>";
@@ -836,7 +1087,7 @@ function myTable2() {
         });
     });
 
-    clonedTable[0][0] += sum.QP || 0;
+    clonedTable[0][0][0] += sum.QP || 0;
     for (var key in sum) {
         var id = itemImage[key];
         if (!id) continue;
@@ -844,8 +1095,8 @@ function myTable2() {
 		if(id > itemKindMAx)
 			id = id - 100 + itemKindMAx;
 
-        if (!clonedTable[0][id]) clonedTable[0][id] = 0;
-        clonedTable[0][id] += sum[key];
+        if (!clonedTable[0][0][id]) clonedTable[0][0][id] = 0;
+        clonedTable[0][0][id] += sum[key];
     }
 
     _myTable2(clonedTable, Object.keys(itemImage).length);
@@ -877,7 +1128,7 @@ function _myTable2(ttData, itemKindMAx) {
     var qpString = 0;
     var out = "<table>";
 
-    qpString = thousandComma(ttData[0][0]);
+    qpString = thousandComma(ttData[0][0][0]);
 
     out += "<tr>";
     out += "<td colspan=\"3\">";
@@ -889,7 +1140,7 @@ function _myTable2(ttData, itemKindMAx) {
 
     for(i = 1; i < itemKindMAx + 1; i++){
 
-        if (ttData[0][i] < 1 || ttData[0][i] == undefined){
+        if (ttData[0][0][i] < 1 || ttData[0][0][i] == undefined){
             continue;
         }
 
@@ -901,7 +1152,7 @@ function _myTable2(ttData, itemKindMAx) {
         out += "<td>"
         out += buildSImage(i, "", true);
         out += " <br> x " ;
-        out += ttData[0][i];
+        out += ttData[0][0][i];
         out += "</td>";
 
         if(itemCount % 3 == 0){

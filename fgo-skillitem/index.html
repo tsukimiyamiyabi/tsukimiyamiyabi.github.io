@@ -66,7 +66,7 @@
 				  <input type="button" id="screenShot" value="總和截圖" style="margin-right:0px; position:relative; left:180px;">
                 </div>
 
-                <div id="svt_templet" class="displayNone svt-panel" data-number="" data-skillNow ="1">
+                <div id="svt_templet" class="displayNone svt-panel" data-number="" data-skillNow ="1" data-askillNow ="1">
                     <span id = ""></span>
                     <span id = ""></span>
                     <img id = "" class="displayNone" src="" title="" style="width:16px" data-min="-1" data-max="10">
@@ -76,12 +76,24 @@
                     <span id = "" style="font-size:12px"> </span>
                     <span class="span-tag" style="font-size:12px" > 目標Skill：</span>
                     <span id = "" style="font-size:12px" > </span>
+					<span class="span-tag" id = "chkbox_span">
+                        <input type="checkbox" name="chkaskill" id="chkaskill">
+                        <label for="chkaskill">附加技能(アペンドスキル)</label>
+                    </span>
                     <span class="span-tag" id = "chkbox_span">
                         <input type="checkbox" name="chkHide" id="chkHide">
-                        <label for="chkHide">隱藏</label>
+                        <label for="chkHide">隱藏(非表示)</label>
                     </span><br>
                     <img id ="" class="displayNone imgFloat" src="" title="">
                     <div style="width: 100%; margin-bottom:15px;" id = "" class="skill-table"></div>
+					<img id = "" class="displayNone imgASkill" src="" title="" style="width:16px; margin-left:150px;" adata-min="-1" adata-max="10">
+                    <img id = "" class="displayNone imgASkill whiteCover" src="" title="" style="width:16px" adata-min="-1" adata-max="0">
+                    <img id = "" class="displayNone imgASkill whiteCover" src="" title="" style="width:16px" adata-min="-1" adata-max="0">
+                    <span class="span-tag imgASkill" style="font-size:12px"> 現在Skill：</span>
+                    <span id = "" style="font-size:12px"> </span>
+                    <span class="span-tag imgASkill" style="font-size:12px" > 目標Skill：</span>
+                    <span id = "" style="font-size:12px" > </span>
+					<div style="width: 100%; margin-bottom:15px; margin-left:142px;" id = "" class="askill-table"></div>
                     <div class="ascension-table">
                       <label>
                         現在靈基︰
@@ -118,11 +130,15 @@
               <select id="searchItemSlect" onchange="itemSlectNoChange()"></select>
               <label>
                 <input type="checkbox" id="searchSkill" checked>
-                技能素材
+                固有技能
               </label>
               <label>
                 <input type="checkbox" id="searchAscension" checked>
-                靈基素材
+                靈基進化
+              </label>
+              <label>
+                <input type="checkbox" id="searchASkill" checked>
+                附加技能
               </label>
             </div>
 			
@@ -136,6 +152,7 @@
                 <img id ="" class="displayNone imgFloat" src="" >
                 <div class="table-group">
                   <div class="skill-table"></div>
+				  <div class="askill-table"></div>
                   <div class="ascension-table">
                     <table>
                       <tbody></tbody>
@@ -179,6 +196,7 @@
 
 </body>
 <script src="data.js"></script>
+<script src="data_askill.js"></script>
 <script src="chinesedata.js"></script>
 <script src="itemdata.js"></script>
 <script src="data-ascension.js"></script>
