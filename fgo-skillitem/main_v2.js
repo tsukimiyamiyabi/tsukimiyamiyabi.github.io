@@ -604,7 +604,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "3":						//弓
             if(svtData[i].skillLevel[0].skillItem[0].image != 7)
                 continueFlag = 1;
-			if(i == 163 || i == 172 || i == 264 || i == 291 || i == 304 ) //Alter Ego パッションリップ Ruler シャーロック Ruler アルトリア・ペンドラゴン Ruler 卑弥呼 Ruler アムール〔カレン〕
+			if(i == 163 || i == 172 || i == 264 || i == 291 || i == 304 || i == 319) //Alter Ego パッションリップ Ruler シャーロック Ruler アルトリア・ペンドラゴン Ruler 卑弥呼 Ruler アムール〔カレン〕 Ruler レオナルド・ダ・ヴィンチ
                 continueFlag = 1;
             break;
           case "4":						//騎
@@ -628,11 +628,11 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
           case "8":						//裁
-            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 && i != 264 && i != 291 && i != 304 ) //Ruler 裁
+            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 && i != 264 && i != 291 && i != 304 && i != 319 ) //Ruler 裁
                 continueFlag = 1;
             break;
           case "9":						//讐
-            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203 && i != 249 && i != 267 && i != 302 )  //Avenger 讐
+            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203 && i != 249 && i != 267 && i != 302 && i != 327 )  //Avenger 讐
                 continueFlag = 1;
             break;
 		  case "10":					//分
@@ -644,7 +644,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "12":					//降
-            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 307)  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,謎のアイドルX〔オルタ〕
+            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 307 && i != 323 )  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,謎のアイドルX〔オルタ〕,ジャック・ド・モレー
               continueFlag = 1;
             break;
 		  case "13":					//詐
