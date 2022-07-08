@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 71;    //目前素材種類數
+var itemKindMAx = 73;    //目前素材種類數
 var classMax = 14;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -155,7 +155,7 @@ function itemDivCreate(itemNo){
 
     for(var i = 0; i < svtData.length ; i++){
 		filterSkip = 0;
-        if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 ) continue;  //跳過缺號的英靈
+        if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332 ) continue;  //跳過缺號的英靈
 		if(ascension["" + ( i + 1 ) + ""] != undefined){
 			for(var n = 1; n <= classMax; n++){
 				if($("#class_filter_" + n).hasClass("whiteCover")){
@@ -581,7 +581,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
 
     for(i = 0; i < number; i++){
         continueFlag = 0;
-        if(i==82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239)
+        if(i==82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332)
             continue;
 
         switch (svtClass) {
@@ -598,7 +598,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "2":						//槍
             if(svtData[i].skillLevel[0].skillItem[0].image != 4)
                 continueFlag = 1;
-			if(i == 162 || i == 232 || i == 243) //Ruler 裁 Alter Ego メルトリリス ジナコ
+			if(i == 162 || i == 232 || i == 243 || i == 345) //Ruler 裁 Alter Ego メルトリリス ジナコ モリアーティ
                 continueFlag = 1;
             break;
           case "3":						//弓
@@ -610,7 +610,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "4":						//騎
             if(svtData[i].skillLevel[0].skillItem[0].image != 10)
                 continueFlag = 1;
-			if(i == 92 ||  i == 165 || i == 189 || i == 190 || i == 284) //Ruler 天草 MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機) 殺生院アキラ
+			if(i == 92 ||  i == 165 || i == 189 || i == 190 || i == 284 || i == 335 || i == 338) //Ruler 天草 MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機) 殺生院アキラ バゼット スーパーバニヤン
                 continueFlag = 1;
             break;
           case "5":						//術
@@ -622,13 +622,15 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "6":						//殺
             if(svtData[i].skillLevel[0].skillItem[0].image != 16)
                 continueFlag = 1;
+			if(i == 337) //Alter Ego 太歲星君
+                continueFlag = 1;
             break;
           case "7":						//狂
             if(svtData[i].skillLevel[0].skillItem[0].image != 19)
                 continueFlag = 1;
             break;
           case "8":						//裁
-            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 && i != 264 && i != 291 && i != 304 && i != 319 ) //Ruler 裁
+            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 && i != 264 && i != 291 && i != 304 && i != 319 && i != 345 ) //Ruler 裁
                 continueFlag = 1;
             break;
           case "9":						//讐
@@ -636,7 +638,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "10":					//分
-            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237 && i != 296)  //Alter Ego 分
+            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237 && i != 296 && i != 335 && i != 337 && i != 338)  //Alter Ego 分
                 continueFlag = 1;
             break;
 		  case "11":					//月
@@ -644,11 +646,11 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "12":					//降
-            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 307 && i != 323 )  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,謎のアイドルX〔オルタ〕,ジャック・ド・モレー
+            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 307 && i != 323 && i != 333  )  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,謎のアイドルX〔オルタ〕,ジャック・ド・モレー,闇のコヤンスカヤ
               continueFlag = 1;
             break;
 		  case "13":					//詐
-            if(i != 315 )  //オペロン
+            if(i != 315 && i != 334)  //オペロン, ヘファイスティオン
                 continueFlag = 1;
 			break;
           default:
