@@ -646,7 +646,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "12":					//降
-            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 307 && i != 323 && i != 333  )  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,謎のアイドルX〔オルタ〕,ジャック・ド・モレー,闇のコヤンスカヤ
+            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 294 && i != 307 && i != 323 && i != 333  )  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,ヴァン・ゴッホ,謎のアイドルX〔オルタ〕,ジャック・ド・モレー,闇のコヤンスカヤ
               continueFlag = 1;
             break;
 		  case "13":					//詐
