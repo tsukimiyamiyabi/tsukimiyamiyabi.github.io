@@ -616,7 +616,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
           case "5":						//術
             if(svtData[i].skillLevel[0].skillItem[0].image != 13)
                 continueFlag = 1;
-			if(i == 223 ||  i == 296 ) //Alter Ego シトナイ, Alter Ego 芦屋道満
+			if(i == 223 ||  i == 296 ||  i == 350 ||  i == 351 ) //Alter Ego シトナイ, Alter Ego 芦屋道満, 月 アーキタイプ：アース, Alter Ego 徐福
                 continueFlag = 1;
             break;
           case "6":						//殺
@@ -638,11 +638,11 @@ function mySelectSvt(idNo,spanId,selectName,number){
                 continueFlag = 1;
             break;
 		  case "10":					//分
-            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237 && i != 296 && i != 335 && i != 337 && i != 338)  //Alter Ego 分
+            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237 && i != 296 && i != 335 && i != 337 && i != 338 && i != 351)  //Alter Ego 分
                 continueFlag = 1;
             break;
 		  case "11":					//月
-            if(i != 165 && i != 219 &&  i!= 243 &&  i!= 284)  //MoonCancer BB ジナコ 殺生院アキラ
+            if(i != 165 && i != 219 &&  i!= 243 &&  i!= 284 &&  i!= 350)  //MoonCancer BB ジナコ 殺生院アキラ アーキタイプ：アース
                 continueFlag = 1;
             break;
 		  case "12":					//降

@@ -1045,5 +1045,11 @@ var svtChineseData = [
   },
   {
     "name": "源為朝"
+  },
+  {
+    "name": "Archetype：Earth"
+  },
+  {
+    "name": "徐福"
   }
 ];
