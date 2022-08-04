@@ -1032,6 +1032,9 @@ var svtChineseData = [
     "name": "羅蘭"
   },
   {
+    "name": "克里姆希爾德"
+  },
+  {
     "name": "詹姆斯・莫里亞蒂"
   },
   {
