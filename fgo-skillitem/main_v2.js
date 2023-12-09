@@ -7,6 +7,7 @@ var maxImgWidth = 50;
 var targetItemNo = -1;
 var isChinese = 0;
 var ClassData = ["全","剣","槍","弓","騎","術","殺","狂","盾","裁","讐","分","月","降","詐","獣"];
+var ClassData2 = ["盾","剣","槍","弓","騎","術","殺","狂","裁","讐","分","月","降","詐","獣"];
 
 ttDataClear(-1, 0);
 svtDivCreate(true);
@@ -572,7 +573,6 @@ function mySelectSvtClass(noId,spanId,selectName){
 //英靈編號選單產生
 function mySelectSvt(idNo,spanId,selectName,number){
     var i = 0;
-    var continueFlag = 0;
     var svtClass = $("#selcetClassNo" + idNo).val();
     var out = "<select id=";
     out += selectName +
@@ -581,91 +581,13 @@ function mySelectSvt(idNo,spanId,selectName,number){
     "<option value =\"-1\">請選擇 Select Servant</option>";
 
     for(i = 0; i < number; i++){
-        continueFlag = 0;
-        if(i==82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332 )
-            continue;
-
-        switch (svtClass) {
-          case "0":
-            if(i != 0)  				//盾
-              continueFlag = 1;
-            break;
-          case "1":						//剣
-            if(svtData[i].skillLevel[0].skillItem[0].image != 1)
-                continueFlag = 1;
-            if(i == 58 || i == 134 || i == 166 || i == 208 || i == 219 || i == 228 || i == 237 || i == 241 || i == 356 ) //Ruler 裁, 沖田,  BB, 始皇帝, キングプロテア, アストライア
-                continueFlag = 1;
-            break;
-          case "2":						//槍
-            if(svtData[i].skillLevel[0].skillItem[0].image != 4)
-                continueFlag = 1;
-			if(i == 162 || i == 232 || i == 243 || i == 345 || i == 373) //Ruler 裁 Alter Ego メルトリリス ジナコ モリアーティ
-                continueFlag = 1;
-            break;
-          case "3":						//弓
-            if(svtData[i].skillLevel[0].skillItem[0].image != 7)
-                continueFlag = 1;
-			if(i == 163 || i == 172 || i == 264 || i == 291 || i == 304 || i == 319 || i == 389) //Alter Ego パッションリップ Ruler シャーロック Ruler アルトリア・ペンドラゴン Ruler 卑弥呼 Ruler アムール〔カレン〕 Ruler レオナルド・ダ・ヴィンチ
-                continueFlag = 1;
-            break;
-          case "4":						//騎
-            if(svtData[i].skillLevel[0].skillItem[0].image != 10)
-                continueFlag = 1;
-			if(i == 92 ||  i == 165 || i == 189 || i == 190 || i == 284 || i == 335 || i == 338 || i == 368 || i == 375) //Ruler 天草 MoonCancer BB, Alter Ego メカエリチャン(Ⅱ号機) 殺生院アキラ バゼット スーパーバニヤン
-                continueFlag = 1;
-            break;
-          case "5":						//術
-            if(svtData[i].skillLevel[0].skillItem[0].image != 13)
-                continueFlag = 1;
-			if(i == 223 ||  i == 296 ||  i == 350 ||  i == 351 ) //Alter Ego シトナイ, Alter Ego 芦屋道満, 月 アーキタイプ：アース, Alter Ego 徐福
-                continueFlag = 1;
-            break;
-          case "6":						//殺
-            if(svtData[i].skillLevel[0].skillItem[0].image != 16)
-                continueFlag = 1;
-			if(i == 337) //Alter Ego 太歲星君
-                continueFlag = 1;
-            break;
-          case "7":						//狂
-            if(svtData[i].skillLevel[0].skillItem[0].image != 19)
-                continueFlag = 1;
-            break;
-          case "8":						//裁
-            if(i != 58 && i != 92 && i != 134 && i != 172 && i != 228 && i != 232 && i != 241 && i != 264 && i != 291 && i != 304 && i != 319 && i != 345 && i != 356 && i != 363 && i != 373 && i != 389) //Ruler 裁
-                continueFlag = 1;
-            break;
-          case "9":						//讐
-            if(i != 95 && i != 105 && i != 106 && i != 146 && i != 157 && i != 203 && i != 249 && i != 267 && i != 302 && i != 320 && i != 327 && i != 355 && i != 369  )  //Avenger 讐
-                continueFlag = 1;
-            break;
-		  case "10":					//分
-            if(i != 162 && i != 163 && i != 166 && i != 189 && i != 190 && i != 208 && i != 223 && i != 237 && i != 296 && i != 335 && i != 337 && i != 338 && i != 351 && i != 368 && i != 375)  //Alter Ego 分
-                continueFlag = 1;
-            break;
-		  case "11":					//月
-            if(i != 165 && i != 219 &&  i!= 243 &&  i!= 284 &&  i!= 350)  //MoonCancer BB ジナコ 殺生院アキラ アーキタイプ：アース
-                continueFlag = 1;
-            break;
-		  case "12":					//降
-            if(i != 194 && i != 197 && i != 221 && i != 274 && i != 280 && i != 288 && i != 294 && i != 307 && i != 323 && i != 333 && i != 372 && i != 392 )  //Foreigner 阿比, 葛飾, XX, 楊貴妃, Voyager アビゲイル〔夏〕,ヴァン・ゴッホ,謎のアイドルX〔オルタ〕,ジャック・ド・モレー,闇のコヤンスカヤ
-              continueFlag = 1;
-            break;
-		  case "13":					//詐
-            if(i != 315 && i != 334 && i != 352 && i != 388 )  //オペロン, ヘファイスティオン, レディ・アヴァロン
-                continueFlag = 1;
-			break;
-		  case "14":					//獣
-            if(i != 376 )  //ソドムズビースト／ドラコー
-                continueFlag = 1;
-			break;
-          default:
-            continueFlag = 0;
-        }
-
-        if(continueFlag){
-            continue;
-        }
-
+		if(svtClass != -1)
+		{
+			if(i==82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332 )
+				continue;
+			if(ascension["" + ( i + 1 ) + ""].cls != ClassData2[svtClass])
+				continue;
+		}
         out +=   "<option value =\"" +
         i +
         "\">" +
