@@ -1,0 +1,359 @@
+<table id="svtCmbnData
+<tbody><tr><th rowspan="4
+<b>靈基再臨</b></th><td width="80" bgcolor=" #ECF2F3
+第1階段</td><td width="450" bgcolor=" #ECF2F3
+<a href="item_drop.html#94090907
+<div class="itemMT" 
+サンタボンバーハット
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/94090907.png')
+1
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+50k
+</td></tr><tr><td width="80
+第2階段</td><td width="450
+<a href="item_drop.html#94090907
+<div class="itemMT" 
+サンタボンバーハット
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/94090907.png')
+1
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+150k
+</td></tr><tr><td width="80" bgcolor=" #ECF2F3
+第3階段</td><td width="450" bgcolor=" #ECF2F3
+<a href="item_drop.html#94090907
+<div class="itemMT" 
+サンタボンバーハット
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/94090907.png')
+1
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+500k
+</td></tr><tr><td width="80
+第4階段</td><td width="450
+<a href="item_drop.html#94090907
+<div class="itemMT" 
+サンタボンバーハット
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/94090907.png')
+1
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+2m
+</td></tr><tr><th rowspan="9
+<b>保有技能強化</b></th><td bgcolor=" #ECF2F3
+Lv.1→Lv.2</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6004
+<div class="itemMT" 
+騎の輝石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6004.png')
+4
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+100k
+</td></tr><tr><td>Lv.2→Lv.3</td><td><a href="item_drop.html#6004
+<div class="itemMT" 
+騎の輝石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6004.png')
+10
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+200k
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.3→Lv.4</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6104
+<div class="itemMT" 
+騎の魔石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6104.png')
+4
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+600k
+</td></tr><tr><td>Lv.4→Lv.5</td><td><a href="item_drop.html#6104
+<div class="itemMT" 
+騎の魔石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6104.png')
+10
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6502
+<div class="itemMT" 
+世界樹の種
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6502.png')
+5
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+800k
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.5→Lv.6</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6204
+<div class="itemMT" 
+騎の秘石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6204.png')
+4
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6502
+<div class="itemMT" 
+世界樹の種
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6502.png')
+10
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+2m
+</td></tr><tr><td>Lv.6→Lv.7</td><td><a href="item_drop.html#6204
+<div class="itemMT" 
+騎の秘石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6204.png')
+10
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6534
+<div class="itemMT" 
+励振火薬
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6534.png')
+12
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+3m
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.7→Lv.8</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6534
+<div class="itemMT" 
+励振火薬
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6534.png')
+24
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6535
+<div class="itemMT" 
+永遠結氷
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6535.png')
+5
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+5m
+</td></tr><tr><td>Lv.8→Lv.9</td><td><a href="item_drop.html#6535
+<div class="itemMT" 
+永遠結氷
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6535.png')
+15
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6518
+<div class="itemMT" 
+精霊根
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6518.png')
+8
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+6m
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.9→Lv.10</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6999
+<div class="itemMT" 
+伝承結晶
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6999.png')
+1
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+10m
+</td></tr><tr><th rowspan="12
+<b>附加技能強化</b></th></tr><tr><td>獲得從者<br>時增加數</td><td><div class="itemMT" 
+
+
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/405300.png')
+0
+<div style="width:10px;display:inline-block;
+
+</td></tr><tr><td>解放</td><td><div class="itemMT" 
+
+
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/405300.png')
+120
+<div style="width:10px;display:inline-block;
+
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.1→Lv.2</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6004
+<div class="itemMT" 
+騎の輝石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6004.png')
+4
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+100k
+</td></tr><tr><td>Lv.2→Lv.3</td><td><a href="item_drop.html#6004
+<div class="itemMT" 
+騎の輝石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6004.png')
+10
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+200k
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.3→Lv.4</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6104
+<div class="itemMT" 
+騎の魔石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6104.png')
+4
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+600k
+</td></tr><tr><td>Lv.4→Lv.5</td><td><a href="item_drop.html#6104
+<div class="itemMT" 
+騎の魔石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6104.png')
+10
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6510
+<div class="itemMT" 
+無間の歯車
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6510.png')
+4
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+800k
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.5→Lv.6</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6204
+<div class="itemMT" 
+騎の秘石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6204.png')
+4
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6510
+<div class="itemMT" 
+無間の歯車
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6510.png')
+8
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+2m
+</td></tr><tr><td>Lv.6→Lv.7</td><td><a href="item_drop.html#6204
+<div class="itemMT" 
+騎の秘石
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6204.png')
+10
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6539
+<div class="itemMT" 
+暁光炉心
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6539.png')
+3
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+3m
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.7→Lv.8</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6539
+<div class="itemMT" 
+暁光炉心
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6539.png')
+5
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6546
+<div class="itemMT" 
+悠久の実
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6546.png')
+3
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+5m
+</td></tr><tr><td>Lv.8→Lv.9</td><td><a href="item_drop.html#6546
+<div class="itemMT" 
+悠久の実
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6546.png')
+9
+</a><div style="width:10px;display:inline-block;
+
+<a href="item_drop.html#6556
+<div class="itemMT" 
+エーテル収光体
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6556.png')
+20
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+6m
+</td></tr><tr><td bgcolor=" #ECF2F3
+Lv.9→Lv.10</td><td bgcolor=" #ECF2F3
+<a href="item_drop.html#6999
+<div class="itemMT" 
+伝承結晶
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/6999.png')
+1
+</a><div style="width:10px;display:inline-block;
+
+<div class="itemMT" 
+QP
+background-image: url('https://fgo.kazemai.io/common/images/icon/items/5.png')
+10m
+</td></tr></tbody></table>
