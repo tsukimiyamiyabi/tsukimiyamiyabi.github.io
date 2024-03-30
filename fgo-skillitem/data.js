@@ -57340,12 +57340,12 @@ var svtData = [
           {
             "image": 21,
             "name": "狂の秘石",
-            "number": 0
+            "number": 4
           },
           {
             "image": 41,
             "name": "血の涙石",
-            "number": 0
+            "number": 5
           }
         ]
       },
