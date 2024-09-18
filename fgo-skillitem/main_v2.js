@@ -1,7 +1,7 @@
 var ttData = [];         //當前頁面所有英靈第1組資訊暫存陣列
 var tbMax = 3;           //育成英靈數，預設為3
 var Max_tbMax = 20; 	 //育成英靈數最大數10
-var itemKindMAx = 77;    //目前素材種類數
+var itemKindMAx = 81;    //目前素材種類數
 var classMax = 15;		 //目前職階種類數
 var maxImgWidth = 50;
 var targetItemNo = -1;
@@ -156,7 +156,7 @@ function itemDivCreate(itemNo){
 
     for(var i = 0; i < svtData.length ; i++){
 		filterSkip = 0;
-        if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332  ) continue;  //跳過缺號的英靈
+        if(i == 82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332 || i == 410 || i == 411  ) continue;  //跳過缺號的英靈
 		if(ascension["" + ( i + 1 ) + ""] != undefined){
 			for(var n = 1; n <= classMax; n++){
 				if($("#class_filter_" + n).hasClass("whiteCover")){
@@ -583,7 +583,7 @@ function mySelectSvt(idNo,spanId,selectName,number){
     for(i = 0; i < number; i++){
 		if(svtClass != -1)
 		{
-			if(i==82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332 )
+			if(i==82 || i == 148 || i == 150 || i == 151 || i == 167 || i == 239 || i == 332 || i == 410 || i == 411 )
 				continue;
 			if(ascension["" + ( i + 1 ) + ""].cls != ClassData2[svtClass])
 				continue;
