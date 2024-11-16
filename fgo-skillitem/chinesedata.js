@@ -1267,5 +1267,20 @@ var svtChineseData = [
   },
   {
     "name": "謎之女主角XX〔Alter〕"
+  },
+  {
+    "name": "岸波白野〔男〕"
+  },
+  {
+    "name": "岸波白野〔女〕"
+  },
+  {
+    "name": "糖果藤蔓"
+  },
+  {
+    "name": "圖坦卡門"
+  },
+  {
+    "name": "梵谷〔Miner〕"
   }
 ];
