@@ -61982,8 +61982,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 23,
-            "name": "竜の牙",
+            "image": 24,
+            "name": "世界樹の種",
             "number": 10
           }
         ]
@@ -61997,8 +61997,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 33,
-            "name": "鳳凰の羽根",
+            "image": 39,
+            "name": "精霊根",
             "number": 10
           }
         ]
@@ -62012,8 +62012,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 28,
-            "name": "蛇の宝玉",
+            "image": 57,
+            "name": "巨人の指輪",
             "number": 12
           }
         ]
@@ -62027,8 +62027,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 35,
-            "name": "混沌の爪",
+            "image": 66,
+            "name": "神脈霊子",
             "number": 12
           }
         ]
@@ -62042,8 +62042,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 49,
-            "name": "原初の産毛",
+            "image": 67,
+            "name": "悠久の実",
             "number": 12
           }
         ]
@@ -62057,8 +62057,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 34,
-            "name": "竜の逆鱗",
+            "image": 68,
+            "name": "虹の糸玉",
             "number": 15
           }
         ]
@@ -62072,8 +62072,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 52,
-            "name": "奇奇神酒",
+            "image": 72,
+            "name": "黄昏の儀式剣",
             "number": 15
           }
         ]
@@ -62087,8 +62087,8 @@ var asvtData = [
         ],
         "skillItem": [
           {
-            "image": 74,
-            "name": "太陽皮",
+            "image": 65,
+            "name": "煌星のカケラ",
             "number": 15
           }
         ]
